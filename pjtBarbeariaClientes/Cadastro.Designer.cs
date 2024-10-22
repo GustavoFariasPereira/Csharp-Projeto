@@ -125,11 +125,14 @@
             // 
             // txtMensagem
             // 
+            txtMensagem.BackColor = SystemColors.Window;
             txtMensagem.BorderStyle = BorderStyle.FixedSingle;
-            txtMensagem.Location = new Point(170, 187);
+            txtMensagem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            txtMensagem.ForeColor = Color.MediumSeaGreen;
+            txtMensagem.Location = new Point(161, 187);
             txtMensagem.Multiline = true;
             txtMensagem.Name = "txtMensagem";
-            txtMensagem.Size = new Size(169, 116);
+            txtMensagem.Size = new Size(178, 116);
             txtMensagem.TabIndex = 9;
             // 
             // txtCadastrados
@@ -153,7 +156,7 @@
             btConfirmar.TabIndex = 11;
             btConfirmar.Text = "Confirmar";
             btConfirmar.UseVisualStyleBackColor = false;
-            btConfirmar.Click += this.btConfirmar_Click;
+            btConfirmar.Click += btConfirmar_Click;
             // 
             // frmCadastroClientes
             // 
