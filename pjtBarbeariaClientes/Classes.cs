@@ -2,23 +2,38 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace pjtBarbeariaClientes
 {
+    [Serializable]
     public class Cliente : Pessoa
     {
         public String login { get; private set; }
-        private String hashSenha { get; set; }
-        public String filhosMenorIdade { get; private set; }
+        public String hashSenha { get; private set; }
+       // public String filhosMenorIdade { get; private set; }
 
         public Cliente(String login, String hashSenha, String nome,
             DateTime dataNascimento, String telefone) :
             base(nome, dataNascimento, telefone)
         {
             this.login = login;
-            this.hashSenha = hashSenha.GetHashCode().ToString();
-            this.filhosMenorIdade = "";
+            this.hashSenha = Utilitarios.myHash(hashSenha, "").ToString();
+           // this.filhosMenorIdade = "";
+        }
+
+        public Cliente(String login) : base("", DateTime.Now, "")
+        {
+            this.login= login;
+            hashSenha = "";
+        }
+
+        public override String ToString()
+        {
+
+            return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2}, E-mail: {3}", nome, dataNascimento.ToString("dd/MM/yyyy"), telefone, email);
+
         }
     }
     public class Agendamento
@@ -36,8 +51,7 @@ namespace pjtBarbeariaClientes
             this.descricaoServico = descricaoServico;
         }
     }
-    [Serializable]
-    public class Pessoa
+    public abstract class Pessoa
     {
         public String nome { get; private set; }
         public DateTime dataNascimento { get; private set; }
@@ -51,14 +65,5 @@ namespace pjtBarbeariaClientes
             this.telefone = telefone;
             this.email = "";
         }
-
-        public override String ToString()
-        {
-
-            return nome + ", " + dataNascimento.ToString("dd/MM/yyyy") + ", " + telefone + ", " + email;
-
-        }
-
-
     }
 }

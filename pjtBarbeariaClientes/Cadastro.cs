@@ -4,7 +4,7 @@ namespace pjtBarbeariaClientes
 {
     public partial class frmCadastroClientes : Form
     {
-        public static List<Pessoa> clientes = new List<Pessoa>();
+        public static List<Cliente> clientes = new List<Cliente>();
         public String arquivo = "Área de Trabalho\\ProjetosC#\\clientes.dat";
         public frmCadastroClientes()
         {
@@ -33,7 +33,7 @@ namespace pjtBarbeariaClientes
 
             if (valido)
             {
-                Pessoa p = new Pessoa(txtNome.Text, dataNascimento, txtTelefone.Text);
+                Cliente p = new Cliente(txtNome.Text, dataNascimento, txtTelefone.Text);
                 p.email = txtEmail.Text;
 
                 clientes.Add(p);
