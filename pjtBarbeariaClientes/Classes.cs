@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace pjtBarbeariaClientes
 {
     [Serializable]
-    public class Cliente : Pessoa
+    public class Cliente : Pessoa, IComparable<Cliente>
     {
         public String login { get; private set; }
         public String hashSenha { get; private set; }
@@ -34,6 +34,17 @@ namespace pjtBarbeariaClientes
 
             return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2}, E-mail: {3}", nome, dataNascimento.ToString("dd/MM/yyyy"), telefone, email);
 
+        }
+
+        public int CompareTo(Cliente? outro)
+        {
+            int pos;
+            if (outro == null) pos = -1;
+            else
+            {
+               pos = login.CompareTo(outro.login);
+            }
+            return pos;
         }
     }
     public class Agendamento
