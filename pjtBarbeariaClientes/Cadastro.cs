@@ -21,7 +21,7 @@ namespace pjtBarbeariaClientes
                 txtMensagem.Text = "O nome do cliente é um campo obrigatório!";
                 valido = false;
             }
-            else if (!DateTime.TryParse(txtDataNascimento.Text, out dataNascimento))
+            else if (!DateTime.TryParse(txtAniversario.Text, out dataNascimento))
             {
                 txtMensagem.Text = "A data de nascimento do cliente inválida!";
                 valido = false;
@@ -50,7 +50,7 @@ namespace pjtBarbeariaClientes
         private void limpaTela()
         {
             txtNome.Text =
-            txtDataNascimento.Text =
+            txtAniversario.Text =
             txtTelefone.Text =
             txtEmail.Text =
             txtMensagem.Text = String.Empty;
@@ -70,6 +70,9 @@ namespace pjtBarbeariaClientes
             return ret.ToString();
         }
 
+        private void txtMensagem_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lbTitulo = new Label();
             lbNome = new Label();
             txtNome = new TextBox();
-            txtDataNascimento = new TextBox();
-            lbDataNascimento = new Label();
+            txtAniversario = new TextBox();
+            lbAniversario = new Label();
             txtTelefone = new TextBox();
             lbTelefone = new Label();
             txtEmail = new TextBox();
@@ -46,84 +46,88 @@
             lbSenha = new Label();
             SuspendLayout();
             // 
-            // label1
+            // lbTitulo
             // 
-            label1.AutoSize = true;
-            label1.BackColor = SystemColors.Control;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.DarkBlue;
-            label1.Location = new Point(327, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(283, 76);
-            label1.TabIndex = 0;
-            label1.Text = "Barbearia\r\nCadastro de Clientes\r\n";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            lbTitulo.AutoSize = true;
+            lbTitulo.BackColor = SystemColors.Control;
+            lbTitulo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTitulo.ForeColor = Color.DarkBlue;
+            lbTitulo.Location = new Point(410, -1);
+            lbTitulo.Name = "lbTitulo";
+            lbTitulo.Size = new Size(283, 76);
+            lbTitulo.TabIndex = 0;
+            lbTitulo.Text = "Barbearia\r\nCadastro de Clientes\r\n";
+            lbTitulo.TextAlign = ContentAlignment.TopCenter;
             // 
             // lbNome
             // 
             lbNome.AutoSize = true;
-            lbNome.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbNome.Location = new Point(32, 98);
+            lbNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbNome.Location = new Point(35, 89);
             lbNome.Name = "lbNome";
-            lbNome.Size = new Size(69, 28);
+            lbNome.Size = new Size(63, 25);
             lbNome.TabIndex = 1;
             lbNome.Text = "Nome";
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(32, 129);
+            txtNome.Location = new Point(35, 120);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(307, 27);
+            txtNome.Size = new Size(323, 27);
             txtNome.TabIndex = 2;
             // 
-            // txtDataNascimento
+            // txtAniversario
             // 
-            txtDataNascimento.Location = new Point(32, 187);
-            txtDataNascimento.Name = "txtDataNascimento";
-            txtDataNascimento.Size = new Size(123, 27);
-            txtDataNascimento.TabIndex = 4;
+            txtAniversario.Location = new Point(35, 240);
+            txtAniversario.Name = "txtAniversario";
+            txtAniversario.Size = new Size(139, 27);
+            txtAniversario.TabIndex = 4;
+            txtAniversario.Text = "28/07/2005";
+            txtAniversario.TextAlign = HorizontalAlignment.Center;
             // 
-            // lbDataNascimento
+            // lbAniversario
             // 
-            lbDataNascimento.AutoSize = true;
-            lbDataNascimento.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbDataNascimento.Location = new Point(32, 156);
-            lbDataNascimento.Name = "lbDataNascimento";
-            lbDataNascimento.Size = new Size(205, 28);
-            lbDataNascimento.TabIndex = 3;
-            lbDataNascimento.Text = "Data de Nascimento";
+            lbAniversario.AutoSize = true;
+            lbAniversario.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbAniversario.Location = new Point(35, 209);
+            lbAniversario.Name = "lbAniversario";
+            lbAniversario.Size = new Size(109, 25);
+            lbAniversario.TabIndex = 3;
+            lbAniversario.Text = "Aniversário";
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(32, 248);
+            txtTelefone.Location = new Point(35, 302);
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(123, 27);
+            txtTelefone.Size = new Size(139, 27);
             txtTelefone.TabIndex = 6;
+            txtTelefone.Text = "(13)99696-2018";
+            txtTelefone.TextAlign = HorizontalAlignment.Center;
             // 
             // lbTelefone
             // 
             lbTelefone.AutoSize = true;
-            lbTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTelefone.Location = new Point(32, 217);
+            lbTelefone.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbTelefone.Location = new Point(35, 271);
             lbTelefone.Name = "lbTelefone";
-            lbTelefone.Size = new Size(93, 28);
+            lbTelefone.Size = new Size(85, 25);
             lbTelefone.TabIndex = 5;
             lbTelefone.Text = "Telefone";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(32, 309);
+            txtEmail.Location = new Point(35, 179);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(307, 27);
+            txtEmail.Size = new Size(323, 27);
             txtEmail.TabIndex = 8;
             // 
             // lbEmail
             // 
             lbEmail.AutoSize = true;
-            lbEmail.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbEmail.Location = new Point(32, 278);
+            lbEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbEmail.Location = new Point(35, 148);
             lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(72, 28);
+            lbEmail.Size = new Size(65, 25);
             lbEmail.TabIndex = 7;
             lbEmail.Text = "E-mail";
             // 
@@ -133,15 +137,16 @@
             txtMensagem.BorderStyle = BorderStyle.FixedSingle;
             txtMensagem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMensagem.ForeColor = Color.MediumSeaGreen;
-            txtMensagem.Location = new Point(161, 187);
+            txtMensagem.Location = new Point(180, 213);
             txtMensagem.Multiline = true;
             txtMensagem.Name = "txtMensagem";
             txtMensagem.Size = new Size(178, 116);
             txtMensagem.TabIndex = 9;
+            txtMensagem.TextChanged += txtMensagem_TextChanged;
             // 
             // txtCadastrados
             // 
-            txtCadastrados.Location = new Point(552, 130);
+            txtCadastrados.Location = new Point(658, 120);
             txtCadastrados.Multiline = true;
             txtCadastrados.Name = "txtCadastrados";
             txtCadastrados.ScrollBars = ScrollBars.Vertical;
@@ -154,7 +159,7 @@
             btConfirmar.FlatStyle = FlatStyle.Flat;
             btConfirmar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btConfirmar.ForeColor = SystemColors.ControlText;
-            btConfirmar.Location = new Point(39, 342);
+            btConfirmar.Location = new Point(68, 346);
             btConfirmar.Name = "btConfirmar";
             btConfirmar.Size = new Size(116, 36);
             btConfirmar.TabIndex = 11;
@@ -164,35 +169,35 @@
             // 
             // txtLogin
             // 
-            txtLogin.Location = new Point(363, 156);
+            txtLogin.Location = new Point(410, 179);
             txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(183, 27);
+            txtLogin.Size = new Size(177, 27);
             txtLogin.TabIndex = 13;
             // 
             // lbLogin
             // 
             lbLogin.AutoSize = true;
-            lbLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLogin.Location = new Point(363, 125);
+            lbLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLogin.Location = new Point(410, 148);
             lbLogin.Name = "lbLogin";
-            lbLogin.Size = new Size(64, 28);
+            lbLogin.Size = new Size(59, 25);
             lbLogin.TabIndex = 12;
             lbLogin.Text = "Login";
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(363, 232);
+            txtSenha.Location = new Point(410, 240);
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(183, 27);
+            txtSenha.Size = new Size(177, 27);
             txtSenha.TabIndex = 15;
             // 
             // lbSenha
             // 
             lbSenha.AutoSize = true;
-            lbSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbSenha.Location = new Point(363, 201);
+            lbSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbSenha.Location = new Point(410, 209);
             lbSenha.Name = "lbSenha";
-            lbSenha.Size = new Size(69, 28);
+            lbSenha.Size = new Size(64, 25);
             lbSenha.TabIndex = 14;
             lbSenha.Text = "Senha";
             // 
@@ -200,7 +205,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(978, 450);
+            ClientSize = new Size(1092, 450);
             Controls.Add(txtSenha);
             Controls.Add(lbSenha);
             Controls.Add(txtLogin);
@@ -212,11 +217,11 @@
             Controls.Add(lbEmail);
             Controls.Add(txtTelefone);
             Controls.Add(lbTelefone);
-            Controls.Add(txtDataNascimento);
-            Controls.Add(lbDataNascimento);
+            Controls.Add(txtAniversario);
+            Controls.Add(lbAniversario);
             Controls.Add(txtNome);
             Controls.Add(lbNome);
-            Controls.Add(label1);
+            Controls.Add(lbTitulo);
             Name = "frmCadastroClientes";
             Text = "Cadastro de Clientes";
             ResumeLayout(false);
@@ -225,11 +230,11 @@
 
         #endregion
 
-        private Label label1;
+        private Label lbTitulo;
         private Label lbNome;
         private TextBox txtNome;
-        private TextBox txtDataNascimento;
-        private Label lbDataNascimento;
+        private TextBox txtAniversario;
+        private Label lbAniversario;
         private TextBox txtTelefone;
         private Label lbTelefone;
         private TextBox txtEmail;
