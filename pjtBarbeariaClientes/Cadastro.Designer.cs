@@ -40,6 +40,10 @@
             txtMensagem = new TextBox();
             txtCadastrados = new TextBox();
             btConfirmar = new Button();
+            txtLogin = new TextBox();
+            lbLogin = new Label();
+            txtSenha = new TextBox();
+            lbSenha = new Label();
             SuspendLayout();
             // 
             // label1
@@ -48,7 +52,7 @@
             label1.BackColor = SystemColors.Control;
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.DarkBlue;
-            label1.Location = new Point(253, 9);
+            label1.Location = new Point(327, 9);
             label1.Name = "label1";
             label1.Size = new Size(283, 76);
             label1.TabIndex = 0;
@@ -137,7 +141,7 @@
             // 
             // txtCadastrados
             // 
-            txtCadastrados.Location = new Point(357, 130);
+            txtCadastrados.Location = new Point(552, 130);
             txtCadastrados.Multiline = true;
             txtCadastrados.Name = "txtCadastrados";
             txtCadastrados.ScrollBars = ScrollBars.Vertical;
@@ -158,11 +162,49 @@
             btConfirmar.UseVisualStyleBackColor = false;
             btConfirmar.Click += btConfirmar_Click;
             // 
+            // txtLogin
+            // 
+            txtLogin.Location = new Point(363, 156);
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(183, 27);
+            txtLogin.TabIndex = 13;
+            // 
+            // lbLogin
+            // 
+            lbLogin.AutoSize = true;
+            lbLogin.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbLogin.Location = new Point(363, 125);
+            lbLogin.Name = "lbLogin";
+            lbLogin.Size = new Size(64, 28);
+            lbLogin.TabIndex = 12;
+            lbLogin.Text = "Login";
+            // 
+            // txtSenha
+            // 
+            txtSenha.Location = new Point(363, 232);
+            txtSenha.Name = "txtSenha";
+            txtSenha.Size = new Size(183, 27);
+            txtSenha.TabIndex = 15;
+            // 
+            // lbSenha
+            // 
+            lbSenha.AutoSize = true;
+            lbSenha.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbSenha.Location = new Point(363, 201);
+            lbSenha.Name = "lbSenha";
+            lbSenha.Size = new Size(69, 28);
+            lbSenha.TabIndex = 14;
+            lbSenha.Text = "Senha";
+            // 
             // frmCadastroClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(978, 450);
+            Controls.Add(txtSenha);
+            Controls.Add(lbSenha);
+            Controls.Add(txtLogin);
+            Controls.Add(lbLogin);
             Controls.Add(btConfirmar);
             Controls.Add(txtCadastrados);
             Controls.Add(txtMensagem);
@@ -195,5 +237,9 @@
         private TextBox txtMensagem;
         private TextBox txtCadastrados;
         private Button btConfirmar;
+        private TextBox txtLogin;
+        private Label lbLogin;
+        private TextBox txtSenha;
+        private Label lbSenha;
     }
 }

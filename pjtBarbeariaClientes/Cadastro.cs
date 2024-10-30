@@ -6,6 +6,7 @@ namespace pjtBarbeariaClientes
     {
         public static List<Cliente> clientes = new List<Cliente>();
         public String arquivo = "Área de Trabalho\\ProjetosC#\\clientes.dat";
+
         public frmCadastroClientes()
         {
             InitializeComponent();
@@ -31,19 +32,19 @@ namespace pjtBarbeariaClientes
                 valido = false;
             }
 
-            if (valido)
-            {
-                Cliente p = new Cliente(txtNome.Text, dataNascimento, txtTelefone.Text);
-                p.email = txtEmail.Text;
+            //if (valido)
+            //{
+            //    Cliente p = new Cliente(txtNome.Text, dataNascimento, txtTelefone.Text);
+            //    p.email = txtEmail.Text;
 
-                clientes.Add(p);
+            //    clientes.Add(p);
 
-                Utilitarios.saveUsuario(clientes, arquivo);
+            //    Utilitarios.saveUsuario(clientes, arquivo);
 
-                limpaTela();
+            //    limpaTela();
 
-                txtCadastrados.Text = relatorio();
-            }
+            //    txtCadastrados.Text = relatorio();
+            //}
         }
 
         private void limpaTela()
@@ -68,5 +69,7 @@ namespace pjtBarbeariaClientes
 
             return ret.ToString();
         }
+
+
     }
 }
