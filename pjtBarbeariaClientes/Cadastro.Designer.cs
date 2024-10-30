@@ -142,7 +142,6 @@
             txtMensagem.Name = "txtMensagem";
             txtMensagem.Size = new Size(178, 116);
             txtMensagem.TabIndex = 9;
-            txtMensagem.TextChanged += txtMensagem_TextChanged;
             // 
             // txtCadastrados
             // 
@@ -224,6 +223,7 @@
             Controls.Add(lbTitulo);
             Name = "frmCadastroClientes";
             Text = "Cadastro de Clientes";
+            Load += frmCadastroClientes_Load;
             ResumeLayout(false);
             PerformLayout();
         }

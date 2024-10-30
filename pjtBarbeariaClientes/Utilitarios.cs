@@ -10,7 +10,7 @@ namespace pjtBarbeariaClientes
 {
     public class Utilitarios
     {
-        public static List<Pessoa> loadUsuario(string arquivo)
+        public static List<Cliente> loadUsuario(string arquivo)
         {
             try
             {
@@ -18,7 +18,7 @@ namespace pjtBarbeariaClientes
                 string json = File.ReadAllText(arquivo);
                 if (string.IsNullOrWhiteSpace(json)) return null;
 
-                List<Pessoa> lista = JsonSerializer.Deserialize<List<Pessoa>>(json);
+                List<Cliente> lista = JsonSerializer.Deserialize<List<Cliente>>(json);
                 return lista;
             }
             catch (Exception)
@@ -26,7 +26,7 @@ namespace pjtBarbeariaClientes
                 return null;
             }
         }
-        public static void saveUsuario(List<Pessoa> lista, string arquivo)
+        public static void saveUsuario(List<Cliente> lista, string arquivo)
         {
             if (lista.Count == 0) return;
             try
