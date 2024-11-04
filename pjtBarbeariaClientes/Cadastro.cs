@@ -6,18 +6,21 @@ namespace pjtBarbeariaClientes
     public partial class frmCadastroClientes : Form
     {
         public static List<Cliente> listaClientes = new List<Cliente>();
-        public String arquivo = "Área de Trabalho\\ProjetosC#\\clientes.dat";
+        Utilitarios utilitario = new Utilitarios();
 
         private void frmCadastroClientes_Load(object sender, EventArgs e)
         {
-            if (File.Exists(arquivo))
+            listaClientes = utilitario.carregarCliente();
+
+            if (listaClientes.Any())
             {
-                listaClientes = Utilitarios.loadUsuario(arquivo);
+                //txtCadastrados.Text = String.Join(Environment.NewLine, listaClientes.Select(c => $"Nome: {c.nome}," +
+                //$" Aniversário: {c.dataNascimento}, Telefone: {c.telefone}, E-mail: {c.email}"));
                 txtCadastrados.Text = relatorio();
             }
             else
             {
-                listaClientes = new List<Cliente>();
+                txtCadastrados.Text = "Nenhum registro encontrado!";
             }
         }
 
@@ -66,7 +69,7 @@ namespace pjtBarbeariaClientes
 
                 listaClientes.Add(c);
 
-                Utilitarios.saveUsuario(listaClientes, arquivo);
+                utilitario.salvarCliente(listaClientes);
 
                 limpaTela();
 
@@ -96,7 +99,5 @@ namespace pjtBarbeariaClientes
 
             return ret.ToString();
         }
-
-        
     }
 }

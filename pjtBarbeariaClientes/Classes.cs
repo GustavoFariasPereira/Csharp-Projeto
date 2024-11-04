@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace pjtBarbeariaClientes
 {
-    [Serializable]
     public class Cliente : Pessoa, IComparable<Cliente>
     {
         public String login { get; private set; }
         public String hashSenha { get; private set; }
-       // public String filhosMenorIdade { get; private set; }
+        // public String filhosMenorIdade { get; private set; }
 
+        [JsonConstructor]
         public Cliente(String login, String hashSenha, String nome,
             DateTime dataNascimento, String telefone) :
             base(nome, dataNascimento, telefone)
@@ -32,7 +32,7 @@ namespace pjtBarbeariaClientes
         public override String ToString()
         {
 
-            return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2}, E-mail: {3}", nome, dataNascimento.ToString("dd/MM/yyyy"), telefone, email);
+            return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2}, E-mail: {3}.", nome, dataNascimento.ToString("dd/MM/yyyy"), telefone, email);
 
         }
 

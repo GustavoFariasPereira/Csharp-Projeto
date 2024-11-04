@@ -101,7 +101,7 @@
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(139, 27);
             txtTelefone.TabIndex = 6;
-            txtTelefone.Text = "(13)99696-2018";
+            txtTelefone.Text = "(13)97777-8888";
             txtTelefone.TextAlign = HorizontalAlignment.Center;
             // 
             // lbTelefone
@@ -189,6 +189,7 @@
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(177, 27);
             txtSenha.TabIndex = 15;
+            txtSenha.UseSystemPasswordChar = true;
             // 
             // lbSenha
             // 

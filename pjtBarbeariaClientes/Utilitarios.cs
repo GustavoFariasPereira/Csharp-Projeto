@@ -10,35 +10,24 @@ namespace pjtBarbeariaClientes
 {
     public class Utilitarios
     {
-        public static List<Cliente> loadUsuario(string arquivo)
-        {
-            try
-            {
-                if (!File.Exists(arquivo)) return null;
-                string json = File.ReadAllText(arquivo);
-                if (string.IsNullOrWhiteSpace(json)) return null;
+        public String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
 
-                List<Cliente> lista = JsonSerializer.Deserialize<List<Cliente>>(json);
-                return lista;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-        public static void saveUsuario(List<Cliente> lista, string arquivo)
+        public void salvarCliente(List<Cliente> clientes)
         {
-            if (lista.Count == 0) return;
-            try
-            {
-                string json = JsonSerializer.Serialize(lista);
-                File.WriteAllText(arquivo, json);
-            }
-            catch (Exception)
-            {
-                return;
-            }
+            String jsonCliente = JsonSerializer.Serialize(clientes, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(enderecoLista, jsonCliente);
         }
+
+        public List<Cliente> carregarCliente()
+        {
+            if (File.Exists(enderecoLista))
+            {
+                String jsonString = File.ReadAllText(enderecoLista);
+                return JsonSerializer.Deserialize<List<Cliente>>(jsonString);
+            }
+            return new List<Cliente>();
+        }
+
         public static Int64 myHash(string str, string salt)
         {
             if (str == String.Empty)
