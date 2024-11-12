@@ -44,6 +44,7 @@
             lbLogin = new Label();
             txtSenha = new TextBox();
             lbSenha = new Label();
+            btExcluir = new Button();
             SuspendLayout();
             // 
             // lbTitulo
@@ -201,11 +202,26 @@
             lbSenha.TabIndex = 14;
             lbSenha.Text = "Senha";
             // 
+            // btExcluir
+            // 
+            btExcluir.BackColor = Color.Crimson;
+            btExcluir.FlatStyle = FlatStyle.Flat;
+            btExcluir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btExcluir.ForeColor = SystemColors.ControlText;
+            btExcluir.Location = new Point(200, 346);
+            btExcluir.Name = "btExcluir";
+            btExcluir.Size = new Size(116, 36);
+            btExcluir.TabIndex = 16;
+            btExcluir.Text = "Excluir";
+            btExcluir.UseVisualStyleBackColor = false;
+            btExcluir.Click += btExcluir_Click;
+            // 
             // frmCadastroClientes
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1092, 450);
+            Controls.Add(btExcluir);
             Controls.Add(txtSenha);
             Controls.Add(lbSenha);
             Controls.Add(txtLogin);
@@ -247,5 +263,6 @@
         private Label lbLogin;
         private TextBox txtSenha;
         private Label lbSenha;
+        private Button btExcluir;
     }
 }

@@ -13,6 +13,7 @@ namespace pjtBarbeariaClientes
         public String hashSenha { get; private set; }
         // public String filhosMenorIdade { get; private set; }
 
+
         [JsonConstructor]
         public Cliente(String login, String hashSenha, String nome,
             DateTime dataNascimento, String telefone) :
@@ -32,7 +33,7 @@ namespace pjtBarbeariaClientes
         public override String ToString()
         {
 
-            return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2}, E-mail: {3}.", nome, dataNascimento.ToString("dd/MM/yyyy"), telefone, email);
+            return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2:(##) #####-####}, E-mail: {3}.", nome, dataNascimento.ToString("dd/MM/yyyy"), Convert.ToInt64(telefone), email);
 
         }
 

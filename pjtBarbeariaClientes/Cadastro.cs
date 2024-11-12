@@ -55,6 +55,7 @@ namespace pjtBarbeariaClientes
                 valido = false;
             }
             Cliente testeLogin = new Cliente(txtLogin.Text);
+            listaClientes.Sort();
             int pos = listaClientes.BinarySearch(testeLogin);
             if (pos == 0)
             {
@@ -90,14 +91,34 @@ namespace pjtBarbeariaClientes
         {
             StringBuilder ret = new StringBuilder();
 
-            //  clientes.Sort();
-
             foreach (Pessoa p in listaClientes)
             {
                 ret.Append(p.ToString() + Environment.NewLine);
             }
 
             return ret.ToString();
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+            Cliente c = new Cliente(txtLogin.Text);
+            listaClientes.Sort();
+            int busca = listaClientes.BinarySearch(c);
+            if (busca != -1)
+            {
+                listaClientes.RemoveAt(busca);
+
+                utilitario.salvarCliente(listaClientes);
+
+                txtCadastrados.Text = relatorio();
+
+                txtMensagem.Text = "Excluido com sucesso!";
+            }
+            else
+            {
+                txtMensagem.Text = "Não foi encontrado!";
+            }
+            
         }
     }
 }
