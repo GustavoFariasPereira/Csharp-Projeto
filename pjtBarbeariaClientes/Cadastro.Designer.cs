@@ -152,6 +152,7 @@
             txtCadastrados.ScrollBars = ScrollBars.Vertical;
             txtCadastrados.Size = new Size(402, 206);
             txtCadastrados.TabIndex = 10;
+            txtCadastrados.Visible = false;
             // 
             // btConfirmar
             // 

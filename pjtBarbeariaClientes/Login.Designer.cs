@@ -97,6 +97,7 @@
             btEntrar.TabIndex = 20;
             btEntrar.Text = "Entrar";
             btEntrar.UseVisualStyleBackColor = false;
+            btEntrar.Click += btEntrar_Click;
             // 
             // lbCadastrar
             // 
@@ -123,6 +124,7 @@
             Controls.Add(lbTitulo);
             Name = "frmLogin";
             Text = "Login";
+            Load += frmLogin_Load;
             ResumeLayout(false);
             PerformLayout();
         }
