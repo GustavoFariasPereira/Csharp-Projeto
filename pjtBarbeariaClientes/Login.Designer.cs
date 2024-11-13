@@ -43,7 +43,7 @@
             lbTitulo.BackColor = SystemColors.Control;
             lbTitulo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTitulo.ForeColor = Color.DarkBlue;
-            lbTitulo.Location = new Point(236, 9);
+            lbTitulo.Location = new Point(142, 9);
             lbTitulo.Name = "lbTitulo";
             lbTitulo.Size = new Size(283, 76);
             lbTitulo.TabIndex = 1;
@@ -52,7 +52,7 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(292, 196);
+            txtSenha.Location = new Point(191, 239);
             txtSenha.Name = "txtSenha";
             txtSenha.Size = new Size(177, 27);
             txtSenha.TabIndex = 19;
@@ -62,7 +62,7 @@
             // 
             lbSenha.AutoSize = true;
             lbSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbSenha.Location = new Point(292, 165);
+            lbSenha.Location = new Point(191, 208);
             lbSenha.Name = "lbSenha";
             lbSenha.Size = new Size(64, 25);
             lbSenha.TabIndex = 18;
@@ -70,7 +70,7 @@
             // 
             // txtLogin
             // 
-            txtLogin.Location = new Point(292, 135);
+            txtLogin.Location = new Point(191, 178);
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(177, 27);
             txtLogin.TabIndex = 17;
@@ -79,7 +79,7 @@
             // 
             lbLogin.AutoSize = true;
             lbLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLogin.Location = new Point(292, 104);
+            lbLogin.Location = new Point(191, 147);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(59, 25);
             lbLogin.TabIndex = 16;
@@ -91,7 +91,7 @@
             btEntrar.FlatStyle = FlatStyle.Flat;
             btEntrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btEntrar.ForeColor = SystemColors.ControlText;
-            btEntrar.Location = new Point(319, 284);
+            btEntrar.Location = new Point(218, 327);
             btEntrar.Name = "btEntrar";
             btEntrar.Size = new Size(116, 36);
             btEntrar.TabIndex = 20;
@@ -102,17 +102,18 @@
             // 
             lbCadastrar.AutoSize = true;
             lbCadastrar.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCadastrar.Location = new Point(318, 241);
+            lbCadastrar.Location = new Point(217, 284);
             lbCadastrar.Name = "lbCadastrar";
             lbCadastrar.Size = new Size(117, 25);
             lbCadastrar.TabIndex = 21;
             lbCadastrar.Text = "Cadastrar-se";
+            lbCadastrar.Click += lbCadastrar_Click;
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(602, 450);
             Controls.Add(lbCadastrar);
             Controls.Add(btEntrar);
             Controls.Add(txtSenha);

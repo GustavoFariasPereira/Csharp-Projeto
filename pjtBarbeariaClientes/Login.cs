@@ -16,5 +16,11 @@ namespace pjtBarbeariaClientes
         {
             InitializeComponent();
         }
+
+        private void lbCadastrar_Click(object sender, EventArgs e)
+        {
+           Form form = new frmCadastroClientes();
+           form.Visible = true;
+        }
     }
 }
