@@ -56,7 +56,29 @@ namespace pjtBarbeariaClientes
             }
             if (valido) 
             {
-                Cliente 
+                bool achar = true;
+
+                Cliente login = new Cliente(txtLogin.Text);
+                listaClientes.Sort();
+                int buscarLogin = listaClientes.BinarySearch(login);
+
+                if(buscarLogin < 0)
+                {
+                    MessageBox.Show("Login não cadastrado!");
+                    achar = false;
+                }
+                if (achar)
+                {
+                    if(listaClientes[buscarLogin].hashSenha != Utilitarios.myHash(txtSenha.Text, "").ToString())
+                    {
+                        MessageBox.Show("Senha incorreta!");
+                        txtSenha.Text = String.Empty;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha correta!");
+                    }
+                }
             }
         }
     }
