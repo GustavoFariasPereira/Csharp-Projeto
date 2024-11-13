@@ -20,7 +20,7 @@ namespace pjtBarbeariaClientes
             base(nome, dataNascimento, telefone)
         {
             this.login = login;
-            this.hashSenha = Utilitarios.myHash(hashSenha, "").ToString();
+            this.hashSenha = Utilitarios.myHash(hashSenha);
            // this.filhosMenorIdade = "";
         }
 

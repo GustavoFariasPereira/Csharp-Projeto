@@ -49,7 +49,7 @@ namespace pjtBarbeariaClientes
                 MessageBox.Show("Preencha o campo Login!");
                 valido = false;
             }
-            else if (txtSenha.Text.Trim().Length != 8)
+            else if (txtSenha.Text.Trim().Length != 6)
             {
                 MessageBox.Show("Preencha os 8 digitos do campo Senha!");
                 valido = false;
@@ -69,7 +69,7 @@ namespace pjtBarbeariaClientes
                 }
                 if (achar)
                 {
-                    if(listaClientes[buscarLogin].hashSenha != Utilitarios.myHash(txtSenha.Text, "").ToString())
+                    if(listaClientes[buscarLogin].hashSenha != Utilitarios.myHash(txtSenha.Text))
                     {
                         MessageBox.Show("Senha incorreta!");
                         txtSenha.Text = String.Empty;

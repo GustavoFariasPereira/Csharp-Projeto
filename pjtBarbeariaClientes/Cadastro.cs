@@ -49,7 +49,7 @@ namespace pjtBarbeariaClientes
                 txtMensagem.Text = "O telefone do cliente é um campo obrigatório, deve estar no seguinte formato (13998887777)";
                 valido = false;
             }
-            else if (txtSenha.Text.Trim().Length != 8)
+            else if (txtSenha.Text.Trim().Length != 6)
             {
                 txtMensagem.Text = "A senha deve ter 8 digítos!";
                 valido = false;

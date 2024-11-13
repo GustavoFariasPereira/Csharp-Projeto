@@ -5,6 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace pjtBarbeariaClientes
 {
@@ -28,54 +29,22 @@ namespace pjtBarbeariaClientes
             return new List<Cliente>();
         }
 
-        public static Int64 myHash(string str, string salt)
+        public static string myHash(string input)
         {
-            if (str == String.Empty)
+            using (SHA256 sha256 = SHA256.Create())
             {
-                return 0;
-            }
+                byte[] bytes = Encoding.UTF8.GetBytes(input);
+                byte[] hashBytes = sha256.ComputeHash(bytes);
 
-            try
-            {
-                Int64 hash = 0;
-
-                Int32[] chave = {
-                            0x4adfae,
-                            0x3bcd13,
-                            0x4afe56,
-                            0x1fda56,
-                            0x653219,
-                            0x765754,
-                            0x124678,
-                            0x014321,
-                            0x58fba0,
-                            0xfad5fa,
-                            0x234987,
-                            0xdfa5bc,
-                            0xabcdef,
-                            0xfedcab,
-                            0x1234ab,
-                            0xab1234,
-                            0x112233,
-                            0x445566,
-                            0xaabbcc,
-                            0xddeeff,
-                          };
-
-                char[] bytes = String.Concat(str.Trim(), salt.Trim()).Trim().ToArray();
-
-                for (int i = 0; i < bytes.Length; i++)
+                // Converter o hash para uma string hexadecimal
+                StringBuilder hashString = new StringBuilder();
+                foreach (byte b in hashBytes)
                 {
-                    hash += bytes[i] * (chave[i % 20] + chave[bytes[i] % 20]);
+                    hashString.Append(b.ToString("x2"));
                 }
 
-                return hash % 0xffffffff;
+                return hashString.ToString();
             }
-            catch (Exception)
-            {
-                throw;
-            }
-
         }
     }
 }
