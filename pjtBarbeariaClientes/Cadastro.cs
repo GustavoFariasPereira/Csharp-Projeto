@@ -51,7 +51,7 @@ namespace pjtBarbeariaClientes
             }
             else if (txtSenha.Text.Trim().Length != 6)
             {
-                txtMensagem.Text = "A senha deve ter 8 digítos!";
+                txtMensagem.Text = "A senha deve ter 6 digítos!";
                 valido = false;
             }
             Cliente testeLogin = new Cliente(txtLogin.Text);

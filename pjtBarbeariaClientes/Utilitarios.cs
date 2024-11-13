@@ -31,6 +31,7 @@ namespace pjtBarbeariaClientes
 
         public static string myHash(string input)
         {
+           
             using (SHA256 sha256 = SHA256.Create())
             {
                 byte[] bytes = Encoding.UTF8.GetBytes(input);
