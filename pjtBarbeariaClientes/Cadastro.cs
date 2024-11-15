@@ -3,7 +3,7 @@ using System.Text;
 
 namespace pjtBarbeariaClientes
 {
-    public partial class frmCadastroClientes : Form
+    public partial class frmCadastro : Form
     {
         public static List<Cliente> listaClientes = new List<Cliente>();
         Utilitarios utilitario = new Utilitarios();
@@ -24,7 +24,7 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        public frmCadastroClientes()
+        public frmCadastro()
         {
             InitializeComponent();
         }

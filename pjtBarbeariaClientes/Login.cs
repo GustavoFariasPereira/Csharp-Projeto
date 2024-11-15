@@ -37,7 +37,7 @@ namespace pjtBarbeariaClientes
 
         private void lbCadastrar_Click(object sender, EventArgs e)
         {
-            Form form = new frmCadastroClientes();
+            Form form = new frmCadastro();
             form.Visible = true;
         }
 
