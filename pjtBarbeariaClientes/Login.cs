@@ -18,10 +18,11 @@ namespace pjtBarbeariaClientes
         private void frmLogin_Load(object sender, EventArgs e)
         {
             listaClientes = utilitario.carregarCliente();
-
+            Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
                 listaClientes.Sort();
+                Console.WriteLine(listaClientes);
             }
             else
             {
@@ -56,8 +57,7 @@ namespace pjtBarbeariaClientes
             }
             if (valido) 
             {
-                bool achar = true;
-
+               
                 Cliente login = new Cliente(txtLogin.Text);
                 listaClientes.Sort();
                 int buscarLogin = listaClientes.BinarySearch(login);
@@ -65,12 +65,15 @@ namespace pjtBarbeariaClientes
                 if(buscarLogin < 0)
                 {
                     MessageBox.Show("Login não cadastrado!");
-                    achar = false;
                 }
-                if (achar)
+                else
                 {
                     Cliente achouCliente = listaClientes[buscarLogin];
-                    
+
+                    string hashEntrada = Utilitarios.myHash(txtSenha.Text);
+                    Console.WriteLine("Hash esperado: " + achouCliente.hashSenha);
+                    Console.WriteLine("Hash digitado: " + hashEntrada);
+
                     if (achouCliente.hashSenha != Utilitarios.myHash(txtSenha.Text))
                     {
                         MessageBox.Show("Senha incorreta!");

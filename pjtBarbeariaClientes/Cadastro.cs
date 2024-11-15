@@ -11,7 +11,7 @@ namespace pjtBarbeariaClientes
         private void frmCadastroClientes_Load(object sender, EventArgs e)
         {
             listaClientes = utilitario.carregarCliente();
-
+            Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
                 //txtCadastrados.Text = String.Join(Environment.NewLine, listaClientes.Select(c => $"Nome: {c.nome}," +
@@ -64,9 +64,12 @@ namespace pjtBarbeariaClientes
             }
             if (valido)
             {
-                Cliente c = new Cliente(txtLogin.Text, txtSenha.Text, txtNome.Text,
+                String hashSenha = Utilitarios.myHash(txtSenha.Text);
+                Cliente c = new Cliente(txtLogin.Text, hashSenha, txtNome.Text,
                     dataNascimento, txtTelefone.Text);
                 c.email = txtEmail.Text;
+
+                listaClientes.Sort();
 
                 listaClientes.Add(c);
 
@@ -104,7 +107,7 @@ namespace pjtBarbeariaClientes
             Cliente c = new Cliente(txtLogin.Text);
             listaClientes.Sort();
             int busca = listaClientes.BinarySearch(c);
-            if (busca != -1)
+            if (busca >= 0)
             {
                 listaClientes.RemoveAt(busca);
 

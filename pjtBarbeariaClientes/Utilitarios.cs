@@ -37,7 +37,6 @@ namespace pjtBarbeariaClientes
                 byte[] bytes = Encoding.UTF8.GetBytes(input);
                 byte[] hashBytes = sha256.ComputeHash(bytes);
 
-                // Converter o hash para uma string hexadecimal
                 StringBuilder hashString = new StringBuilder();
                 foreach (byte b in hashBytes)
                 {

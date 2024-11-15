@@ -13,14 +13,13 @@ namespace pjtBarbeariaClientes
         public String hashSenha { get; private set; }
         // public String filhosMenorIdade { get; private set; }
 
-
         [JsonConstructor]
         public Cliente(String login, String hashSenha, String nome,
             DateTime dataNascimento, String telefone) :
             base(nome, dataNascimento, telefone)
         {
             this.login = login;
-            this.hashSenha = Utilitarios.myHash(hashSenha);
+            this.hashSenha = hashSenha;
            // this.filhosMenorIdade = "";
         }
 

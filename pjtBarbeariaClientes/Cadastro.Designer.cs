@@ -102,7 +102,7 @@
             txtTelefone.Name = "txtTelefone";
             txtTelefone.Size = new Size(139, 27);
             txtTelefone.TabIndex = 6;
-            txtTelefone.Text = "(13)97777-8888";
+            txtTelefone.Text = "13977778888";
             txtTelefone.TextAlign = HorizontalAlignment.Center;
             // 
             // lbTelefone
@@ -141,6 +141,7 @@
             txtMensagem.Location = new Point(180, 213);
             txtMensagem.Multiline = true;
             txtMensagem.Name = "txtMensagem";
+            txtMensagem.ReadOnly = true;
             txtMensagem.Size = new Size(178, 116);
             txtMensagem.TabIndex = 9;
             // 
@@ -149,6 +150,7 @@
             txtCadastrados.Location = new Point(658, 120);
             txtCadastrados.Multiline = true;
             txtCadastrados.Name = "txtCadastrados";
+            txtCadastrados.ReadOnly = true;
             txtCadastrados.ScrollBars = ScrollBars.Vertical;
             txtCadastrados.Size = new Size(402, 206);
             txtCadastrados.TabIndex = 10;
