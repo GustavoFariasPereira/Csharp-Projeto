@@ -216,6 +216,7 @@
             btExcluir.TabIndex = 16;
             btExcluir.Text = "Excluir";
             btExcluir.UseVisualStyleBackColor = false;
+            btExcluir.Visible = false;
             btExcluir.Click += btExcluir_Click;
             // 
             // frmCadastroClientes

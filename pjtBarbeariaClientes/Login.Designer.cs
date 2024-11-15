@@ -43,11 +43,11 @@
             lbTitulo.BackColor = SystemColors.Control;
             lbTitulo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTitulo.ForeColor = Color.DarkBlue;
-            lbTitulo.Location = new Point(142, 9);
+            lbTitulo.Location = new Point(177, 9);
             lbTitulo.Name = "lbTitulo";
-            lbTitulo.Size = new Size(283, 76);
+            lbTitulo.Size = new Size(204, 76);
             lbTitulo.TabIndex = 1;
-            lbTitulo.Text = "Barbearia\r\nCadastro de Clientes\r\n";
+            lbTitulo.Text = "Barbearia\r\nBarba de Gato\r\n";
             lbTitulo.TextAlign = ContentAlignment.TopCenter;
             // 
             // txtSenha
