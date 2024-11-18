@@ -1,6 +1,6 @@
 ﻿namespace pjtBarbeariaClientes
 {
-    partial class frmCadastro
+    partial class frmADM
     {
         /// <summary>
         ///  Required designer variable.
@@ -219,7 +219,7 @@
             btExcluir.Visible = false;
             btExcluir.Click += btExcluir_Click;
             // 
-            // frmCadastro
+            // frmADM
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -241,8 +241,8 @@
             Controls.Add(txtNome);
             Controls.Add(lbNome);
             Controls.Add(lbTitulo);
-            Name = "frmCadastro";
-            Text = "Cadastro de Clientes";
+            Name = "frmADM";
+            Text = "ADM";
             Load += frmCadastroClientes_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -37,53 +37,59 @@ namespace pjtBarbeariaClientes
 
         private void lbCadastrar_Click(object sender, EventArgs e)
         {
-            Form form = new frmCadastro();
-            form.Visible = true;
+            Form formAtivo = utilitario.obterFormAtivo();
+            Form formCadastro = new frmCadastroCliente();
+            formAtivo.Visible = false;
+            formCadastro.Visible = true;
         }
 
         private void btEntrar_Click(object sender, EventArgs e)
         {
-            bool valido = true;
-
-            if (txtLogin.Text.Trim() == String.Empty) 
+            if (txtLogin.Text.Trim() != String.Empty) 
             {
-                MessageBox.Show("Preencha o campo Login!");
-                valido = false;
-            }
-            else if (txtSenha.Text.Trim().Length != 6)
-            {
-                MessageBox.Show("Preencha os 6 digitos do campo Senha!");
-                valido = false;
-            }
-            if (valido) 
-            {
-               
                 Cliente login = new Cliente(txtLogin.Text);
                 listaClientes.Sort();
                 int buscarLogin = listaClientes.BinarySearch(login);
 
-                if(buscarLogin < 0)
-                {
-                    MessageBox.Show("Login não cadastrado!");
-                }
-                else
+                if (buscarLogin >= 0)
                 {
                     Cliente achouCliente = listaClientes[buscarLogin];
 
-                    string hashEntrada = Utilitarios.myHash(txtSenha.Text);
-                    Console.WriteLine("Hash esperado: " + achouCliente.hashSenha);
-                    Console.WriteLine("Hash digitado: " + hashEntrada);
-
-                    if (achouCliente.hashSenha != Utilitarios.myHash(txtSenha.Text))
-                    {
-                        MessageBox.Show("Senha incorreta!");
-                        txtSenha.Text = String.Empty;
+                    if(txtSenha.Text.Trim().Length == 6)
+                    { 
+                        if (achouCliente.hashSenha != Utilitarios.myHash(txtSenha.Text))
+                        {
+                            MessageBox.Show("Senha incorreta!");
+                            txtSenha.Text = String.Empty;
+                        }
+                        else
+                        {
+                            if(achouCliente.login == "ADM")
+                            {
+                                Form formAtivo = utilitario.obterFormAtivo();
+                                Form formADM = new frmADM();
+                                formAtivo.Visible = false;
+                                formADM.Visible = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Senha correta!");
+                            }
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Senha correta!");
+                        MessageBox.Show("Preencha o campo Senha com 6 dígitos!");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Login não cadastrado!");
+                }  
+            }
+            else
+            {
+                MessageBox.Show("Preencha o campo Login!");
             }
         }
     }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace pjtBarbeariaClientes
 {
-    public partial class frmCadastroCLiente : Form
+    public partial class frmCadastroCliente : Form
     {
         List<Cliente> listaClientes = new List<Cliente>();
         Utilitarios utilitario = new Utilitarios();
@@ -29,7 +29,7 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        public frmCadastroCLiente()
+        public frmCadastroCliente()
         {
             InitializeComponent();
         }
@@ -91,34 +91,22 @@ namespace pjtBarbeariaClientes
                 listaClientes.Add(cliente);
                 utilitario.salvarCliente(listaClientes);
                 lbMensagem.Text = "Cadastrado com sucesso!";
-                limparCampos();
+                utilitario.limparCampos(this);
 
-                Form formAtivo = obterFormAtivo();
+                Form formAtivo = utilitario.obterFormAtivo();
                 Form formLogin = new frmLogin();
-                formAtivo.Hide();
+                formAtivo.Visible = false;
                 formLogin.Visible = true;
-                
+
             }
         }
 
-        public Form obterFormAtivo()
+        private void btVoltarLogin_Click(object sender, EventArgs e)
         {
-            return Form.ActiveForm;
-        }
-
-        public void limparCampos()
-        {
-            txtNome.Text =
-            txtAniversario.Text =
-            txtEmail.Text =
-            txtTelefone.Text =
-            txtLogin.Text =
-            txtSenha.Text = String.Empty;
-        }
-
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-
+            Form formAtivo = utilitario.obterFormAtivo();
+            Form formLogin = new frmLogin();
+            formAtivo.Visible = false;
+            formLogin.Visible = true;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace pjtBarbeariaClientes
 {
-    partial class frmCadastroCLiente
+    partial class frmCadastroCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,7 @@
             lbTitulo = new Label();
             btConfirmar = new Button();
             lbMensagem = new Label();
+            btVoltarLogin = new Button();
             SuspendLayout();
             // 
             // txtEmail
@@ -124,7 +125,6 @@
             txtSenha.Size = new Size(177, 27);
             txtSenha.TabIndex = 20;
             txtSenha.UseSystemPasswordChar = true;
-            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // lbSenha
             // 
@@ -190,11 +190,26 @@
             lbMensagem.Size = new Size(0, 25);
             lbMensagem.TabIndex = 24;
             // 
-            // frmCadastroCLiente
+            // btVoltarLogin
+            // 
+            btVoltarLogin.BackColor = SystemColors.ActiveCaption;
+            btVoltarLogin.FlatStyle = FlatStyle.Flat;
+            btVoltarLogin.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btVoltarLogin.ForeColor = SystemColors.ControlText;
+            btVoltarLogin.Location = new Point(447, 12);
+            btVoltarLogin.Name = "btVoltarLogin";
+            btVoltarLogin.Size = new Size(75, 32);
+            btVoltarLogin.TabIndex = 25;
+            btVoltarLogin.Text = "Voltar";
+            btVoltarLogin.UseVisualStyleBackColor = false;
+            btVoltarLogin.Click += btVoltarLogin_Click;
+            // 
+            // frmCadastroCliente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(534, 540);
+            Controls.Add(btVoltarLogin);
             Controls.Add(lbMensagem);
             Controls.Add(btConfirmar);
             Controls.Add(lbTitulo);
@@ -210,7 +225,7 @@
             Controls.Add(lbAniversario);
             Controls.Add(txtNome);
             Controls.Add(lbNome);
-            Name = "frmCadastroCLiente";
+            Name = "frmCadastroCliente";
             Text = "Cadastro";
             Load += frmCadastroCLiente_Load;
             ResumeLayout(false);
@@ -234,5 +249,6 @@
         private Label lbTitulo;
         private Button btConfirmar;
         private Label lbMensagem;
+        private Button btVoltarLogin;
     }
 }
