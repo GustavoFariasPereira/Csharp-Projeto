@@ -93,19 +93,18 @@ namespace pjtBarbeariaClientes
                 lbMensagem.Text = "Cadastrado com sucesso!";
                 limparCampos();
 
-                //foreach (Form formAberto in Application.OpenForms)
-                //{
-                //    Console.WriteLine($"Form aberto: {formAberto.Name}");
-                //}
-
-
-                //Form form = new frmLogin();
-                //form.Show();
-                //this.Close();
+                Form formAtivo = obterFormAtivo();
+                Form formLogin = new frmLogin();
+                formAtivo.Hide();
+                formLogin.Visible = true;
+                
             }
         }
 
-        //public void fechar
+        public Form obterFormAtivo()
+        {
+            return Form.ActiveForm;
+        }
 
         public void limparCampos()
         {
