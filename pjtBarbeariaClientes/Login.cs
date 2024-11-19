@@ -43,48 +43,62 @@ namespace pjtBarbeariaClientes
 
         private void btEntrar_Click(object sender, EventArgs e)
         {
-            bool valido = true;
-
-            if (txtLogin.Text.Trim() == String.Empty) 
+            if (txtLogin.Text.Trim() != String.Empty)
             {
-                MessageBox.Show("Preencha o campo Login!");
-                valido = false;
-            }
-            else if (txtSenha.Text.Trim().Length != 6)
-            {
-                MessageBox.Show("Preencha os 6 digitos do campo Senha!");
-                valido = false;
-            }
-            if (valido) 
-            {
-               
-                Cliente login = new Cliente(txtLogin.Text);
-                listaClientes.Sort();
-                int buscarLogin = listaClientes.BinarySearch(login);
-
-                if(buscarLogin < 0)
+                if (txtSenha.Text.Trim().Length == 6)
                 {
-                    MessageBox.Show("Login não cadastrado!");
-                }
-                else
-                {
-                    Cliente achouCliente = listaClientes[buscarLogin];
+                    Cliente login = new Cliente(txtLogin.Text);
+                    listaClientes.Sort();
+                    int buscarLogin = listaClientes.BinarySearch(login);
 
-                    string hashEntrada = Utilitarios.myHash(txtSenha.Text);
-                    Console.WriteLine("Hash esperado: " + achouCliente.hashSenha);
-                    Console.WriteLine("Hash digitado: " + hashEntrada);
-
-                    if (achouCliente.hashSenha != Utilitarios.myHash(txtSenha.Text))
+                    if (buscarLogin >= 0)
                     {
-                        MessageBox.Show("Senha incorreta!");
-                        txtSenha.Text = String.Empty;
+                        Cliente achouCliente = listaClientes[buscarLogin];
+
+                        if (achouCliente.hashSenha == Utilitarios.myHash(txtSenha.Text))
+                        {
+                            if (achouCliente.login == "ADM")
+                            {
+                                Form formAtivo = obterFormAtivo();
+                                Form formADM = new frmCadastro();
+                                formAtivo.Close();
+                                formADM.Visible = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Senha correta!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Senha incorreta!");
+                            txtSenha.Text = String.Empty;
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Senha correta!");
+                        MessageBox.Show("Login não cadastrado!");
                     }
                 }
+                else
+                {
+                    MessageBox.Show("Preencha os 6 digitos do campo Senha!");
+                }
             }
+            else
+            {
+                MessageBox.Show("Preencha o campo Login!");
+            }
+        }
+
+        public Form obterFormAtivo()
+        {
+            return Form.ActiveForm;
+        }
+
+        private void btSair_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

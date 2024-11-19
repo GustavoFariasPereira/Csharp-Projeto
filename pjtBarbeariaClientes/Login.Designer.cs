@@ -35,6 +35,7 @@
             lbLogin = new Label();
             btEntrar = new Button();
             lbCadastrar = new Label();
+            btSair = new Button();
             SuspendLayout();
             // 
             // lbTitulo
@@ -110,11 +111,26 @@
             lbCadastrar.Text = "Cadastrar-se";
             lbCadastrar.Click += lbCadastrar_Click;
             // 
+            // btSair
+            // 
+            btSair.BackColor = Color.FromArgb(192, 0, 0);
+            btSair.FlatStyle = FlatStyle.Flat;
+            btSair.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btSair.ForeColor = SystemColors.ControlLight;
+            btSair.Location = new Point(550, 9);
+            btSair.Name = "btSair";
+            btSair.Size = new Size(40, 36);
+            btSair.TabIndex = 22;
+            btSair.Text = "X";
+            btSair.UseVisualStyleBackColor = false;
+            btSair.Click += btSair_Click;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(602, 450);
+            Controls.Add(btSair);
             Controls.Add(lbCadastrar);
             Controls.Add(btEntrar);
             Controls.Add(txtSenha);
@@ -138,5 +154,6 @@
         private Label lbLogin;
         private Button btEntrar;
         private Label lbCadastrar;
+        private Button btSair;
     }
 }
