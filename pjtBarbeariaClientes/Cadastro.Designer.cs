@@ -29,22 +29,17 @@
         private void InitializeComponent()
         {
             lbTitulo = new Label();
-            lbNome = new Label();
-            txtNome = new TextBox();
-            txtAniversario = new TextBox();
-            lbAniversario = new Label();
-            txtTelefone = new TextBox();
-            lbTelefone = new Label();
-            txtEmail = new TextBox();
-            lbEmail = new Label();
             txtMensagem = new TextBox();
             txtCadastrados = new TextBox();
             btConfirmar = new Button();
             txtLogin = new TextBox();
             lbLogin = new Label();
-            txtSenha = new TextBox();
-            lbSenha = new Label();
             btExcluir = new Button();
+            mnIrPara = new MenuStrip();
+            irParaToolStripMenuItem = new ToolStripMenuItem();
+            miLogin = new ToolStripMenuItem();
+            miCadastro = new ToolStripMenuItem();
+            mnIrPara.SuspendLayout();
             SuspendLayout();
             // 
             // lbTitulo
@@ -53,84 +48,12 @@
             lbTitulo.BackColor = SystemColors.Control;
             lbTitulo.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbTitulo.ForeColor = Color.DarkBlue;
-            lbTitulo.Location = new Point(410, -1);
+            lbTitulo.Location = new Point(407, 9);
             lbTitulo.Name = "lbTitulo";
             lbTitulo.Size = new Size(283, 76);
             lbTitulo.TabIndex = 0;
             lbTitulo.Text = "Barbearia\r\nCadastro de Clientes\r\n";
             lbTitulo.TextAlign = ContentAlignment.TopCenter;
-            // 
-            // lbNome
-            // 
-            lbNome.AutoSize = true;
-            lbNome.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbNome.Location = new Point(35, 89);
-            lbNome.Name = "lbNome";
-            lbNome.Size = new Size(63, 25);
-            lbNome.TabIndex = 1;
-            lbNome.Text = "Nome";
-            // 
-            // txtNome
-            // 
-            txtNome.Location = new Point(35, 120);
-            txtNome.Name = "txtNome";
-            txtNome.Size = new Size(323, 27);
-            txtNome.TabIndex = 2;
-            // 
-            // txtAniversario
-            // 
-            txtAniversario.Location = new Point(35, 240);
-            txtAniversario.Name = "txtAniversario";
-            txtAniversario.Size = new Size(139, 27);
-            txtAniversario.TabIndex = 4;
-            txtAniversario.Text = "28/07/2005";
-            txtAniversario.TextAlign = HorizontalAlignment.Center;
-            // 
-            // lbAniversario
-            // 
-            lbAniversario.AutoSize = true;
-            lbAniversario.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbAniversario.Location = new Point(35, 209);
-            lbAniversario.Name = "lbAniversario";
-            lbAniversario.Size = new Size(109, 25);
-            lbAniversario.TabIndex = 3;
-            lbAniversario.Text = "Aniversário";
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Location = new Point(35, 302);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(139, 27);
-            txtTelefone.TabIndex = 6;
-            txtTelefone.Text = "13977778888";
-            txtTelefone.TextAlign = HorizontalAlignment.Center;
-            // 
-            // lbTelefone
-            // 
-            lbTelefone.AutoSize = true;
-            lbTelefone.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbTelefone.Location = new Point(35, 271);
-            lbTelefone.Name = "lbTelefone";
-            lbTelefone.Size = new Size(85, 25);
-            lbTelefone.TabIndex = 5;
-            lbTelefone.Text = "Telefone";
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(35, 179);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(323, 27);
-            txtEmail.TabIndex = 8;
-            // 
-            // lbEmail
-            // 
-            lbEmail.AutoSize = true;
-            lbEmail.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbEmail.Location = new Point(35, 148);
-            lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(65, 25);
-            lbEmail.TabIndex = 7;
-            lbEmail.Text = "E-mail";
             // 
             // txtMensagem
             // 
@@ -138,7 +61,7 @@
             txtMensagem.BorderStyle = BorderStyle.FixedSingle;
             txtMensagem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtMensagem.ForeColor = Color.MediumSeaGreen;
-            txtMensagem.Location = new Point(180, 213);
+            txtMensagem.Location = new Point(107, 224);
             txtMensagem.Multiline = true;
             txtMensagem.Name = "txtMensagem";
             txtMensagem.ReadOnly = true;
@@ -147,7 +70,7 @@
             // 
             // txtCadastrados
             // 
-            txtCadastrados.Location = new Point(658, 120);
+            txtCadastrados.Location = new Point(417, 176);
             txtCadastrados.Multiline = true;
             txtCadastrados.Name = "txtCadastrados";
             txtCadastrados.ReadOnly = true;
@@ -171,38 +94,20 @@
             // 
             // txtLogin
             // 
-            txtLogin.Location = new Point(410, 179);
+            txtLogin.Location = new Point(107, 187);
             txtLogin.Name = "txtLogin";
-            txtLogin.Size = new Size(177, 27);
+            txtLogin.Size = new Size(178, 27);
             txtLogin.TabIndex = 13;
             // 
             // lbLogin
             // 
             lbLogin.AutoSize = true;
             lbLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbLogin.Location = new Point(410, 148);
+            lbLogin.Location = new Point(107, 156);
             lbLogin.Name = "lbLogin";
             lbLogin.Size = new Size(59, 25);
             lbLogin.TabIndex = 12;
             lbLogin.Text = "Login";
-            // 
-            // txtSenha
-            // 
-            txtSenha.Location = new Point(410, 240);
-            txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(177, 27);
-            txtSenha.TabIndex = 15;
-            txtSenha.UseSystemPasswordChar = true;
-            // 
-            // lbSenha
-            // 
-            lbSenha.AutoSize = true;
-            lbSenha.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbSenha.Location = new Point(410, 209);
-            lbSenha.Name = "lbSenha";
-            lbSenha.Size = new Size(64, 25);
-            lbSenha.TabIndex = 14;
-            lbSenha.Text = "Senha";
             // 
             // btExcluir
             // 
@@ -216,8 +121,37 @@
             btExcluir.TabIndex = 16;
             btExcluir.Text = "Excluir";
             btExcluir.UseVisualStyleBackColor = false;
-            btExcluir.Visible = false;
             btExcluir.Click += btExcluir_Click;
+            // 
+            // mnIrPara
+            // 
+            mnIrPara.ImageScalingSize = new Size(20, 20);
+            mnIrPara.Items.AddRange(new ToolStripItem[] { irParaToolStripMenuItem });
+            mnIrPara.Location = new Point(0, 0);
+            mnIrPara.Name = "mnIrPara";
+            mnIrPara.Size = new Size(1092, 28);
+            mnIrPara.TabIndex = 17;
+            // 
+            // irParaToolStripMenuItem
+            // 
+            irParaToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { miLogin, miCadastro });
+            irParaToolStripMenuItem.Name = "irParaToolStripMenuItem";
+            irParaToolStripMenuItem.Size = new Size(64, 24);
+            irParaToolStripMenuItem.Text = "Ir Para";
+            // 
+            // miLogin
+            // 
+            miLogin.Name = "miLogin";
+            miLogin.Size = new Size(151, 26);
+            miLogin.Text = "Login";
+            miLogin.Click += miLogin_Click;
+            // 
+            // miCadastro
+            // 
+            miCadastro.Name = "miCadastro";
+            miCadastro.Size = new Size(151, 26);
+            miCadastro.Text = "Cadastro";
+            miCadastro.Click += miCadastro_Click;
             // 
             // frmCadastro
             // 
@@ -225,25 +159,19 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1092, 450);
             Controls.Add(btExcluir);
-            Controls.Add(txtSenha);
-            Controls.Add(lbSenha);
             Controls.Add(txtLogin);
             Controls.Add(lbLogin);
             Controls.Add(btConfirmar);
             Controls.Add(txtCadastrados);
             Controls.Add(txtMensagem);
-            Controls.Add(txtEmail);
-            Controls.Add(lbEmail);
-            Controls.Add(txtTelefone);
-            Controls.Add(lbTelefone);
-            Controls.Add(txtAniversario);
-            Controls.Add(lbAniversario);
-            Controls.Add(txtNome);
-            Controls.Add(lbNome);
             Controls.Add(lbTitulo);
+            Controls.Add(mnIrPara);
+            MainMenuStrip = mnIrPara;
             Name = "frmCadastro";
             Text = "Cadastro de Clientes";
             Load += frmCadastroClientes_Load;
+            mnIrPara.ResumeLayout(false);
+            mnIrPara.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,21 +179,15 @@
         #endregion
 
         private Label lbTitulo;
-        private Label lbNome;
-        private TextBox txtNome;
-        private TextBox txtAniversario;
-        private Label lbAniversario;
-        private TextBox txtTelefone;
-        private Label lbTelefone;
-        private TextBox txtEmail;
-        private Label lbEmail;
         private TextBox txtMensagem;
         private TextBox txtCadastrados;
         private Button btConfirmar;
         private TextBox txtLogin;
         private Label lbLogin;
-        private TextBox txtSenha;
-        private Label lbSenha;
         private Button btExcluir;
+        private MenuStrip mnIrPara;
+        private ToolStripMenuItem irParaToolStripMenuItem;
+        private ToolStripMenuItem miLogin;
+        private ToolStripMenuItem miCadastro;
     }
 }
