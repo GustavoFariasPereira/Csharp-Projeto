@@ -62,42 +62,39 @@ namespace pjtBarbeariaClientes
                     listaClientes.Sort();
                     int buscarLogin = listaClientes.BinarySearch(login);
 
-                    if (buscarLogin >= 0)
+                    if (buscarLogin < 0)
                     {
-                        MessageBox.Show("Este Login já existe!");
-                        valido = false;
+                        if (txtSenha.Text.Trim().Length == 6)
+                        {
+                            String hashSenha = Utilitarios.myHash(txtSenha.Text);
+                            Cliente cliente = new Cliente(txtLogin.Text, hashSenha, txtNome.Text, dataNascimento, txtTelefone.Text);
+                            cliente.email = txtEmail.Text;
+
+                            listaClientes.Add(cliente);
+                            utilitario.salvarCliente(listaClientes);
+                            MessageBox.Show("Cadastrado com sucesso!");
+                            limparCampos();
+
+                            Form formAtivo = obterFormAtivo();
+                            Form formLogin = new frmLogin();
+                            formAtivo.Hide();
+                            formLogin.Visible = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Preencha o campo Senha com 6 dígitos!");
+                        }
+
                     }
                     else
                     {
-                        if (txtSenha.Text.Trim().Length != 6)
-                        {
-                            MessageBox.Show("Preencha o campo Senha com 6 dígitos!");
-                            valido = false;
-                        }
+                        MessageBox.Show("Este Login já existe!");
                     }
                 }
                 else
                 {
                     MessageBox.Show("Preecha o campo Login!");
-                    valido = false;
                 }
-            }
-            if (valido)
-            {
-                String hashSenha = Utilitarios.myHash(txtSenha.Text);
-                Cliente cliente = new Cliente(txtLogin.Text, hashSenha, txtNome.Text, dataNascimento, txtTelefone.Text);
-                cliente.email = txtEmail.Text;
-
-                listaClientes.Add(cliente);
-                utilitario.salvarCliente(listaClientes);
-                lbMensagem.Text = "Cadastrado com sucesso!";
-                limparCampos();
-
-                Form formAtivo = obterFormAtivo();
-                Form formLogin = new frmLogin();
-                formAtivo.Hide();
-                formLogin.Visible = true;
-                
             }
         }
 
@@ -119,6 +116,14 @@ namespace pjtBarbeariaClientes
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btVoltarLogin_Click(object sender, EventArgs e)
+        {
+            Form formAtivo = obterFormAtivo();
+            Form formLogin = new frmLogin();
+            formAtivo.Visible = false;
+            formLogin.Visible = true;
         }
     }
 }

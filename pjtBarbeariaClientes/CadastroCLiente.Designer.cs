@@ -42,7 +42,7 @@
             lbLogin = new Label();
             lbTitulo = new Label();
             btConfirmar = new Button();
-            lbMensagem = new Label();
+            btVoltarLogin = new Button();
             SuspendLayout();
             // 
             // txtEmail
@@ -180,22 +180,26 @@
             btConfirmar.UseVisualStyleBackColor = false;
             btConfirmar.Click += btConfirmar_Click;
             // 
-            // lbMensagem
+            // btVoltarLogin
             // 
-            lbMensagem.AutoSize = true;
-            lbMensagem.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbMensagem.ForeColor = Color.DarkBlue;
-            lbMensagem.Location = new Point(300, 469);
-            lbMensagem.Name = "lbMensagem";
-            lbMensagem.Size = new Size(0, 25);
-            lbMensagem.TabIndex = 24;
+            btVoltarLogin.BackColor = SystemColors.ActiveCaption;
+            btVoltarLogin.FlatStyle = FlatStyle.Flat;
+            btVoltarLogin.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btVoltarLogin.ForeColor = SystemColors.ControlText;
+            btVoltarLogin.Location = new Point(432, 12);
+            btVoltarLogin.Name = "btVoltarLogin";
+            btVoltarLogin.Size = new Size(90, 32);
+            btVoltarLogin.TabIndex = 24;
+            btVoltarLogin.Text = "Voltar";
+            btVoltarLogin.UseVisualStyleBackColor = false;
+            btVoltarLogin.Click += btVoltarLogin_Click;
             // 
             // frmCadastroCLiente
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(534, 540);
-            Controls.Add(lbMensagem);
+            Controls.Add(btVoltarLogin);
             Controls.Add(btConfirmar);
             Controls.Add(lbTitulo);
             Controls.Add(txtSenha);
@@ -233,6 +237,6 @@
         private Label lbLogin;
         private Label lbTitulo;
         private Button btConfirmar;
-        private Label lbMensagem;
+        private Button btVoltarLogin;
     }
 }
