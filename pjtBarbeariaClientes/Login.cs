@@ -37,8 +37,8 @@ namespace pjtBarbeariaClientes
 
         private void lbCadastrar_Click(object sender, EventArgs e)
         {
-            Form form = new frmCadastro();
-            form.Visible = true;
+            Form formCadastro = new frmCadastro();
+            Utilitarios.trocarForm(formCadastro);
         }
 
         private void btEntrar_Click(object sender, EventArgs e)
@@ -59,10 +59,8 @@ namespace pjtBarbeariaClientes
                         {
                             if (achouCliente.login == "ADM")
                             {
-                                Form formAtivo = obterFormAtivo();
                                 Form formADM = new frmCadastro();
-                                formAtivo.Close();
-                                formADM.Visible = true;
+                                Utilitarios.trocarForm(formADM);
                             }
                             else
                             {
@@ -91,14 +89,9 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        public Form obterFormAtivo()
-        {
-            return Form.ActiveForm;
-        }
-
         private void btSair_Click(object sender, EventArgs e)
         {
-            Close();
+            utilitario.fecharForm();
         }
     }
 }

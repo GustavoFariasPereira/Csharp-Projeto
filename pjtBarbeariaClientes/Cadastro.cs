@@ -59,37 +59,25 @@ namespace pjtBarbeariaClientes
         private void miLogin_Click(object sender, EventArgs e)
         {
             Form formLogin = new frmLogin();
-            trocarForm(formLogin);
+            Utilitarios.trocarForm(formLogin);
         }
 
         private void miCadastro_Click(object sender, EventArgs e)
         {
             Form formCadastro = new frmCadastroCLiente();
-            trocarForm(formCadastro);
+            Utilitarios.trocarForm(formCadastro);
         }
 
         private String relatorio()
         {
             StringBuilder ret = new StringBuilder();
 
-            foreach (Pessoa p in listaClientes)
+            foreach (Cliente cliente in listaClientes)
             {
-                ret.Append(p.ToString() + Environment.NewLine);
+                ret.Append(cliente.ToString() + Environment.NewLine);
             }
 
             return ret.ToString();
-        }
-
-        public void fecharForm()
-        {
-            Application.Exit();
-        }
-
-        public void trocarForm(Form form)
-        {
-            this.Hide();
-            form.ShowDialog();
-            this.Show();
         }
     }
 }

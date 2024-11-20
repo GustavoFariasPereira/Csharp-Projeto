@@ -46,5 +46,31 @@ namespace pjtBarbeariaClientes
                 return hashString.ToString();
             }
         }
+
+        //private string Relatorio<T>(IEnumerable<T> lista)
+        //{
+        //    StringBuilder ret = new StringBuilder();
+
+        //    foreach (T item in lista)
+        //    {
+        //        ret.Append(item.ToString() + Environment.NewLine);
+        //    }
+
+        //    return ret.ToString();
+        //}
+
+
+        public void fecharForm()
+        {
+            Application.Exit();
+        }
+
+        public static void trocarForm(Form form)
+        {
+            Form formAtual = Form.ActiveForm;
+            formAtual.Hide();
+            form.ShowDialog();
+            form.Show();
+        }
     }
 }
