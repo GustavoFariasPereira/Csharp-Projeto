@@ -73,7 +73,6 @@ namespace pjtBarbeariaClientes
                             listaClientes.Add(cliente);
                             utilitario.salvarCliente(listaClientes);
                             MessageBox.Show("Cadastrado com sucesso!");
-                            limparCampos();
 
                             Form formLogin = new frmLogin();
                             Utilitarios.trocarForm(formLogin);
@@ -94,16 +93,6 @@ namespace pjtBarbeariaClientes
                     MessageBox.Show("Preecha o campo Login!");
                 }
             }
-        }
-
-        public void limparCampos()
-        {
-            txtNome.Text =
-            txtAniversario.Text =
-            txtEmail.Text =
-            txtTelefone.Text =
-            txtLogin.Text =
-            txtSenha.Text = String.Empty;
         }
 
         private void btVoltarLogin_Click(object sender, EventArgs e)

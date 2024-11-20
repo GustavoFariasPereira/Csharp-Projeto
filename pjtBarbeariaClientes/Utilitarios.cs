@@ -71,5 +71,16 @@ namespace pjtBarbeariaClientes
             form.ShowDialog();
             form.Show();
         }
+
+        public void limparCampos(Form formulario)
+        {
+            foreach (Control controle in formulario.Controls)
+            {
+                if (controle is TextBox)
+                {
+                    ((TextBox)controle).Clear();
+                }
+            }
+        }
     }
 }
