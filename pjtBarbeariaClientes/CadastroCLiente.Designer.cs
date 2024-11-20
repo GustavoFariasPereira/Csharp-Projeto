@@ -124,7 +124,6 @@
             txtSenha.Size = new Size(177, 27);
             txtSenha.TabIndex = 20;
             txtSenha.UseSystemPasswordChar = true;
-            txtSenha.TextChanged += txtSenha_TextChanged;
             // 
             // lbSenha
             // 
