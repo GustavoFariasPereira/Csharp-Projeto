@@ -17,7 +17,7 @@ namespace pjtBarbeariaClientes
             {
                 //txtCadastrados.Text = String.Join(Environment.NewLine, listaClientes.Select(c => $"Nome: {c.nome}," +
                 //$" Aniversário: {c.dataNascimento}, Telefone: {c.telefone}, E-mail: {c.email}"));
-                txtCadastrados.Text = relatorio();
+                txtCadastrados.Text = utilitario.relatorio(listaClientes);
             }
             else
             {
@@ -46,7 +46,7 @@ namespace pjtBarbeariaClientes
 
                 utilitario.salvarCliente(listaClientes);
 
-                txtCadastrados.Text = relatorio();
+                txtCadastrados.Text = utilitario.relatorio(listaClientes);
 
                 txtMensagem.Text = "Excluido com sucesso!";
             }
@@ -66,18 +66,6 @@ namespace pjtBarbeariaClientes
         {
             Form formCadastro = new frmCadastroCLiente();
             Utilitarios.trocarForm(formCadastro);
-        }
-
-        private String relatorio()
-        {
-            StringBuilder ret = new StringBuilder();
-
-            foreach (Cliente cliente in listaClientes)
-            {
-                ret.Append(cliente.ToString() + Environment.NewLine);
-            }
-
-            return ret.ToString();
         }
     }
 }

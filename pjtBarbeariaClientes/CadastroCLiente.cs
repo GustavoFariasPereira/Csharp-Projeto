@@ -75,10 +75,8 @@ namespace pjtBarbeariaClientes
                             MessageBox.Show("Cadastrado com sucesso!");
                             limparCampos();
 
-                            Form formAtivo = obterFormAtivo();
                             Form formLogin = new frmLogin();
-                            formAtivo.Hide();
-                            formLogin.Visible = true;
+                            Utilitarios.trocarForm(formLogin);
                         }
                         else
                         {
@@ -98,11 +96,6 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        public Form obterFormAtivo()
-        {
-            return Form.ActiveForm;
-        }
-
         public void limparCampos()
         {
             txtNome.Text =
@@ -113,17 +106,10 @@ namespace pjtBarbeariaClientes
             txtSenha.Text = String.Empty;
         }
 
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btVoltarLogin_Click(object sender, EventArgs e)
         {
-            Form formAtivo = obterFormAtivo();
             Form formLogin = new frmLogin();
-            formAtivo.Visible = false;
-            formLogin.Visible = true;
+            Utilitarios.trocarForm(formLogin);
         }
     }
 }
