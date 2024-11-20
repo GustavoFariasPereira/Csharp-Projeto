@@ -13,10 +13,10 @@ namespace pjtBarbeariaClientes
     public class Barbearia
     {
         public List<Cliente> clientes { get; private set; }
-        public List<Agendamento> agendamentos { get; private set; }
+        public List<frmAgendamento> agendamentos { get; private set; }
         public List<Produto> produtos { get; private set; }
 
-        public Barbearia(List<Cliente> clientes, List<Agendamento> agendamentos, List<Produto> produtos)
+        public Barbearia(List<Cliente> clientes, List<frmAgendamento> agendamentos, List<Produto> produtos)
         {
             this.clientes = clientes;
             this.agendamentos = agendamentos;
