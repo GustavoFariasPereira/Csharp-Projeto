@@ -17,7 +17,7 @@ namespace pjtBarbeariaClientes
 
         private void frmCadastroCLiente_Load(object sender, EventArgs e)
         {
-            listaClientes = utilitario.carregarCliente();
+            listaClientes = Utilitarios.carregarLista<Cliente>("BCliente.json");
 
             if (listaClientes.Any())
             {
@@ -71,7 +71,7 @@ namespace pjtBarbeariaClientes
                             cliente.email = txtEmail.Text;
 
                             listaClientes.Add(cliente);
-                            utilitario.salvarCliente(listaClientes);
+                            utilitario.salvarLista(listaClientes);
                             MessageBox.Show("Cadastrado com sucesso!");
 
                             Form formLogin = new frmLogin();

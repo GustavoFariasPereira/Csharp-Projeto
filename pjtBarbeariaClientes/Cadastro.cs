@@ -11,7 +11,8 @@ namespace pjtBarbeariaClientes
 
         private void frmCadastroClientes_Load(object sender, EventArgs e)
         {
-            listaClientes = utilitario.carregarCliente();
+            
+            listaClientes = Utilitarios.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
             Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
@@ -44,7 +45,7 @@ namespace pjtBarbeariaClientes
             {
                 listaClientes.RemoveAt(busca);
 
-                utilitario.salvarCliente(listaClientes);
+                utilitario.salvarLista(listaClientes);
 
                 txtCadastrados.Text = utilitario.relatorio(listaClientes);
 

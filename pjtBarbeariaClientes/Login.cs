@@ -17,7 +17,7 @@ namespace pjtBarbeariaClientes
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            listaClientes = utilitario.carregarCliente();
+            listaClientes = Utilitarios.carregarLista<Cliente>("BClientes.json");
             Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {

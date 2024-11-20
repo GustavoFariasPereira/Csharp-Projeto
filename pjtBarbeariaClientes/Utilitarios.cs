@@ -11,24 +11,53 @@ namespace pjtBarbeariaClientes
 {
     public class Utilitarios
     {
-        public String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
+        //public String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
 
-        public void salvarCliente(List<Cliente> clientes)
-        {
-            String jsonCliente = JsonSerializer.Serialize(clientes, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(enderecoLista, jsonCliente);
-        }
+        //public void salvarCliente(List<Cliente> clientes)
+        //{
+        //    String jsonCliente = JsonSerializer.Serialize(clientes, new JsonSerializerOptions { WriteIndented = true });
+        //    File.WriteAllText(enderecoLista, jsonCliente);
+        //}
 
-        public List<Cliente> carregarCliente()
+        public void salvarLista<T>(List<T> lista)
         {
-            if (File.Exists(enderecoLista))
+            String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
+
+            if (lista is List<Produto>)
             {
-                String jsonString = File.ReadAllText(enderecoLista);
-                return JsonSerializer.Deserialize<List<Cliente>>(jsonString);
+                enderecoLista = @"D:\C#\Semestre2\BProdutos.json";
             }
-            return new List<Cliente>();
+            else if (lista is List<Agendamento>)
+            {
+                enderecoLista = @"D:\C#\Semestre2\BAgendamentos.json";
+            }
+                
+            String json = JsonSerializer.Serialize(lista, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(enderecoLista, json);
         }
 
+        //public List<Cliente> carregarCliente()
+        //{
+        //    if (File.Exists(enderecoLista))
+        //    {
+        //        String jsonString = File.ReadAllText(enderecoLista);
+        //        return JsonSerializer.Deserialize<List<Cliente>>(jsonString);
+        //    }
+        //    return new List<Cliente>();
+        //}
+
+        
+        
+       public static List<T> carregarLista<T>(string enderecoLista)
+       {
+          if (File.Exists(enderecoLista))
+          {
+             string jsonString = File.ReadAllText(enderecoLista);
+             return JsonSerializer.Deserialize<List<T>>(jsonString) ?? new List<T>();
+          }
+          return new List<T>();
+       }
+        
         public static string myHash(string input)
         {
            
