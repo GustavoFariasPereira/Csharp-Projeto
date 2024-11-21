@@ -18,7 +18,7 @@ namespace pjtBarbeariaClientes
         //    String jsonCliente = JsonSerializer.Serialize(clientes, new JsonSerializerOptions { WriteIndented = true });
         //    File.WriteAllText(enderecoLista, jsonCliente);
         //}
-
+        
         public void salvarLista<T>(List<T> lista)
         {
             String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
@@ -46,8 +46,6 @@ namespace pjtBarbeariaClientes
         //    return new List<Cliente>();
         //}
 
-        
-        
        public static List<T> carregarLista<T>(string enderecoLista)
        {
           if (File.Exists(enderecoLista))

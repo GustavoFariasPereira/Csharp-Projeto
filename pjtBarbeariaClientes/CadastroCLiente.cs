@@ -17,7 +17,7 @@ namespace pjtBarbeariaClientes
 
         private void frmCadastroCLiente_Load(object sender, EventArgs e)
         {
-            listaClientes = Utilitarios.carregarLista<Cliente>("BCliente.json");
+            listaClientes = Utilitarios.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
 
             if (listaClientes.Any())
             {
