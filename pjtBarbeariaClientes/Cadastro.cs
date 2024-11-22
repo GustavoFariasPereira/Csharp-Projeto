@@ -11,18 +11,16 @@ namespace pjtBarbeariaClientes
 
         private void frmCadastroClientes_Load(object sender, EventArgs e)
         {
-            
+
             listaClientes = Utilitarios.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
             Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
-                //txtCadastrados.Text = String.Join(Environment.NewLine, listaClientes.Select(c => $"Nome: {c.nome}," +
-                //$" Aniversário: {c.dataNascimento}, Telefone: {c.telefone}, E-mail: {c.email}"));
-                txtCadastrados.Text = utilitario.relatorio(listaClientes);
+                txtClientes.Text = utilitario.relatorio(listaClientes);
             }
             else
             {
-                txtCadastrados.Text = "Nenhum registro encontrado!";
+                txtClientes.Text = "Nenhum registro encontrado!";
             }
         }
 
@@ -47,13 +45,13 @@ namespace pjtBarbeariaClientes
 
                 utilitario.salvarLista(listaClientes);
 
-                txtCadastrados.Text = utilitario.relatorio(listaClientes);
+                txtClientes.Text = utilitario.relatorio(listaClientes);
 
-                txtMensagem.Text = "Excluido com sucesso!";
+                txtBuscar.Text = "Excluido com sucesso!";
             }
             else
             {
-                txtMensagem.Text = "Não foi encontrado!";
+                txtBuscar.Text = "Não foi encontrado!";
             }
         }
 
@@ -67,6 +65,11 @@ namespace pjtBarbeariaClientes
         {
             Form formCadastro = new frmCadastroCLiente();
             Utilitarios.trocarForm(formCadastro);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

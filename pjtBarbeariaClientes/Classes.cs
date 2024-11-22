@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace pjtBarbeariaClientes
 {
@@ -32,6 +33,7 @@ namespace pjtBarbeariaClientes
         public TimeSpan horaAgendamento { get; private set; }
         public List<Produto> produtos { get; private set; }
 
+        [JsonConstructor]
         public Agendamento(Cliente cliente, DateTime dataAgendamento, TimeSpan horaAgendamento,
             List<Produto> produtos)
         {
@@ -78,7 +80,7 @@ namespace pjtBarbeariaClientes
         public override String ToString()
         {
 
-            return String.Format("Nome: {0}, Aniversário: {1}, Contato: {2:(##) #####-####}, E-mail: {3}.", nome, dataNascimento.ToString("dd/MM/yyyy"), Convert.ToInt64(telefone), email);
+            return String.Format("Nome: {0}, Login: {1}, Aniversário: {2}, Contato: {3:(##) #####-####}, E-mail: {4}, Filhos: {5}.{6}", nome, login, dataNascimento.ToString("dd/MM/yyyy"), Convert.ToInt64(telefone), email, filhos, Environment.NewLine);
 
         }
 
@@ -100,6 +102,7 @@ namespace pjtBarbeariaClientes
         public DateTime aniversario { get; private set; }
         public Cliente responsavel { get; private set; }
 
+        [JsonConstructor]
         public ClienteMenorIdade(String nome, DateTime aniversario, Cliente responsavel)
         {
             this.nome = nome;
@@ -121,18 +124,34 @@ namespace pjtBarbeariaClientes
 
     public class Produto : IComparable<Produto>
     {
-        public String nome { get; set; }
-        public String valor { get; set; }
+        private static int ultimoId = 0;
 
+        public String nome { get; private set; }
+        public String valor { get; private set; }
+        public int id { get; private set; }
+
+        [JsonConstructor]
         public Produto(string nome, string valor)
         {
             this.nome = nome;
             this.valor = valor;
+            id = GerarId();
         }
 
         public float totalPagar(float valor, int quantidade)
         {
             return valor * quantidade;
+        }
+
+        private static int GerarId()
+        {
+            return ++ultimoId; // Incrementa e retorna o próximo ID.
+        }
+        public override String ToString()
+        {
+
+            return String.Format("Nome: {0}, Valor: R${1:###.00}, Id: {2}.{4}", nome, valor, id, Environment.NewLine);
+
         }
 
         public int CompareTo(Produto? outro)
