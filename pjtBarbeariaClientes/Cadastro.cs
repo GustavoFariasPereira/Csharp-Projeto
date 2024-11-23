@@ -47,11 +47,11 @@ namespace pjtBarbeariaClientes
 
                 txtClientes.Text = utilitario.relatorio(listaClientes);
 
-                txtBuscar.Text = "Excluido com sucesso!";
+                txtBuscarCLientesAgendamentos.Text = "Excluido com sucesso!";
             }
             else
             {
-                txtBuscar.Text = "Não foi encontrado!";
+                txtBuscarCLientesAgendamentos.Text = "Não foi encontrado!";
             }
         }
 
@@ -68,6 +68,11 @@ namespace pjtBarbeariaClientes
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

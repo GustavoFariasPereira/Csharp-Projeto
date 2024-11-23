@@ -13,16 +13,15 @@ namespace pjtBarbeariaClientes
 {
     public class Barbearia
     {
-        public List<Cliente> clientes { get; private set; }
-        public List<Agendamento> agendamentos { get; private set; }
-        public List<Produto> produtos { get; private set; }
+        public String diaFuncionamento {  get; private set; }
+        public String horaFuncionamento { get; private set; }
+        public char horaLivre { get; private set; }
 
-        [JsonConstructor]
-        public Barbearia(List<Cliente> clientes, List<Agendamento> agendamentos, List<Produto> produtos)
+        public Barbearia(string diaFuncionamento, string horaFuncionamento, char horaLivre)
         {
-            this.clientes = clientes;
-            this.agendamentos = agendamentos;
-            this.produtos = produtos;  
+            this.diaFuncionamento = diaFuncionamento;
+            this.horaFuncionamento = horaFuncionamento;
+            this.horaLivre = horaLivre;
         }
     }
 
