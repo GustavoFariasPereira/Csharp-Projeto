@@ -37,8 +37,7 @@ namespace pjtBarbeariaClientes
 
         private void lbCadastrar_Click(object sender, EventArgs e)
         {
-            Form formCadastro = new frmCadastro();
-            Utilitarios.trocarForm(formCadastro);
+            Utilitarios.abrirNovoForm<frmCadastroCLiente>(this);
         }
 
         private void btEntrar_Click(object sender, EventArgs e)
@@ -59,8 +58,7 @@ namespace pjtBarbeariaClientes
                         {
                             if (achouCliente.login == "ADM")
                             {
-                                Form formADM = new frmCadastro();
-                                Utilitarios.trocarForm(formADM);
+                                Utilitarios.abrirNovoForm<frmCadastro>(this);
                             }
                             else
                             {
@@ -91,7 +89,7 @@ namespace pjtBarbeariaClientes
 
         private void btSair_Click(object sender, EventArgs e)
         {
-            utilitario.fecharForm();
+            Utilitarios.fecharAplicativo(this);
         }
     }
 }

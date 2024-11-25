@@ -11,15 +11,8 @@ namespace pjtBarbeariaClientes
 {
     public class Utilitarios
     {
-        //public String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
 
-        //public void salvarCliente(List<Cliente> clientes)
-        //{
-        //    String jsonCliente = JsonSerializer.Serialize(clientes, new JsonSerializerOptions { WriteIndented = true });
-        //    File.WriteAllText(enderecoLista, jsonCliente);
-        //}
-        
-        public void salvarLista<T>(List<T> lista)
+       public void salvarLista<T>(List<T> lista)
         {
             String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
 
@@ -35,16 +28,6 @@ namespace pjtBarbeariaClientes
             String json = JsonSerializer.Serialize(lista, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(enderecoLista, json);
         }
-
-        //public List<Cliente> carregarCliente()
-        //{
-        //    if (File.Exists(enderecoLista))
-        //    {
-        //        String jsonString = File.ReadAllText(enderecoLista);
-        //        return JsonSerializer.Deserialize<List<Cliente>>(jsonString);
-        //    }
-        //    return new List<Cliente>();
-        //}
 
        public static List<T> carregarLista<T>(string enderecoLista)
        {
@@ -86,17 +69,25 @@ namespace pjtBarbeariaClientes
             return ret.ToString();
         }
 
-        public void fecharForm()
+        public static void fecharAplicativo(Form formAtual)
         {
-            Application.Exit();
+            formAtual.Close();         
+            Application.Exit();        
         }
 
-        public static void trocarForm(Form form)
+        public static void abrirNovoForm<T>(Form formAtual) where T : Form, new()
         {
-            Form formAtual = Form.ActiveForm;
             formAtual.Hide();
-            form.ShowDialog();
-            form.Show();
+
+            using (var form = new T())
+            {
+                form.ShowDialog();
+            }
+
+            if (!formAtual.IsDisposed)
+            {
+                formAtual.Show();
+            }
         }
 
         public void limparCampos(Form formulario)

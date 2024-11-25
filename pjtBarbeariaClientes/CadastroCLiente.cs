@@ -74,8 +74,7 @@ namespace pjtBarbeariaClientes
                             utilitario.salvarLista(listaClientes);
                             MessageBox.Show("Cadastrado com sucesso!");
 
-                            Form formLogin = new frmLogin();
-                            Utilitarios.trocarForm(formLogin);
+                            Utilitarios.abrirNovoForm<frmLogin>(this);
                         }
                         else
                         {
@@ -97,8 +96,7 @@ namespace pjtBarbeariaClientes
 
         private void btVoltarLogin_Click(object sender, EventArgs e)
         {
-            Form formLogin = new frmLogin();
-            Utilitarios.trocarForm(formLogin);
+            Utilitarios.abrirNovoForm<frmLogin>(this);
         }
     }
 }

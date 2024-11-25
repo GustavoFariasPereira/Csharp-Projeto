@@ -57,14 +57,12 @@ namespace pjtBarbeariaClientes
 
         private void miLogin_Click(object sender, EventArgs e)
         {
-            Form formLogin = new frmLogin();
-            Utilitarios.trocarForm(formLogin);
+            Utilitarios.abrirNovoForm<frmLogin>(this);
         }
 
         private void miCadastro_Click(object sender, EventArgs e)
         {
-            Form formCadastro = new frmCadastroCLiente();
-            Utilitarios.trocarForm(formCadastro);
+            Utilitarios.abrirNovoForm<frmCadastroCLiente>(this);
         }
 
         private void label1_Click(object sender, EventArgs e)
