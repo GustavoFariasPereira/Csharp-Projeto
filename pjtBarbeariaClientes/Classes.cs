@@ -11,17 +11,41 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace pjtBarbeariaClientes
 {
-    public class Barbearia
+    public class Semana1Fun
     {
-        public String diaFuncionamento {  get; private set; }
-        public String horaFuncionamento { get; private set; }
-        public char horaLivre { get; private set; }
+        public List<Funcionamento> segunda { get; private set; }
+        public List<Funcionamento> terca { get; private set; }
+        public List<Funcionamento> quarta { get; private set; }
+        public List<Funcionamento> quinta { get; private set; }
+        public List<Funcionamento> sexta { get; private set; }
+        public List<Funcionamento> sabado { get; private set; }
+        public List<Funcionamento> domingo { get; private set; }
 
-        public Barbearia(string diaFuncionamento, string horaFuncionamento, char horaLivre)
+        public Semana1Fun(List<Funcionamento> segunda, List<Funcionamento> terca, List<Funcionamento> quarta,
+            List<Funcionamento> quinta, List<Funcionamento> sexta, List<Funcionamento> sabado, List<Funcionamento> domingo)
         {
-            this.diaFuncionamento = diaFuncionamento;
-            this.horaFuncionamento = horaFuncionamento;
-            this.horaLivre = horaLivre;
+            this.segunda = segunda;
+            this.terca = terca;
+            this.quarta = quarta;
+            this.quinta = quinta;
+            this.sexta = sexta;
+            this.sabado = sabado;
+            this.domingo = domingo;
+        }
+    }
+    public class Funcionamento
+    {
+        public DateTime dia {  get; private set; }
+        public TimeSpan abertura { get; private set; }
+        public TimeSpan pausa { get; private set; }
+        public TimeSpan fechamento { get; private set; }
+
+        public Funcionamento(DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
+        {
+            this.dia = dia;
+            this.abertura = abertura;
+            this.pausa = pausa;
+            this.fechamento = fechamento;
         }
     }
 
