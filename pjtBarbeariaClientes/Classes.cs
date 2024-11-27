@@ -164,15 +164,20 @@ namespace pjtBarbeariaClientes
         private static int ultimoId = 0;
 
         public String nome { get; private set; }
-        public String valor { get; private set; }
+        public float valor { get; private set; }
         public int id { get; private set; }
 
         [JsonConstructor]
-        public Produto(string nome, string valor)
+        public Produto(string nome, float valor)
         {
             this.nome = nome;
             this.valor = valor;
             id = GerarId();
+        }
+        public Produto(String nome)
+        {
+            this.nome = nome;
+            valor = 0;
         }
 
         public float totalPagar(float valor, int quantidade)
