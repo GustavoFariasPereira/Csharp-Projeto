@@ -17,7 +17,7 @@ namespace pjtBarbeariaClientes
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            listaClientes = Utilitarios.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
+            listaClientes = utilitario.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
             Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
@@ -37,7 +37,7 @@ namespace pjtBarbeariaClientes
 
         private void lbCadastrar_Click(object sender, EventArgs e)
         {
-            Utilitarios.abrirNovoForm<frmCadastroCLiente>(this);
+            utilitario.abrirNovoForm<frmCadastroCLiente>(this);
         }
 
         private void btEntrar_Click(object sender, EventArgs e)
@@ -54,11 +54,11 @@ namespace pjtBarbeariaClientes
                     {
                         Cliente achouCliente = listaClientes[buscarLogin];
 
-                        if (achouCliente.hashSenha == Utilitarios.myHash(txtSenha.Text))
+                        if (achouCliente.hashSenha == utilitario.myHash(txtSenha.Text))
                         {
                             if (achouCliente.login == "ADM")
                             {
-                                Utilitarios.abrirNovoForm<frmCadastro>(this);
+                                utilitario.abrirNovoForm<frmCadastro>(this);
                             }
                             else
                             {
@@ -89,7 +89,7 @@ namespace pjtBarbeariaClientes
 
         private void btSair_Click(object sender, EventArgs e)
         {
-            Utilitarios.fecharAplicativo(this);
+            utilitario.fecharAplicativo(this);
         }
     }
 }

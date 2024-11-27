@@ -17,7 +17,7 @@ namespace pjtBarbeariaClientes
 
         private void frmCadastroCLiente_Load(object sender, EventArgs e)
         {
-            listaClientes = Utilitarios.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
+            listaClientes = utilitario.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
 
             if (listaClientes.Any())
             {
@@ -66,7 +66,7 @@ namespace pjtBarbeariaClientes
                     {
                         if (txtSenha.Text.Trim().Length == 6)
                         {
-                            String hashSenha = Utilitarios.myHash(txtSenha.Text);
+                            String hashSenha = utilitario.myHash(txtSenha.Text);
                             Cliente cliente = new Cliente(txtLogin.Text, hashSenha, txtNome.Text, dataNascimento, txtTelefone.Text);
                             cliente.email = txtEmail.Text;
 
@@ -74,7 +74,7 @@ namespace pjtBarbeariaClientes
                             utilitario.salvarLista(listaClientes);
                             MessageBox.Show("Cadastrado com sucesso!");
 
-                            Utilitarios.abrirNovoForm<frmLogin>(this);
+                            utilitario.abrirNovoForm<frmLogin>(this);
                         }
                         else
                         {
@@ -96,7 +96,7 @@ namespace pjtBarbeariaClientes
 
         private void btVoltarLogin_Click(object sender, EventArgs e)
         {
-            Utilitarios.abrirNovoForm<frmLogin>(this);
+            utilitario.abrirNovoForm<frmLogin>(this);
         }
     }
 }

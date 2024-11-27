@@ -192,7 +192,7 @@ namespace pjtBarbeariaClientes
         public override String ToString()
         {
 
-            return String.Format("Nome: {0}, Valor: R${1:###.00}, Id: {2}.{4}", nome, valor, id, Environment.NewLine);
+            return String.Format("Nome: {0}, Valor: R${1:###.00}, Id: {2}.{3}", nome, valor, id, Environment.NewLine);
 
         }
 

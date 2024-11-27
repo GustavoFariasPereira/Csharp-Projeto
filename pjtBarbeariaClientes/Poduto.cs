@@ -37,9 +37,42 @@ namespace pjtBarbeariaClientes
         {
             if (txtProduto.Text != String.Empty)
             {
-                
-                listaProdutos.Sort();
-                
+                if (txtValor.Text != String.Empty) 
+                {
+                    float valor = 0;
+                    if (float.TryParse(txtValor.Text, out valor))
+                    {
+                        Produto nome = new Produto(txtProduto.Text);
+                        listaProdutos.Sort();
+                        int buscar = listaProdutos.BinarySearch(nome);
+
+                        if (buscar < 0)
+                        {
+                            Produto produto = new Produto(txtProduto.Text, valor);
+                            listaProdutos.Add(produto);
+                            utilitario.salvarLista(listaProdutos);
+                            txtProdutos.Text = utilitario.relatorio(listaProdutos);
+                            MessageBox.Show("Cadastrado com sucesso!");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nome já existente!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Valor digitado inválido!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Digite um valor para o produto!");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Digite um nome para o produto!");
             }
         }
     }
