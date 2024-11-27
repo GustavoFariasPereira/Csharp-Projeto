@@ -1,6 +1,6 @@
 ﻿namespace pjtBarbeariaClientes
 {
-    partial class Poduto
+    partial class frmProduto
     {
         /// <summary>
         /// Required designer variable.
@@ -78,6 +78,7 @@
             btCadastrar.TabIndex = 37;
             btCadastrar.Text = "Cadastrar";
             btCadastrar.UseVisualStyleBackColor = false;
+            btCadastrar.Click += btCadastrar_Click;
             // 
             // lbValor
             // 
@@ -207,7 +208,7 @@
             lbTitulo.Text = "Barbearia\r\nBarba de Gato\r\n";
             lbTitulo.TextAlign = ContentAlignment.TopCenter;
             // 
-            // Poduto
+            // frmProduto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -227,7 +228,7 @@
             Controls.Add(lbProduto);
             Controls.Add(txtProduto);
             Controls.Add(lbCadastrarProduto);
-            Name = "Poduto";
+            Name = "frmProduto";
             Text = "Poduto";
             Load += Poduto_Load;
             ResumeLayout(false);

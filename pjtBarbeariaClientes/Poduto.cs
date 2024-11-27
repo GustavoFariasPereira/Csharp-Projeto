@@ -10,18 +10,37 @@ using System.Windows.Forms;
 
 namespace pjtBarbeariaClientes
 {
-    public partial class Poduto : Form
+    public partial class frmProduto : Form
     {
         List<Produto> listaProdutos = new List<Produto>();
         Utilitarios utilitario = new Utilitarios();
-        public Poduto()
+        public frmProduto()
         {
             InitializeComponent();
         }
 
         private void Poduto_Load(object sender, EventArgs e)
         {
+            listaProdutos = utilitario.carregarLista<Produto>(@"D:\C#\Semestre2\BProdutos.json");
 
+            if (listaProdutos.Any())
+            {
+                txtProdutos.Text = utilitario.relatorio(listaProdutos);
+            }
+            else
+            {
+                txtProdutos.Text = "Nenhum produto cadastrado!";
+            }
+        }
+
+        private void btCadastrar_Click(object sender, EventArgs e)
+        {
+            if (txtProduto.Text != String.Empty)
+            {
+                
+                listaProdutos.Sort();
+                
+            }
         }
     }
 }

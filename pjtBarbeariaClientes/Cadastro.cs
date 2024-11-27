@@ -12,7 +12,7 @@ namespace pjtBarbeariaClientes
         private void frmCadastroClientes_Load(object sender, EventArgs e)
         {
 
-            listaClientes = Utilitarios.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
+            listaClientes = utilitario.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
             Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
@@ -57,12 +57,12 @@ namespace pjtBarbeariaClientes
 
         private void miLogin_Click(object sender, EventArgs e)
         {
-            Utilitarios.abrirNovoForm<frmLogin>(this);
+            utilitario.abrirNovoForm<frmLogin>(this);
         }
 
         private void miCadastro_Click(object sender, EventArgs e)
         {
-            Utilitarios.abrirNovoForm<frmCadastroCLiente>(this);
+            utilitario.abrirNovoForm<frmCadastroCLiente>(this);
         }
 
         private void label1_Click(object sender, EventArgs e)
