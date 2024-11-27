@@ -23,6 +23,16 @@ namespace pjtBarbeariaClientes
             File.WriteAllText(endereco, json);
         }
 
+        public object carregarObjeto(string endereco)
+        {
+            if (File.Exists(endereco))
+            {
+                string jsonString = File.ReadAllText(endereco);
+                return JsonSerializer.Deserialize<object>(jsonString);
+            }
+            return new object();
+        }
+
         public void salvarLista<T>(List<T> lista)
         {
             String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
@@ -40,17 +50,17 @@ namespace pjtBarbeariaClientes
             File.WriteAllText(enderecoLista, json);
         }
 
-        public static List<T> carregarLista<T>(string enderecoLista)
-       {
+        public List<T> carregarLista<T>(string enderecoLista)
+        {
           if (File.Exists(enderecoLista))
           {
              string jsonString = File.ReadAllText(enderecoLista);
              return JsonSerializer.Deserialize<List<T>>(jsonString) ?? new List<T>();
           }
           return new List<T>();
-       }
+        }
         
-        public static string myHash(string input)
+        public string myHash(string input)
         {
            
             using (SHA256 sha256 = SHA256.Create())
@@ -80,13 +90,13 @@ namespace pjtBarbeariaClientes
             return ret.ToString();
         }
 
-        public static void fecharAplicativo(Form formAtual)
+        public void fecharAplicativo(Form formAtual)
         {
             formAtual.Close();         
             Application.Exit();        
         }
 
-        public static void abrirNovoForm<T>(Form formAtual) where T : Form, new()
+        public void abrirNovoForm<T>(Form formAtual) where T : Form, new()
         {
             formAtual.Hide();
 
@@ -112,7 +122,7 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        static string TraduzirDiaSemana(DayOfWeek dia)
+        public string TraduzirDiaSemana(DayOfWeek dia)
         {
             return dia switch
             {
