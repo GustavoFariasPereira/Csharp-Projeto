@@ -229,6 +229,7 @@
             Controls.Add(lbCadastrarProduto);
             Name = "Poduto";
             Text = "Poduto";
+            Load += Poduto_Load;
             ResumeLayout(false);
             PerformLayout();
         }

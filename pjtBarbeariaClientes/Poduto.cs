@@ -12,9 +12,16 @@ namespace pjtBarbeariaClientes
 {
     public partial class Poduto : Form
     {
+        List<Produto> listaProdutos = new List<Produto>();
+        Utilitarios utilitario = new Utilitarios();
         public Poduto()
         {
             InitializeComponent();
+        }
+
+        private void Poduto_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
