@@ -43,14 +43,6 @@
             lbAgendamentos = new Label();
             txtBuscarCLientesAgendamentos = new TextBox();
             btAlterarLogin = new Button();
-            txtProduto = new TextBox();
-            lbCadastrarProduto = new Label();
-            lbProduto = new Label();
-            lbValor = new Label();
-            txtValor = new TextBox();
-            btCadastrar = new Button();
-            lbProdutos = new Label();
-            txtProdutos = new TextBox();
             lbProdutoCodigo = new Label();
             txtProdutoCodigo = new TextBox();
             btBuscarProduto = new Button();
@@ -79,6 +71,14 @@
             txtDiasHorasFuncionamento = new TextBox();
             rbEstaSemana = new RadioButton();
             rbProximaSemana = new RadioButton();
+            lbCadastrarProduto = new Label();
+            txtProdutos = new TextBox();
+            lbProdutos = new Label();
+            btCadastrar = new Button();
+            txtProduto = new TextBox();
+            txtValor = new TextBox();
+            lbValor = new Label();
+            lbProduto = new Label();
             mnIrPara.SuspendLayout();
             SuspendLayout();
             // 
@@ -240,84 +240,6 @@
             btAlterarLogin.TabIndex = 23;
             btAlterarLogin.Text = "Alterar";
             btAlterarLogin.UseVisualStyleBackColor = false;
-            // 
-            // txtProduto
-            // 
-            txtProduto.Location = new Point(64, 716);
-            txtProduto.Name = "txtProduto";
-            txtProduto.Size = new Size(198, 27);
-            txtProduto.TabIndex = 24;
-            // 
-            // lbCadastrarProduto
-            // 
-            lbCadastrarProduto.AutoSize = true;
-            lbCadastrarProduto.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbCadastrarProduto.Location = new Point(64, 599);
-            lbCadastrarProduto.Name = "lbCadastrarProduto";
-            lbCadastrarProduto.Size = new Size(209, 31);
-            lbCadastrarProduto.TabIndex = 25;
-            lbCadastrarProduto.Text = "Cadastrar Produto";
-            // 
-            // lbProduto
-            // 
-            lbProduto.AutoSize = true;
-            lbProduto.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbProduto.Location = new Point(64, 688);
-            lbProduto.Name = "lbProduto";
-            lbProduto.Size = new Size(81, 25);
-            lbProduto.TabIndex = 26;
-            lbProduto.Text = "Produto";
-            // 
-            // lbValor
-            // 
-            lbValor.AutoSize = true;
-            lbValor.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbValor.Location = new Point(310, 688);
-            lbValor.Name = "lbValor";
-            lbValor.Size = new Size(56, 25);
-            lbValor.TabIndex = 28;
-            lbValor.Text = "Valor";
-            // 
-            // txtValor
-            // 
-            txtValor.Location = new Point(310, 716);
-            txtValor.Name = "txtValor";
-            txtValor.Size = new Size(116, 27);
-            txtValor.TabIndex = 27;
-            // 
-            // btCadastrar
-            // 
-            btCadastrar.BackColor = Color.MediumSeaGreen;
-            btCadastrar.FlatStyle = FlatStyle.Flat;
-            btCadastrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btCadastrar.ForeColor = SystemColors.ControlText;
-            btCadastrar.Location = new Point(64, 759);
-            btCadastrar.Name = "btCadastrar";
-            btCadastrar.Size = new Size(116, 36);
-            btCadastrar.TabIndex = 29;
-            btCadastrar.Text = "Cadastrar";
-            btCadastrar.UseVisualStyleBackColor = false;
-            // 
-            // lbProdutos
-            // 
-            lbProdutos.AutoSize = true;
-            lbProdutos.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lbProdutos.Location = new Point(507, 605);
-            lbProdutos.Name = "lbProdutos";
-            lbProdutos.Size = new Size(89, 25);
-            lbProdutos.TabIndex = 31;
-            lbProdutos.Text = "Produtos";
-            // 
-            // txtProdutos
-            // 
-            txtProdutos.BorderStyle = BorderStyle.FixedSingle;
-            txtProdutos.Location = new Point(507, 647);
-            txtProdutos.Multiline = true;
-            txtProdutos.Name = "txtProdutos";
-            txtProdutos.ReadOnly = true;
-            txtProdutos.ScrollBars = ScrollBars.Vertical;
-            txtProdutos.Size = new Size(306, 149);
-            txtProdutos.TabIndex = 30;
             // 
             // lbProdutoCodigo
             // 
@@ -616,6 +538,84 @@
             rbProximaSemana.Text = "Próxima semana";
             rbProximaSemana.UseVisualStyleBackColor = true;
             // 
+            // lbCadastrarProduto
+            // 
+            lbCadastrarProduto.AutoSize = true;
+            lbCadastrarProduto.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbCadastrarProduto.Location = new Point(64, 599);
+            lbCadastrarProduto.Name = "lbCadastrarProduto";
+            lbCadastrarProduto.Size = new Size(209, 31);
+            lbCadastrarProduto.TabIndex = 25;
+            lbCadastrarProduto.Text = "Cadastrar Produto";
+            // 
+            // txtProdutos
+            // 
+            txtProdutos.BorderStyle = BorderStyle.FixedSingle;
+            txtProdutos.Location = new Point(507, 647);
+            txtProdutos.Multiline = true;
+            txtProdutos.Name = "txtProdutos";
+            txtProdutos.ReadOnly = true;
+            txtProdutos.ScrollBars = ScrollBars.Vertical;
+            txtProdutos.Size = new Size(306, 149);
+            txtProdutos.TabIndex = 30;
+            // 
+            // lbProdutos
+            // 
+            lbProdutos.AutoSize = true;
+            lbProdutos.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbProdutos.Location = new Point(507, 605);
+            lbProdutos.Name = "lbProdutos";
+            lbProdutos.Size = new Size(89, 25);
+            lbProdutos.TabIndex = 31;
+            lbProdutos.Text = "Produtos";
+            // 
+            // btCadastrar
+            // 
+            btCadastrar.BackColor = Color.MediumSeaGreen;
+            btCadastrar.FlatStyle = FlatStyle.Flat;
+            btCadastrar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCadastrar.ForeColor = SystemColors.ControlText;
+            btCadastrar.Location = new Point(64, 759);
+            btCadastrar.Name = "btCadastrar";
+            btCadastrar.Size = new Size(116, 36);
+            btCadastrar.TabIndex = 29;
+            btCadastrar.Text = "Cadastrar";
+            btCadastrar.UseVisualStyleBackColor = false;
+            // 
+            // txtProduto
+            // 
+            txtProduto.Location = new Point(64, 716);
+            txtProduto.Name = "txtProduto";
+            txtProduto.Size = new Size(198, 27);
+            txtProduto.TabIndex = 24;
+            // 
+            // txtValor
+            // 
+            txtValor.Location = new Point(310, 716);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(116, 27);
+            txtValor.TabIndex = 27;
+            // 
+            // lbValor
+            // 
+            lbValor.AutoSize = true;
+            lbValor.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbValor.Location = new Point(310, 688);
+            lbValor.Name = "lbValor";
+            lbValor.Size = new Size(56, 25);
+            lbValor.TabIndex = 28;
+            lbValor.Text = "Valor";
+            // 
+            // lbProduto
+            // 
+            lbProduto.AutoSize = true;
+            lbProduto.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbProduto.Location = new Point(64, 688);
+            lbProduto.Name = "lbProduto";
+            lbProduto.Size = new Size(81, 25);
+            lbProduto.TabIndex = 26;
+            lbProduto.Text = "Produto";
+            // 
             // frmCadastro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -695,14 +695,6 @@
         private Label lbAgendamentos;
         private TextBox txtBuscarCLientesAgendamentos;
         private Button btAlterarLogin;
-        private TextBox txtProduto;
-        private Label lbCadastrarProduto;
-        private Label lbProduto;
-        private Label lbValor;
-        private TextBox txtValor;
-        private Button btCadastrar;
-        private Label lbProdutos;
-        private TextBox txtProdutos;
         private Label lbProdutoCodigo;
         private TextBox txtProdutoCodigo;
         private Button btBuscarProduto;
@@ -732,5 +724,13 @@
         private TextBox txtDiasHorasFuncionamento;
         private RadioButton rbEstaSemana;
         private RadioButton rbProximaSemana;
+        private Label lbCadastrarProduto;
+        private TextBox txtProdutos;
+        private Label lbProdutos;
+        private Button btCadastrar;
+        private TextBox txtProduto;
+        private TextBox txtValor;
+        private Label lbValor;
+        private Label lbProduto;
     }
 }
