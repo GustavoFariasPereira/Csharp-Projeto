@@ -11,18 +11,19 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace pjtBarbeariaClientes
 {
-    public class Semana1Fun
+    public class HorarioSemana
     {
-        public List<Funcionamento> segunda { get; private set; }
-        public List<Funcionamento> terca { get; private set; }
-        public List<Funcionamento> quarta { get; private set; }
-        public List<Funcionamento> quinta { get; private set; }
-        public List<Funcionamento> sexta { get; private set; }
-        public List<Funcionamento> sabado { get; private set; }
-        public List<Funcionamento> domingo { get; private set; }
+        public Funcionamento segunda { get; private set; }
+        public Funcionamento terca { get; private set; }
+        public Funcionamento quarta { get; private set; }
+        public Funcionamento quinta { get; private set; }
+        public Funcionamento sexta { get; private set; }
+        public Funcionamento sabado { get; private set; }
+        public Funcionamento domingo { get; private set; }
 
-        public Semana1Fun(List<Funcionamento> segunda, List<Funcionamento> terca, List<Funcionamento> quarta,
-            List<Funcionamento> quinta, List<Funcionamento> sexta, List<Funcionamento> sabado, List<Funcionamento> domingo)
+        [JsonConstructor]
+        public HorarioSemana(Funcionamento segunda, Funcionamento terca, Funcionamento quarta,
+            Funcionamento quinta, Funcionamento sexta, Funcionamento sabado, Funcionamento domingo)
         {
             this.segunda = segunda;
             this.terca = terca;
@@ -33,19 +34,48 @@ namespace pjtBarbeariaClientes
             this.domingo = domingo;
         }
     }
-    public class Funcionamento
+
+    public class Funcionamento : IComparable<Funcionamento>
     {
         public DateTime dia {  get; private set; }
         public TimeSpan abertura { get; private set; }
         public TimeSpan pausa { get; private set; }
         public TimeSpan fechamento { get; private set; }
 
+        [JsonConstructor]
         public Funcionamento(DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
         {
             this.dia = dia;
             this.abertura = abertura;
             this.pausa = pausa;
             this.fechamento = fechamento;
+        }
+
+        public bool horaValida(TimeSpan hora)
+        {
+            TimeSpan pausa = this.pausa.Add( new TimeSpan(1, 0, 0) );
+            
+            bool valido;
+            if (hora >= abertura && hora < pausa && hora < fechamento)
+            {
+                valido = true;
+            }
+            else
+            {
+                valido = false;
+            }
+            return valido;
+        }
+
+        public int CompareTo(Funcionamento? outro)
+        {
+            int pos;
+            if (outro == null) pos = -1;
+            else
+            {
+                pos = dia.CompareTo(outro.dia);
+            }
+            return pos;
         }
     }
 
@@ -72,7 +102,7 @@ namespace pjtBarbeariaClientes
             if (outro == null) pos = -1;
             else
             {
-                pos = cliente.login.CompareTo(outro.cliente.login);
+                pos = horaAgendamento.CompareTo(outro.horaAgendamento);
             }
             return pos;
         }
