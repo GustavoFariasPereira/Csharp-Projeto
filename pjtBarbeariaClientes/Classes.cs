@@ -51,22 +51,6 @@ namespace pjtBarbeariaClientes
             this.fechamento = fechamento;
         }
 
-        public bool horaValida(TimeSpan hora)
-        {
-            TimeSpan pausa = this.pausa.Add( new TimeSpan(1, 0, 0) );
-            
-            bool valido;
-            if (hora >= abertura && hora < pausa && hora < fechamento)
-            {
-                valido = true;
-            }
-            else
-            {
-                valido = false;
-            }
-            return valido;
-        }
-
         public int CompareTo(Funcionamento? outro)
         {
             int pos;
