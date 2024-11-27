@@ -11,8 +11,19 @@ namespace pjtBarbeariaClientes
 {
     public class Utilitarios
     {
+        public void salvarObjeto(object obj)
+        {
+            String endereco = @"D:\C#\Semestre2\Bfuncionamento.json";
+            if (obj is HorarioSemana)
+            {
+                endereco = @"D:\C#\Semestre2\BhorarioSemana.json";
+            }
+            
+            String json = JsonSerializer.Serialize(obj, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(endereco, json);
+        }
 
-       public void salvarLista<T>(List<T> lista)
+        public void salvarLista<T>(List<T> lista)
         {
             String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
 
@@ -29,7 +40,7 @@ namespace pjtBarbeariaClientes
             File.WriteAllText(enderecoLista, json);
         }
 
-       public static List<T> carregarLista<T>(string enderecoLista)
+        public static List<T> carregarLista<T>(string enderecoLista)
        {
           if (File.Exists(enderecoLista))
           {
