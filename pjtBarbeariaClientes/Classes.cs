@@ -174,10 +174,11 @@ namespace pjtBarbeariaClientes
             this.valor = valor;
             id = GerarId();
         }
-        public Produto(String nome)
+        public Produto(int id)
         {
-            this.nome = nome;
+            nome = "";
             valor = 0;
+            this.id = id;
         }
 
         public float totalPagar(float valor, int quantidade)
