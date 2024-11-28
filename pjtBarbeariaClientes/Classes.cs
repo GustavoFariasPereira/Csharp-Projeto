@@ -202,7 +202,7 @@ namespace pjtBarbeariaClientes
             if (outro == null) pos = -1;
             else
             {
-                pos = nome.CompareTo(outro.nome);
+                pos = id.CompareTo(outro.id);
             }
             return pos;
         }
