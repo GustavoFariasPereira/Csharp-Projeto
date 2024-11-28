@@ -37,7 +37,7 @@ namespace pjtBarbeariaClientes
         {
             if (txtProduto.Text != String.Empty)
             {
-                if (txtValor.Text != String.Empty) 
+                if (txtValor.Text != String.Empty)
                 {
                     float valor = 0;
                     if (float.TryParse(txtValor.Text, out valor))
@@ -73,6 +73,18 @@ namespace pjtBarbeariaClientes
             else
             {
                 MessageBox.Show("Digite um nome para o produto!");
+            }
+        }
+
+        private void btBuscarProduto_Click(object sender, EventArgs e)
+        {
+            if (txtProdutoCodigo.Text != String.Empty)
+            {
+                Produto nome 
+            }
+            else
+            {
+                MessageBox.Show("Digite o nome do produto ou código!");
             }
         }
     }

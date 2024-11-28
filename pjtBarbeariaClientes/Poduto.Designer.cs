@@ -177,6 +177,7 @@
             btBuscarProduto.TabIndex = 61;
             btBuscarProduto.Text = "Buscar";
             btBuscarProduto.UseVisualStyleBackColor = false;
+            btBuscarProduto.Click += btBuscarProduto_Click;
             // 
             // lbProdutoCodigo
             // 
