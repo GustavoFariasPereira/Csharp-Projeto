@@ -80,7 +80,7 @@ namespace pjtBarbeariaClientes
         {
             if (txtProdutoCodigo.Text != String.Empty)
             {
-                Produto nome 
+                 
             }
             else
             {
