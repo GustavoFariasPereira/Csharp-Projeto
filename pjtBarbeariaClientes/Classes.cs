@@ -172,7 +172,7 @@ namespace pjtBarbeariaClientes
         {
             this.nome = nome;
             this.valor = valor;
-            id = GerarId();
+            id = gerarId();
         }
         public Produto(int id)
         {
@@ -186,7 +186,7 @@ namespace pjtBarbeariaClientes
             return valor * quantidade;
         }
 
-        private static int GerarId()
+        private static int gerarId()
         {
             return ++ultimoId; // Incrementa e retorna o próximo ID.
         }
@@ -207,6 +207,22 @@ namespace pjtBarbeariaClientes
             }
             return pos;
         }
+
+        public int compareNome(List<Produto> lista)
+        {
+            // Verifica se a lista é nula ou vazia
+            if (lista == null || lista.Count == 0)
+                return -1;
+
+            // Procura um produto com o mesmo nome na lista (ignorando maiúsculas e minúsculas)
+            bool exists = lista.Any(p =>
+                p.nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
+
+            // Retorna -1 se não encontrar, 0 se encontrar
+            return exists ? 0 : -1;
+        }
+
+
     }
 
     public abstract class Pessoa
