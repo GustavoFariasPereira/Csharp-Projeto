@@ -25,6 +25,7 @@ namespace pjtBarbeariaClientes
 
             if (listaProdutos.Any())
             {
+                listaProdutos.Sort();
                 txtProdutos.Text = utilitario.relatorio(listaProdutos);
             }
             else
@@ -50,6 +51,7 @@ namespace pjtBarbeariaClientes
                         {
                             Produto produto = new Produto(txtProduto.Text, valor);
                             listaProdutos.Add(produto);
+                            listaProdutos.Sort();
                             utilitario.salvarLista(listaProdutos);
                             txtProdutos.Text = utilitario.relatorio(listaProdutos);
                             MessageBox.Show("Cadastrado com sucesso!");
@@ -84,7 +86,17 @@ namespace pjtBarbeariaClientes
                 if (int.TryParse(txtProdutoCodigo.Text, out id))
                 {
                     Produto codigo = new Produto(id);
-
+                    int buscarId = listaProdutos.BinarySearch(codigo);
+                    
+                    if (buscarId >= 0)
+                    {
+                        Produto produto = listaProdutos[buscarId];
+                        txtBuscarProdutos.Text = produto.ToString();
+                    }
+                    else
+                    {
+                        txtBuscarProdutos.Text = "NãoAchei";
+                    }
                 }
                 else
                 {
