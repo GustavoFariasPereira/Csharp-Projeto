@@ -80,7 +80,16 @@ namespace pjtBarbeariaClientes
         {
             if (txtProdutoCodigo.Text != String.Empty)
             {
-                 
+                int id = 0;
+                if (int.TryParse(txtProdutoCodigo.Text, out id))
+                {
+                    Produto codigo = new Produto(id);
+
+                }
+                else
+                {
+
+                }
             }
             else
             {
