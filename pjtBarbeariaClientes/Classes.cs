@@ -174,6 +174,13 @@ namespace pjtBarbeariaClientes
             this.valor = valor;
             id = gerarId();
         }
+
+        public Produto(String nome)
+        {
+            this.nome = nome;
+            valor = 0;
+        }
+
         public Produto(int id)
         {
             nome = "";
