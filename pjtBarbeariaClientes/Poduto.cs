@@ -82,10 +82,10 @@ namespace pjtBarbeariaClientes
         {
             if (txtProdutoCodigo.Text != String.Empty)
             {
-                int id = 0;
-                if (int.TryParse(txtProdutoCodigo.Text, out id))
+                if (int.TryParse(txtProdutoCodigo.Text, out int id))
                 {
                     Produto codigo = new Produto(id);
+                    listaProdutos.Sort();
                     int buscarId = listaProdutos.BinarySearch(codigo);
                     
                     if (buscarId >= 0)
@@ -101,7 +101,17 @@ namespace pjtBarbeariaClientes
                 else
                 {
                     Produto nome = new Produto(txtProdutoCodigo.Text);
-                    int buscarNome = nome.compareNome(listaProdutos);
+                    listaProdutos.Sort((p1, p2) => p1.CompareTo(p2, p => p.nome));
+                    int buscarNome = listaProdutos.BinarySearch(nome, Comparer<Produto>.Create((p1, p2) => p1.CompareTo(p2, p => p.nome)));
+                    
+                    if (buscarNome >= 0)
+                    {
+                        txtBuscarProdutos.Text = "Achei";
+                    }
+                    else
+                    {
+                        txtBuscarProdutos.Text = "NãoAchei";
+                    }
                 }
             }
             else
