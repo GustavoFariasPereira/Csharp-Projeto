@@ -100,7 +100,8 @@ namespace pjtBarbeariaClientes
                 }
                 else
                 {
-
+                    Produto nome = new Produto(txtProdutoCodigo.Text);
+                    int buscarNome = nome.compareNome(listaProdutos);
                 }
             }
             else
