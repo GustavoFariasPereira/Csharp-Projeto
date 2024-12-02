@@ -215,20 +215,16 @@ namespace pjtBarbeariaClientes
             return pos;
         }
 
-        public int compareNome(List<Produto> lista)
+        public int CompareTo(Produto? outro, Func<Produto, IComparable> selector)
         {
-            // Verifica se a lista é nula ou vazia
-            if (lista == null || lista.Count == 0)
-                return -1;
-
-            // Procura um produto com o mesmo nome na lista (ignorando maiúsculas e minúsculas)
-            bool exists = lista.Any(p =>
-                p.nome.Equals(nome, StringComparison.OrdinalIgnoreCase));
-
-            // Retorna -1 se não encontrar, 0 se encontrar
-            return exists ? 0 : -1;
+            int pos;
+            if (outro == null) pos = -1;
+            else 
+            { 
+                pos = selector(this)?.CompareTo(selector(outro)) ?? -1;
+            }
+            return pos;
         }
-
 
     }
 
