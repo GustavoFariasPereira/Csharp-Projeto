@@ -195,14 +195,13 @@ namespace pjtBarbeariaClientes
 
         private int gerarId()
         {
-            int cod;
-            if (id == 0)
+            if (id == 0) // Gera ID somente se for inválido
             {
-                cod = ultimoId++;
+                id = ultimoId++;
             }
-            else cod = id;
-            return cod;
+            return id;
         }
+
         public override String ToString()
         {
 
