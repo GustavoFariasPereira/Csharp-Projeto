@@ -154,10 +154,10 @@ namespace pjtBarbeariaClientes
                 {
                     if (int.TryParse(txtValor.Text, out int valor))
                     {
-                        //Produto produto = new Produto(txtProduto.Text, valor, alterar.id);
-                        //int pos = indice(produto);
-                        //listaProdutos[pos] = produto;
-                        //txtProdutos.Text = utilitario.relatorio(listaProdutos);
+                        Produto produto = new Produto(txtProduto.Text, valor, );
+                        int pos = indice(produto);
+                        listaProdutos[pos] = produto;
+                        txtProdutos.Text = utilitario.relatorio(listaProdutos);
                     }
                     else MessageBox.Show("Valor do produto inválido!");
                 }
