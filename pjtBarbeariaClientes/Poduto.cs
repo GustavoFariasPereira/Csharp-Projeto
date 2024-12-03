@@ -14,6 +14,8 @@ namespace pjtBarbeariaClientes
     {
         List<Produto> listaProdutos = new List<Produto>();
         Utilitarios utilitario = new Utilitarios();
+      
+        
         public frmProduto()
         {
             InitializeComponent();
@@ -48,7 +50,9 @@ namespace pjtBarbeariaClientes
                     {
                         if (float.TryParse(txtValor.Text, out float valor))
                         {
-                            Produto produto = new Produto(txtProduto.Text, valor);
+                            Produto gerarId = new Produto();
+                            int id = gerarId.gerarId();
+                            Produto produto = new Produto(txtProduto.Text, valor, id);
                             listaProdutos.Add(produto);
                             listaProdutos.Sort();
                             utilitario.salvarLista(listaProdutos);
@@ -76,7 +80,7 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        public static Produto alterar = new Produto("", 0);
+        public static Produto alterar = new Produto("", 0, 0);
 
         private int indice(Produto produto)
         {
@@ -152,9 +156,9 @@ namespace pjtBarbeariaClientes
             {
                 if (txtValor.Text != String.Empty)
                 {
-                    if (int.TryParse(txtValor.Text, out int valor))
+                    if (float.TryParse(txtValor.Text, out float valor))
                     {
-                        Produto produto = new Produto(txtProduto.Text, valor, );
+                        Produto produto = new Produto(txtProduto.Text, valor, alterar.id);
                         int pos = indice(produto);
                         listaProdutos[pos] = produto;
                         txtProdutos.Text = utilitario.relatorio(listaProdutos);
