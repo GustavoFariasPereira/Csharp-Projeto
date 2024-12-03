@@ -161,7 +161,7 @@ namespace pjtBarbeariaClientes
 
     public class Produto : IComparable<Produto>
     {
-        private static int ultimoId = 0;
+        private static int ultimoId = 1;
 
         public String nome { get; private set; }
         public float valor { get; private set; }
@@ -172,7 +172,7 @@ namespace pjtBarbeariaClientes
         {
             this.nome = nome;
             this.valor = valor;
-            id = 0;
+            id = gerarId();
         }
 
         public Produto(String nome)
@@ -193,19 +193,15 @@ namespace pjtBarbeariaClientes
             return valor * quantidade;
         }
 
-        private int gerarId(Produto produto, List<Produto> listaProdutos)
+        private int gerarId()
         {
-            Produto? encontrarNome = listaProdutos.Find(p => p.nome.Equals(produto.nome, StringComparison.Ordinal));
-            int id;
-            if (encontrarNome != null)
+            int cod;
+            if (id == 0)
             {
-                id = produto.id;
+                cod = ultimoId++;
             }
-            else
-            {
-                id = ultimoId++;
-            }
-            return id; // Incrementa e retorna o próximo ID.
+            else cod = id;
+            return cod;
         }
         public override String ToString()
         {
