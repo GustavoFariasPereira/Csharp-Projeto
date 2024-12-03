@@ -168,11 +168,11 @@ namespace pjtBarbeariaClientes
         public int id { get; private set; }
 
         [JsonConstructor]
-        public Produto(string nome, float valor)
+        public Produto(string nome, float valor, int id)
         {
             this.nome = nome;
             this.valor = valor;
-            id = gerarId();
+            this.id = id;
         }
 
         public Produto(String nome)
