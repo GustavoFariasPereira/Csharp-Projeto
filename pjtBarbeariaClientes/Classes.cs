@@ -172,7 +172,7 @@ namespace pjtBarbeariaClientes
         {
             this.nome = nome;
             this.valor = valor;
-            id = gerarId();
+            id = gerarId( new Produto("", 0), new List<Produto>());
         }
 
         public Produto(String nome)
@@ -193,9 +193,19 @@ namespace pjtBarbeariaClientes
             return valor * quantidade;
         }
 
-        private static int gerarId()
+        private int gerarId(Produto produto, List<Produto> listaProdutos)
         {
-            return ++ultimoId; // Incrementa e retorna o próximo ID.
+            Produto? encontrarNome = listaProdutos.Find(p => p.nome.Equals(produto.nome, StringComparison.Ordinal));
+            int id;
+            if (encontrarNome != null)
+            {
+                id = produto.id;
+            }
+            else
+            {
+                id = ultimoId++;
+            }
+            return id; // Incrementa e retorna o próximo ID.
         }
         public override String ToString()
         {
