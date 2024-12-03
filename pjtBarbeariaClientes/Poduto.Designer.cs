@@ -43,6 +43,8 @@
             lbProdutoCodigo = new Label();
             txtProdutoCodigo = new TextBox();
             lbTitulo = new Label();
+            btCancelar = new Button();
+            btSalvar = new Button();
             SuspendLayout();
             // 
             // lbProdutos
@@ -135,22 +137,24 @@
             txtBuscarProdutos.Name = "txtBuscarProdutos";
             txtBuscarProdutos.ReadOnly = true;
             txtBuscarProdutos.ScrollBars = ScrollBars.Vertical;
-            txtBuscarProdutos.Size = new Size(275, 79);
+            txtBuscarProdutos.Size = new Size(329, 79);
             txtBuscarProdutos.TabIndex = 64;
             txtBuscarProdutos.Text = "Buscar produto.";
             // 
             // btAlterarProduto
             // 
             btAlterarProduto.BackColor = SystemColors.ActiveBorder;
+            btAlterarProduto.Enabled = false;
             btAlterarProduto.FlatStyle = FlatStyle.Flat;
             btAlterarProduto.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btAlterarProduto.ForeColor = SystemColors.ControlText;
-            btAlterarProduto.Location = new Point(26, 448);
+            btAlterarProduto.Location = new Point(372, 304);
             btAlterarProduto.Name = "btAlterarProduto";
-            btAlterarProduto.Size = new Size(116, 36);
+            btAlterarProduto.Size = new Size(116, 37);
             btAlterarProduto.TabIndex = 63;
             btAlterarProduto.Text = "Alterar";
             btAlterarProduto.UseVisualStyleBackColor = false;
+            btAlterarProduto.Click += btAlterarProduto_Click;
             // 
             // btExcluirProduto
             // 
@@ -158,12 +162,13 @@
             btExcluirProduto.FlatStyle = FlatStyle.Flat;
             btExcluirProduto.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btExcluirProduto.ForeColor = SystemColors.ControlText;
-            btExcluirProduto.Location = new Point(159, 449);
+            btExcluirProduto.Location = new Point(162, 196);
             btExcluirProduto.Name = "btExcluirProduto";
             btExcluirProduto.Size = new Size(116, 36);
             btExcluirProduto.TabIndex = 62;
             btExcluirProduto.Text = "Excluir";
             btExcluirProduto.UseVisualStyleBackColor = false;
+            btExcluirProduto.Visible = false;
             // 
             // btBuscarProduto
             // 
@@ -209,11 +214,42 @@
             lbTitulo.Text = "Barbearia\r\nBarba de Gato\r\n";
             lbTitulo.TextAlign = ContentAlignment.TopCenter;
             // 
+            // btCancelar
+            // 
+            btCancelar.BackColor = SystemColors.Highlight;
+            btCancelar.Enabled = false;
+            btCancelar.FlatStyle = FlatStyle.Flat;
+            btCancelar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btCancelar.ForeColor = SystemColors.ControlText;
+            btCancelar.Location = new Point(299, 196);
+            btCancelar.Name = "btCancelar";
+            btCancelar.Size = new Size(116, 37);
+            btCancelar.TabIndex = 66;
+            btCancelar.Text = "Cancelar";
+            btCancelar.UseVisualStyleBackColor = false;
+            btCancelar.Visible = false;
+            // 
+            // btSalvar
+            // 
+            btSalvar.BackColor = Color.MediumSeaGreen;
+            btSalvar.FlatStyle = FlatStyle.Flat;
+            btSalvar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btSalvar.ForeColor = SystemColors.ControlText;
+            btSalvar.Location = new Point(26, 195);
+            btSalvar.Name = "btSalvar";
+            btSalvar.Size = new Size(116, 38);
+            btSalvar.TabIndex = 67;
+            btSalvar.Text = "Salvar";
+            btSalvar.UseVisualStyleBackColor = false;
+            btSalvar.Visible = false;
+            // 
             // frmProduto
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(799, 532);
+            Controls.Add(btSalvar);
+            Controls.Add(btCancelar);
             Controls.Add(lbTitulo);
             Controls.Add(txtBuscarProdutos);
             Controls.Add(btAlterarProduto);
@@ -253,5 +289,7 @@
         private Label lbProdutoCodigo;
         private TextBox txtProdutoCodigo;
         private Label lbTitulo;
+        private Button btCancelar;
+        private Button btSalvar;
     }
 }

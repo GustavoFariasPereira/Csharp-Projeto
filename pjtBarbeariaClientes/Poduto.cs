@@ -38,16 +38,15 @@ namespace pjtBarbeariaClientes
         {
             if (txtProduto.Text != String.Empty)
             {
-                if (txtValor.Text != String.Empty)
-                {
-                    float valor = 0;
-                    if (float.TryParse(txtValor.Text, out valor))
-                    {
-                        Produto nome = new Produto(txtProduto.Text);
-                        listaProdutos.Sort();
-                        int buscar = listaProdutos.BinarySearch(nome);
+                Produto nome = new Produto(txtProduto.Text);
+                listaProdutos.Sort((p1, p2) => p1.CompareTo(p2, p => p.nome));
+                int buscar = listaProdutos.BinarySearch(nome, Comparer<Produto>.Create((p1, p2) => p1.CompareTo(p2, p => p.nome)));
 
-                        if (buscar < 0)
+                if (buscar < 0)
+                {
+                    if (txtValor.Text != String.Empty)
+                    {
+                        if (float.TryParse(txtValor.Text, out float valor))
                         {
                             Produto produto = new Produto(txtProduto.Text, valor);
                             listaProdutos.Add(produto);
@@ -58,19 +57,18 @@ namespace pjtBarbeariaClientes
                         }
                         else
                         {
-                            MessageBox.Show("Nome já existente!");
+                            MessageBox.Show("Valor digitado inválido!");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Valor digitado inválido!");
+                        MessageBox.Show("Digite um valor para o produto!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Digite um valor para o produto!");
+                    MessageBox.Show("Nome já existente!");
                 }
-
             }
             else
             {
@@ -87,15 +85,17 @@ namespace pjtBarbeariaClientes
                     Produto codigo = new Produto(id);
                     listaProdutos.Sort();
                     int buscarId = listaProdutos.BinarySearch(codigo);
-                    
+
                     if (buscarId >= 0)
                     {
                         Produto produto = listaProdutos[buscarId];
                         txtBuscarProdutos.Text = produto.ToString();
+                        btAlterarProduto.Enabled = true;
+                        btExcluirProduto.Enabled = true;
                     }
                     else
                     {
-                        txtBuscarProdutos.Text = "NãoAchei";
+                        txtBuscarProdutos.Text = "Produto não encontrado!";
                     }
                 }
                 else
@@ -103,14 +103,17 @@ namespace pjtBarbeariaClientes
                     Produto nome = new Produto(txtProdutoCodigo.Text);
                     listaProdutos.Sort((p1, p2) => p1.CompareTo(p2, p => p.nome));
                     int buscarNome = listaProdutos.BinarySearch(nome, Comparer<Produto>.Create((p1, p2) => p1.CompareTo(p2, p => p.nome)));
-                    
+
                     if (buscarNome >= 0)
                     {
-                        txtBuscarProdutos.Text = "Achei";
+                        Produto produto = listaProdutos[buscarNome];
+                        txtBuscarProdutos.Text = produto.ToString();
+                        btAlterarProduto.Enabled = true;
+                        btExcluirProduto.Enabled = true;
                     }
                     else
                     {
-                        txtBuscarProdutos.Text = "NãoAchei";
+                        txtBuscarProdutos.Text = "Produto não encontrado!";
                     }
                 }
             }
@@ -118,6 +121,11 @@ namespace pjtBarbeariaClientes
             {
                 MessageBox.Show("Digite o nome do produto ou código!");
             }
+        }
+
+        private void btAlterarProduto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
