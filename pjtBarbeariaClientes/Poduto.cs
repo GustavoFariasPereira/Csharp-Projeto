@@ -157,7 +157,7 @@ namespace pjtBarbeariaClientes
                         Produto produto = new Produto(txtProduto.Text, valor);
                         int pos = indice(alterar);
                         listaProdutos[pos] = produto;
-                        txtProdutos.Text = produto.ToString();
+                        txtProdutos.Text = utilitario.relatorio(listaProdutos);
                     }
                     else MessageBox.Show("Valor do produto inválido!");
                 }
