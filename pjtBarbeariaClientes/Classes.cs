@@ -175,7 +175,6 @@ namespace pjtBarbeariaClientes
             id = gerarId();
         }
 
-        [JsonConstructor]
         public Produto(string nome, float valor, int id)
         {
             this.nome = nome;
