@@ -200,7 +200,7 @@ namespace pjtBarbeariaClientes
             return valor * quantidade;
         }
 
-        private int gerarId()
+        public int gerarId()
         {
             if (id == 0) // Gera ID somente se for inválido
             {
