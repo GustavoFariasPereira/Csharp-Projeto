@@ -38,7 +38,7 @@
             lbCadastrarProduto = new Label();
             txtBuscarProdutos = new TextBox();
             btAlterarProduto = new Button();
-            btExcluirProduto = new Button();
+            btExcluir = new Button();
             btBuscarProduto = new Button();
             lbProdutoCodigo = new Label();
             txtProdutoCodigo = new TextBox();
@@ -156,19 +156,20 @@
             btAlterarProduto.UseVisualStyleBackColor = false;
             btAlterarProduto.Click += btAlterarProduto_Click;
             // 
-            // btExcluirProduto
+            // btExcluir
             // 
-            btExcluirProduto.BackColor = Color.Crimson;
-            btExcluirProduto.FlatStyle = FlatStyle.Flat;
-            btExcluirProduto.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btExcluirProduto.ForeColor = SystemColors.ControlText;
-            btExcluirProduto.Location = new Point(162, 196);
-            btExcluirProduto.Name = "btExcluirProduto";
-            btExcluirProduto.Size = new Size(116, 36);
-            btExcluirProduto.TabIndex = 62;
-            btExcluirProduto.Text = "Excluir";
-            btExcluirProduto.UseVisualStyleBackColor = false;
-            btExcluirProduto.Visible = false;
+            btExcluir.BackColor = Color.Crimson;
+            btExcluir.FlatStyle = FlatStyle.Flat;
+            btExcluir.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btExcluir.ForeColor = SystemColors.ControlText;
+            btExcluir.Location = new Point(162, 196);
+            btExcluir.Name = "btExcluir";
+            btExcluir.Size = new Size(116, 36);
+            btExcluir.TabIndex = 62;
+            btExcluir.Text = "Excluir";
+            btExcluir.UseVisualStyleBackColor = false;
+            btExcluir.Visible = false;
+            btExcluir.Click += btExcluir_Click;
             // 
             // btBuscarProduto
             // 
@@ -217,7 +218,6 @@
             // btCancelar
             // 
             btCancelar.BackColor = SystemColors.Highlight;
-            btCancelar.Enabled = false;
             btCancelar.FlatStyle = FlatStyle.Flat;
             btCancelar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btCancelar.ForeColor = SystemColors.ControlText;
@@ -228,6 +228,7 @@
             btCancelar.Text = "Cancelar";
             btCancelar.UseVisualStyleBackColor = false;
             btCancelar.Visible = false;
+            btCancelar.Click += btCancelar_Click;
             // 
             // btSalvar
             // 
@@ -242,6 +243,7 @@
             btSalvar.Text = "Salvar";
             btSalvar.UseVisualStyleBackColor = false;
             btSalvar.Visible = false;
+            btSalvar.Click += btSalvar_Click;
             // 
             // frmProduto
             // 
@@ -253,7 +255,7 @@
             Controls.Add(lbTitulo);
             Controls.Add(txtBuscarProdutos);
             Controls.Add(btAlterarProduto);
-            Controls.Add(btExcluirProduto);
+            Controls.Add(btExcluir);
             Controls.Add(btBuscarProduto);
             Controls.Add(lbProdutoCodigo);
             Controls.Add(txtProdutoCodigo);
@@ -284,7 +286,7 @@
         private Label lbCadastrarProduto;
         private TextBox txtBuscarProdutos;
         private Button btAlterarProduto;
-        private Button btExcluirProduto;
+        private Button btExcluir;
         private Button btBuscarProduto;
         private Label lbProdutoCodigo;
         private TextBox txtProdutoCodigo;

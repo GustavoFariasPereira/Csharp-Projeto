@@ -76,6 +76,21 @@ namespace pjtBarbeariaClientes
             }
         }
 
+        public static Produto alterar = new Produto("", 0);
+
+        private int indice(Produto produto)
+        {
+            listaProdutos.Sort();
+            int pos = listaProdutos.BinarySearch(produto);
+            return pos;
+        }
+
+        private void alterando(Produto produto)
+        {
+            txtProduto.Text = produto.nome;
+            txtValor.Text = produto.valor.ToString();
+        }
+
         private void btBuscarProduto_Click(object sender, EventArgs e)
         {
             if (txtProdutoCodigo.Text != String.Empty)
@@ -91,7 +106,7 @@ namespace pjtBarbeariaClientes
                         Produto produto = listaProdutos[buscarId];
                         txtBuscarProdutos.Text = produto.ToString();
                         btAlterarProduto.Enabled = true;
-                        btExcluirProduto.Enabled = true;
+                        alterar = produto;
                     }
                     else
                     {
@@ -109,7 +124,7 @@ namespace pjtBarbeariaClientes
                         Produto produto = listaProdutos[buscarNome];
                         txtBuscarProdutos.Text = produto.ToString();
                         btAlterarProduto.Enabled = true;
-                        btExcluirProduto.Enabled = true;
+                        alterar = produto;
                     }
                     else
                     {
@@ -124,6 +139,39 @@ namespace pjtBarbeariaClientes
         }
 
         private void btAlterarProduto_Click(object sender, EventArgs e)
+        {
+            alterando(alterar);
+            btSalvar.Visible = true;
+            btExcluir.Visible = true;
+            btCancelar.Visible = true;
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            if (txtProduto.Text != String.Empty)
+            {
+                if (txtValor.Text != String.Empty)
+                {
+                    if (int.TryParse(txtValor.Text, out int valor))
+                    {
+                        Produto produto = new Produto(txtProduto.Text, valor);
+                        int pos = indice(alterar);
+                        listaProdutos[pos] = produto;
+                        txtProdutos.Text = produto.ToString();
+                    }
+                    else MessageBox.Show("Valor do produto inválido!");
+                }
+                else MessageBox.Show("Digite o valor do produto!");
+            }
+            else MessageBox.Show("Digite o nome do produto!");
+        }
+
+        private void btExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
         {
 
         }
