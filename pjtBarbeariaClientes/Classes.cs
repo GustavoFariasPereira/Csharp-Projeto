@@ -209,30 +209,24 @@ namespace pjtBarbeariaClientes
             return id;
         }
 
-        public int TgerarId(List<Produto> produtos)
+        public int GerarId(List<Produto> produtos, int ultimoId)
         {
-            HashSet<Produto> numerosSet = new HashSet<Produto>(produtos);
-            bool encontrou = false;
-            int i = 1, codigo = 0;
-            
-            while (i <= ultimoId || !encontrou)
+            // Cria um conjunto de IDs existentes
+            HashSet<int> idsExistentes = new HashSet<int>(produtos.Select(p => p.id));
+
+            // Itera para encontrar o primeiro ID disponível
+            for (int i = 1; i <= ultimoId + 1; i++)
             {
-                Produto id = new Produto(i);
-                if (!numerosSet.Contains(id))
+                if (!idsExistentes.Contains(i))
                 {
-                    codigo = i;
+                    return i; // Retorna o primeiro ID não utilizado
                 }
             }
-            if (codigo == 0)
-            {
-                if (id == 0) // Gera ID somente se for inválido
-                {
-                    id = ultimoId++;
-                }
-                return id;
-            }
-            return codigo;
+
+            // Como a lógica do loop cobre todos os casos, o código nunca chega aqui
+            throw new Exception("Erro ao gerar ID.");
         }
+
 
         public override String ToString()
         {
