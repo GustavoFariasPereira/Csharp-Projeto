@@ -209,6 +209,31 @@ namespace pjtBarbeariaClientes
             return id;
         }
 
+        public int TgerarId(List<Produto> produtos)
+        {
+            HashSet<Produto> numerosSet = new HashSet<Produto>(produtos);
+            bool encontrou = false;
+            int i = 1, codigo = 0;
+            
+            while (i <= ultimoId || !encontrou)
+            {
+                Produto id = new Produto(i);
+                if (!numerosSet.Contains(id))
+                {
+                    codigo = i;
+                }
+            }
+            if (codigo == 0)
+            {
+                if (id == 0) // Gera ID somente se for inválido
+                {
+                    id = ultimoId++;
+                }
+                return id;
+            }
+            return codigo;
+        }
+
         public override String ToString()
         {
 
