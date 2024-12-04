@@ -52,7 +52,7 @@ namespace pjtBarbeariaClientes
                         if (float.TryParse(txtValor.Text, out float valor))
                         {
                             Produto gerarId = new Produto();
-                            int id = gerarId.GerarId(listaProdutos, Produto.ultimoId);
+                            int id = gerarId.gerarId(listaProdutos, Produto.ultimoId);
                             Produto produto = new Produto(txtProduto.Text, valor, id);
                             listaProdutos.Add(produto);
                             listaProdutos.Sort();
