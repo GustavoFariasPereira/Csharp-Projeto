@@ -200,16 +200,16 @@ namespace pjtBarbeariaClientes
             return valor * quantidade;
         }
 
-        public int gerarId()
-        {
-            if (id == 0) // Gera ID somente se for inválido
-            {
-                id = ultimoId++;
-            }
-            return id;
-        }
+        //public int gerarId()
+        //{
+        //    if (id == 0) // Gera ID somente se for inválido
+        //    {
+        //        id = ultimoId++;
+        //    }
+        //    return id;
+        //}
 
-        public int GerarId(List<Produto> produtos, int ultimoId)
+        public int gerarId(List<Produto> produtos, int ultimoId)
         {
             // Cria um conjunto de IDs existentes
             HashSet<int> idsExistentes = new HashSet<int>(produtos.Select(p => p.id));
