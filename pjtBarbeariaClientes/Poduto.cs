@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -51,7 +52,7 @@ namespace pjtBarbeariaClientes
                         if (float.TryParse(txtValor.Text, out float valor))
                         {
                             Produto gerarId = new Produto();
-                            int id = gerarId.gerarId();
+                            int id = gerarId.GerarId(listaProdutos, Produto.ultimoId);
                             Produto produto = new Produto(txtProduto.Text, valor, id);
                             listaProdutos.Add(produto);
                             listaProdutos.Sort();

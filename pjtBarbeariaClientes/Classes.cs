@@ -161,7 +161,7 @@ namespace pjtBarbeariaClientes
 
     public class Produto : IComparable<Produto>
     {
-        private static int ultimoId = 1;
+        public static int ultimoId = 1;
 
         public String nome { get; private set; }
         public float valor { get; private set; }
