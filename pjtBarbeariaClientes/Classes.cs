@@ -179,7 +179,7 @@ namespace pjtBarbeariaClientes
         {
             nome = "";
             valor = 0;
-            id = gerarId();
+            id = 0;
         }
 
         public Produto(String nome)
