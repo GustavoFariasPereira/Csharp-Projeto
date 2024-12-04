@@ -251,11 +251,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(799, 532);
             Controls.Add(btSalvar);
+            Controls.Add(btExcluir);
             Controls.Add(btCancelar);
             Controls.Add(lbTitulo);
             Controls.Add(txtBuscarProdutos);
             Controls.Add(btAlterarProduto);
-            Controls.Add(btExcluir);
             Controls.Add(btBuscarProduto);
             Controls.Add(lbProdutoCodigo);
             Controls.Add(txtProdutoCodigo);

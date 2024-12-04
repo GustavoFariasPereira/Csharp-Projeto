@@ -162,6 +162,8 @@ namespace pjtBarbeariaClientes
                         int pos = indice(produto);
                         listaProdutos[pos] = produto;
                         txtProdutos.Text = utilitario.relatorio(listaProdutos);
+                        utilitario.salvarLista(listaProdutos);
+                        MessageBox.Show("Produto alterado com sucesso!");
                     }
                     else MessageBox.Show("Valor do produto inválido!");
                 }
@@ -172,12 +174,20 @@ namespace pjtBarbeariaClientes
 
         private void btExcluir_Click(object sender, EventArgs e)
         {
-
+            int pos = indice(alterar);
+            listaProdutos.RemoveAt(pos);
+            txtProdutos.Text = utilitario.relatorio(listaProdutos);
+            utilitario.salvarLista(listaProdutos);
+            
+            MessageBox.Show("Produto excluído com sucesso!");
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-
+            
+            btSalvar.Visible = false;
+            btExcluir.Visible = false;
+            btCancelar.Visible = false;
         }
     }
 }
