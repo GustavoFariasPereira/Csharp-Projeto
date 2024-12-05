@@ -161,8 +161,6 @@ namespace pjtBarbeariaClientes
 
     public class Produto : IComparable<Produto>
     {
-        public static int ultimoId = 1;
-
         public String nome { get; private set; }
         public float valor { get; private set; }
         public int id { get; private set; }
@@ -200,33 +198,36 @@ namespace pjtBarbeariaClientes
             return valor * quantidade;
         }
 
-        //public int gerarId()
-        //{
-        //    if (id == 0) // Gera ID somente se for inválido
-        //    {
-        //        id = ultimoId++;
-        //    }
-        //    return id;
-        //}
+        public int ultimoCod(List<Produto> produtos)
+        {
+            produtos.Sort();
+            int cod = 0;
+            int maiorId = 0;
+
+            foreach (Produto produto in produtos)
+            {
+                if (produto.id > maiorId)
+                {
+                    maiorId = produto.id;
+                }
+            }
+            return cod = maiorId++;
+        }
 
         public int gerarId(List<Produto> produtos, int ultimoId)
         {
-            // Cria um conjunto de IDs existentes
+            produtos.Sort();
             HashSet<int> idsExistentes = new HashSet<int>(produtos.Select(p => p.id));
 
-            // Itera para encontrar o primeiro ID disponível
             for (int i = 1; i <= ultimoId + 1; i++)
             {
                 if (!idsExistentes.Contains(i))
                 {
-                    return i; // Retorna o primeiro ID não utilizado
+                    return i;
                 }
             }
-
-            // Como a lógica do loop cobre todos os casos, o código nunca chega aqui
             throw new Exception("Erro ao gerar ID.");
         }
-
 
         public override String ToString()
         {
@@ -256,7 +257,6 @@ namespace pjtBarbeariaClientes
             }
             return pos;
         }
-
     }
 
     public abstract class Pessoa

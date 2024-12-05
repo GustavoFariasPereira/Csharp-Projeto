@@ -52,12 +52,13 @@ namespace pjtBarbeariaClientes
                         if (float.TryParse(txtValor.Text, out float valor))
                         {
                             Produto gerarId = new Produto();
-                            int id = gerarId.gerarId(listaProdutos, Produto.ultimoId);
+                            int id = gerarId.gerarId(listaProdutos, gerarId.ultimoCod(listaProdutos));
                             Produto produto = new Produto(txtProduto.Text, valor, id);
                             listaProdutos.Add(produto);
                             listaProdutos.Sort();
                             utilitario.salvarLista(listaProdutos);
                             txtProdutos.Text = utilitario.relatorio(listaProdutos);
+                            limparCampos();
                             MessageBox.Show("Cadastrado com sucesso!");
                         }
                         else
@@ -94,6 +95,28 @@ namespace pjtBarbeariaClientes
         {
             txtProduto.Text = produto.nome;
             txtValor.Text = produto.valor.ToString();
+        }
+
+        private void btVisibilidade(bool trueOrFalse)
+        {
+            if (trueOrFalse) 
+            {
+                btSalvar.Visible = true;
+                btExcluir.Visible = true;
+                btCancelar.Visible = true;
+            }
+            else
+            {
+                btSalvar.Visible = false;
+                btExcluir.Visible = false;
+                btCancelar.Visible = false;
+            }
+        }
+
+        private void limparCampos()
+        {
+            txtProduto.Text = txtValor.Text = String.Empty;
+            txtBuscarProdutos.Text = "Buscar produtos.";
         }
 
         private void btBuscarProduto_Click(object sender, EventArgs e)
@@ -146,9 +169,7 @@ namespace pjtBarbeariaClientes
         private void btAlterarProduto_Click(object sender, EventArgs e)
         {
             alterando(alterar);
-            btSalvar.Visible = true;
-            btExcluir.Visible = true;
-            btCancelar.Visible = true;
+            btVisibilidade(true);
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
@@ -162,8 +183,10 @@ namespace pjtBarbeariaClientes
                         Produto produto = new Produto(txtProduto.Text, valor, alterar.id);
                         int pos = indice(produto);
                         listaProdutos[pos] = produto;
-                        txtProdutos.Text = utilitario.relatorio(listaProdutos);
                         utilitario.salvarLista(listaProdutos);
+                        txtProdutos.Text = utilitario.relatorio(listaProdutos);
+                        btVisibilidade(false);
+                        limparCampos();
                         MessageBox.Show("Produto alterado com sucesso!");
                     }
                     else MessageBox.Show("Valor do produto inválido!");
@@ -179,16 +202,15 @@ namespace pjtBarbeariaClientes
             listaProdutos.RemoveAt(pos);
             txtProdutos.Text = utilitario.relatorio(listaProdutos);
             utilitario.salvarLista(listaProdutos);
-            
+            limparCampos();
+            btVisibilidade(false);
             MessageBox.Show("Produto excluído com sucesso!");
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
         {
-            
-            btSalvar.Visible = false;
-            btExcluir.Visible = false;
-            btCancelar.Visible = false;
+            limparCampos();
+            btVisibilidade(false);
         }
     }
 }
