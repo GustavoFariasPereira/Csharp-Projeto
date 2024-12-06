@@ -277,7 +277,6 @@
             gbFuncionamento.TabIndex = 92;
             gbFuncionamento.TabStop = false;
             gbFuncionamento.Text = "Funcionamento";
-            gbFuncionamento.Enter += gbFuncionamento_Enter;
             // 
             // rbFechado
             // 
@@ -359,7 +358,6 @@
             txtBuscarDia.Size = new Size(329, 79);
             txtBuscarDia.TabIndex = 102;
             txtBuscarDia.Text = "Buscar dia.";
-            txtBuscarDia.TextChanged += txtBuscarDia_TextChanged;
             // 
             // btAlterar
             // 

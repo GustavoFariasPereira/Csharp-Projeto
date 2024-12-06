@@ -16,15 +16,5 @@ namespace pjtBarbeariaClientes
         {
             InitializeComponent();
         }
-
-        private void gbFuncionamento_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBuscarDia_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
