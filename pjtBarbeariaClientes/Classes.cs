@@ -37,14 +37,16 @@ namespace pjtBarbeariaClientes
 
     public class Funcionamento : IComparable<Funcionamento>
     {
+        public char funcionamento {  get; private set; }
         public DateTime dia {  get; private set; }
         public TimeSpan abertura { get; private set; }
         public TimeSpan pausa { get; private set; }
         public TimeSpan fechamento { get; private set; }
 
         [JsonConstructor]
-        public Funcionamento(DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
+        public Funcionamento(char funcionamento, DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
         {
+            this.funcionamento = funcionamento;
             this.dia = dia;
             this.abertura = abertura;
             this.pausa = pausa;
