@@ -24,12 +24,16 @@ namespace pjtBarbeariaClientes
 
         private void frmFuncionamento_Load(object sender, EventArgs e)
         {
-            semanaA = utilitario.carregarObjeto<Semana>(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaA.json");
-            semanaB = utilitario.carregarObjeto<Semana>(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaB.json");
+            semanaA = utilitario.carregarObjeto(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaA.json");
+            semanaB = (Semana)utilitario.carregarObjeto(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaB.json");
 
-            if (semanaA.Any())
+            if (semanaA != null)
             {
-                txtDiasHorasFuncionamento.Text = utilitario.relatorio(semanaA);
+                txtDiasHorasFuncionamento.Text = semanaA.ToString();
+            }
+            else
+            {
+                txtDiasHorasFuncionamento.Text = "Semana não encontrada!";
             }
         }
     }
