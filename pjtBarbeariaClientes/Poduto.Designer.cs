@@ -268,7 +268,7 @@
             Controls.Add(txtProduto);
             Controls.Add(lbCadastrarProduto);
             Name = "frmProduto";
-            Text = "Poduto";
+            Text = "Produto";
             Load += Poduto_Load;
             ResumeLayout(false);
             PerformLayout();

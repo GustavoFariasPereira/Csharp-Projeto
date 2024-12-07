@@ -8,6 +8,7 @@ namespace pjtBarbeariaClientes
     {
         public static List<Cliente> listaClientes = new List<Cliente>();
         Utilitarios utilitario = new Utilitarios();
+        String endereco = "cliente";
 
         private void frmCadastroClientes_Load(object sender, EventArgs e)
         {
@@ -43,7 +44,7 @@ namespace pjtBarbeariaClientes
             {
                 listaClientes.RemoveAt(busca);
 
-                utilitario.salvarLista(listaClientes);
+                utilitario.salvarLista(listaClientes, endereco);
 
                 txtClientes.Text = utilitario.relatorio(listaClientes);
 
