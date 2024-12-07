@@ -15,7 +15,7 @@ namespace pjtBarbeariaClientes
     {
         List<Produto> listaProdutos = new List<Produto>();
         Utilitarios utilitario = new Utilitarios();
-      
+        String endereco = "produto";
         
         public frmProduto()
         {
@@ -24,7 +24,7 @@ namespace pjtBarbeariaClientes
 
         private void Poduto_Load(object sender, EventArgs e)
         {
-            listaProdutos = utilitario.carregarLista<Produto>(@"D:\C#\Semestre2\BProdutos.json");
+            listaProdutos = utilitario.carregarLista<Produto>(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BProdutos.json");
 
             if (listaProdutos.Any())
             {
@@ -56,7 +56,7 @@ namespace pjtBarbeariaClientes
                             Produto produto = new Produto(txtProduto.Text, valor, id);
                             listaProdutos.Add(produto);
                             listaProdutos.Sort();
-                            utilitario.salvarLista(listaProdutos);
+                            utilitario.salvarLista(listaProdutos, utilitario.endereco(endereco));
                             txtProdutos.Text = utilitario.relatorio(listaProdutos);
                             limparCampos();
                             MessageBox.Show("Cadastrado com sucesso!");
@@ -183,7 +183,7 @@ namespace pjtBarbeariaClientes
                         Produto produto = new Produto(txtProduto.Text, valor, alterar.id);
                         int pos = indice(produto);
                         listaProdutos[pos] = produto;
-                        utilitario.salvarLista(listaProdutos);
+                        utilitario.salvarLista(listaProdutos, utilitario.endereco(endereco));
                         txtProdutos.Text = utilitario.relatorio(listaProdutos);
                         btVisibilidade(false);
                         limparCampos();
@@ -201,7 +201,7 @@ namespace pjtBarbeariaClientes
             int pos = indice(alterar);
             listaProdutos.RemoveAt(pos);
             txtProdutos.Text = utilitario.relatorio(listaProdutos);
-            utilitario.salvarLista(listaProdutos);
+            utilitario.salvarLista(listaProdutos, utilitario.endereco(endereco));
             limparCampos();
             btVisibilidade(false);
             MessageBox.Show("Produto excluído com sucesso!");
