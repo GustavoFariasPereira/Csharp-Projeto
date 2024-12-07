@@ -59,6 +59,8 @@
             lbDia = new Label();
             txtDia = new TextBox();
             btCancelar = new Button();
+            rbSemanaA = new RadioButton();
+            rbSemanaB = new RadioButton();
             gbFuncionamento.SuspendLayout();
             gbSemana.SuspendLayout();
             gbDias.SuspendLayout();
@@ -238,7 +240,7 @@
             // 
             lbDiasFuncionamento.AutoSize = true;
             lbDiasFuncionamento.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            lbDiasFuncionamento.Location = new Point(531, 46);
+            lbDiasFuncionamento.Location = new Point(531, 29);
             lbDiasFuncionamento.Name = "lbDiasFuncionamento";
             lbDiasFuncionamento.Size = new Size(254, 30);
             lbDiasFuncionamento.TabIndex = 71;
@@ -258,7 +260,7 @@
             // txtDiasHorasFuncionamento
             // 
             txtDiasHorasFuncionamento.BorderStyle = BorderStyle.FixedSingle;
-            txtDiasHorasFuncionamento.Location = new Point(531, 79);
+            txtDiasHorasFuncionamento.Location = new Point(531, 62);
             txtDiasHorasFuncionamento.Multiline = true;
             txtDiasHorasFuncionamento.Name = "txtDiasHorasFuncionamento";
             txtDiasHorasFuncionamento.ReadOnly = true;
@@ -416,11 +418,35 @@
             btCancelar.Text = "Cancelar";
             btCancelar.UseVisualStyleBackColor = false;
             // 
+            // rbSemanaA
+            // 
+            rbSemanaA.AutoSize = true;
+            rbSemanaA.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbSemanaA.Location = new Point(531, 253);
+            rbSemanaA.Name = "rbSemanaA";
+            rbSemanaA.Size = new Size(100, 24);
+            rbSemanaA.TabIndex = 95;
+            rbSemanaA.Text = "Semana A";
+            rbSemanaA.UseVisualStyleBackColor = true;
+            // 
+            // rbSemanaB
+            // 
+            rbSemanaB.AutoSize = true;
+            rbSemanaB.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            rbSemanaB.Location = new Point(637, 253);
+            rbSemanaB.Name = "rbSemanaB";
+            rbSemanaB.Size = new Size(99, 24);
+            rbSemanaB.TabIndex = 104;
+            rbSemanaB.Text = "Semana B";
+            rbSemanaB.UseVisualStyleBackColor = true;
+            // 
             // frmFuncionamento
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(967, 592);
+            Controls.Add(rbSemanaB);
+            Controls.Add(rbSemanaA);
             Controls.Add(btCancelar);
             Controls.Add(txtBuscarDia);
             Controls.Add(btAlterar);
@@ -443,6 +469,7 @@
             Controls.Add(lbDiasFuncionamento);
             Name = "frmFuncionamento";
             Text = "Funcionamento";
+            Load += frmFuncionamento_Load;
             gbFuncionamento.ResumeLayout(false);
             gbFuncionamento.PerformLayout();
             gbSemana.ResumeLayout(false);
@@ -486,5 +513,7 @@
         private Label lbDia;
         private TextBox txtDia;
         private Button btCancelar;
+        private RadioButton rbSemanaA;
+        private RadioButton rbSemanaB;
     }
 }
