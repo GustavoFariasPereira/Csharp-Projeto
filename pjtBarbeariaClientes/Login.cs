@@ -14,10 +14,11 @@ namespace pjtBarbeariaClientes
     {
         List<Cliente> listaClientes = new List<Cliente>();
         Utilitarios utilitario = new Utilitarios();
+        String endereco = "cliente";
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            listaClientes = utilitario.carregarLista<Cliente>(@"D:\C#\Semestre2\BClientes.json");
+            listaClientes = utilitario.carregarLista<Cliente>(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BClientes.json");
             Console.WriteLine(listaClientes);
             if (listaClientes.Any())
             {
