@@ -12,9 +12,11 @@ namespace pjtBarbeariaClientes
 {
     public partial class frmFuncionamento : Form
     {
-        List<Semana> semanaA = new List<Semana>();
-        List<Semana> semanaB = new List<Semana>();
+        Semana semanaA = new Semana();
+        Semana semanaB = new Semana();
         Utilitarios utilitario = new Utilitarios();
+        String enderecoA = "semanaA";
+        String enderecoB = "semanaB";
         public frmFuncionamento()
         {
             InitializeComponent();
@@ -22,7 +24,13 @@ namespace pjtBarbeariaClientes
 
         private void frmFuncionamento_Load(object sender, EventArgs e)
         {
+            semanaA = utilitario.carregarObjeto<Semana>(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaA.json");
+            semanaB = utilitario.carregarObjeto<Semana>(@"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaB.json");
 
+            if (semanaA.Any())
+            {
+                txtDiasHorasFuncionamento.Text = utilitario.relatorio(semanaA);
+            }
         }
     }
 }
