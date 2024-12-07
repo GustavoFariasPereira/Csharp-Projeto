@@ -11,7 +11,8 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace pjtBarbeariaClientes
 {
-    public class HorarioSemana
+    
+    public class Semana
     {
         public Funcionamento segunda { get; private set; }
         public Funcionamento terca { get; private set; }
@@ -22,7 +23,7 @@ namespace pjtBarbeariaClientes
         public Funcionamento domingo { get; private set; }
 
         [JsonConstructor]
-        public HorarioSemana(Funcionamento segunda, Funcionamento terca, Funcionamento quarta,
+        public Semana(Funcionamento segunda, Funcionamento terca, Funcionamento quarta,
             Funcionamento quinta, Funcionamento sexta, Funcionamento sabado, Funcionamento domingo)
         {
             this.segunda = segunda;
