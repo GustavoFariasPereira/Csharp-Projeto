@@ -39,15 +39,16 @@ namespace pjtBarbeariaClientes
             File.WriteAllText(endereco, json);
         }
 
-        public object carregarObjeto(string endereco)
+        public T? carregarObjeto<T>(string endereco)
         {
             if (File.Exists(endereco))
             {
                 string jsonString = File.ReadAllText(endereco);
-                return JsonSerializer.Deserialize<object>(jsonString);
+                return JsonSerializer.Deserialize<T>(jsonString);
             }
-            return new object();
+            return default; // Retorna o valor padrão para o tipo especificado
         }
+
 
         public void salvarLista<T>(List<T> lista, String endereco)
         {
