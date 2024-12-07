@@ -34,10 +34,32 @@ namespace pjtBarbeariaClientes
             this.sabado = sabado;
             this.domingo = domingo;
         }
+
+        public Semana()
+        {
+            segunda = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            terca = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            quarta = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            quinta = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            sexta = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            sabado = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            domingo = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Segunda: {1}, Terça: {2}, Quarta: {3}, Quinta: {4}, Sexta: {5}, Sabado: {6}, Domingo: {7}.{8}", segunda, terca, quarta, quinta, sexta, sabado, domingo, Environment.NewLine);
+        }
     }
 
     public class Funcionamento : IComparable<Funcionamento>
     {
+        private string v;
+        private DateTime now;
+        private TimeSpan zero1;
+        private TimeSpan zero2;
+        private TimeSpan zero3;
+
         public char funcionamento {  get; private set; }
         public DateTime dia {  get; private set; }
         public TimeSpan abertura { get; private set; }
@@ -52,6 +74,15 @@ namespace pjtBarbeariaClientes
             this.abertura = abertura;
             this.pausa = pausa;
             this.fechamento = fechamento;
+        }
+
+        public Funcionamento(string v, DateTime now, TimeSpan zero1, TimeSpan zero2, TimeSpan zero3)
+        {
+            this.v = v;
+            this.now = now;
+            this.zero1 = zero1;
+            this.zero2 = zero2;
+            this.zero3 = zero3;
         }
 
         public override String ToString()
