@@ -14,7 +14,6 @@ namespace pjtBarbeariaClientes
     {
         List<Cliente> listaClientes = new List<Cliente>();
         Utilitarios utilitario = new Utilitarios();
-        String endereco;
 
         private void frmCadastroCLiente_Load(object sender, EventArgs e)
         {
@@ -72,7 +71,7 @@ namespace pjtBarbeariaClientes
                             cliente.email = txtEmail.Text;
 
                             listaClientes.Add(cliente);
-                            utilitario.salvarLista(listaClientes, endereco);
+                            utilitario.salvarLista(listaClientes);
                             MessageBox.Show("Cadastrado com sucesso!");
 
                             utilitario.abrirNovoForm<frmLogin>(this);
