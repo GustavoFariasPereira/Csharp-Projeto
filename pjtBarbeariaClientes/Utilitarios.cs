@@ -11,10 +11,26 @@ namespace pjtBarbeariaClientes
 {
     public class Utilitarios
     {
+        public String endereco(String listaObj)
+        {
+            String endereco = "";
+            if (listaObj == "cliente") endereco = @"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BClientes.json";
+
+            else if (listaObj == "produto") endereco = @"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BProdutos.json";
+
+            else if (listaObj == "agendamento") endereco = @"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BAgendamento.json";
+
+            else if (listaObj == "semanaA") endereco = @"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaA.json";
+
+            else if (listaObj == "semanaB") endereco = @"C:\Users\gusta\OneDrive\Área de Trabalho\ProjetosC#\JSON\BSemanaB.json";
+
+            return endereco;
+        }
+
         public void salvarObjeto(object obj)
         {
             String endereco = @"D:\C#\Semestre2\Bfuncionamento.json";
-            if (obj is HorarioSemana)
+            if (obj is Semana)
             {
                 endereco = @"D:\C#\Semestre2\BhorarioSemana.json";
             }
@@ -33,28 +49,17 @@ namespace pjtBarbeariaClientes
             return new object();
         }
 
-        public void salvarLista<T>(List<T> lista)
+        public void salvarLista<T>(List<T> lista, String endereco)
         {
-            String enderecoLista = @"D:\C#\Semestre2\BClientes.json";
-
-            if (lista is List<Produto>)
-            {
-                enderecoLista = @"D:\C#\Semestre2\BProdutos.json";
-            }
-            else if (lista is List<Agendamento>)
-            {
-                enderecoLista = @"D:\C#\Semestre2\BAgendamentos.json";
-            }
-                
             String json = JsonSerializer.Serialize(lista, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(enderecoLista, json);
+            File.WriteAllText(endereco, json);
         }
 
-        public List<T> carregarLista<T>(string enderecoLista)
+        public List<T> carregarLista<T>(String endereco)
         {
-          if (File.Exists(enderecoLista))
+          if (File.Exists(endereco))
           {
-             string jsonString = File.ReadAllText(enderecoLista);
+             string jsonString = File.ReadAllText(endereco);
              return JsonSerializer.Deserialize<List<T>>(jsonString) ?? new List<T>();
           }
           return new List<T>();
