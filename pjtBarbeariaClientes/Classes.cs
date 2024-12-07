@@ -54,6 +54,11 @@ namespace pjtBarbeariaClientes
             this.fechamento = fechamento;
         }
 
+        public override String ToString()
+        {
+            return string.Format(" Dia: {1}, Abertura: {2}, Pausa: {3}, Fechamento: {4}.{5}", dia, abertura, pausa, fechamento, Environment.NewLine);
+        }
+
         public int CompareTo(Funcionamento? outro)
         {
             int pos;
