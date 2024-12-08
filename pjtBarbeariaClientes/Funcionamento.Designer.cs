@@ -45,7 +45,7 @@
             ckDomingo = new CheckBox();
             ckTerca = new CheckBox();
             lbDiasFuncionamento = new Label();
-            ckSugunda = new CheckBox();
+            ckSegunda = new CheckBox();
             txtDiasHorasFuncionamento = new TextBox();
             gbFuncionamento = new GroupBox();
             rbFechado = new RadioButton();
@@ -61,6 +61,7 @@
             btCancelar = new Button();
             rbSemanaA = new RadioButton();
             rbSemanaB = new RadioButton();
+            lbResultado = new Label();
             gbFuncionamento.SuspendLayout();
             gbSemana.SuspendLayout();
             gbDias.SuspendLayout();
@@ -246,16 +247,16 @@
             lbDiasFuncionamento.TabIndex = 71;
             lbDiasFuncionamento.Text = "Dias de Funcionamento";
             // 
-            // ckSugunda
+            // ckSegunda
             // 
-            ckSugunda.AutoSize = true;
-            ckSugunda.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            ckSugunda.Location = new Point(9, 35);
-            ckSugunda.Name = "ckSugunda";
-            ckSugunda.Size = new Size(91, 24);
-            ckSugunda.TabIndex = 70;
-            ckSugunda.Text = "Segunda";
-            ckSugunda.UseVisualStyleBackColor = true;
+            ckSegunda.AutoSize = true;
+            ckSegunda.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ckSegunda.Location = new Point(9, 35);
+            ckSegunda.Name = "ckSegunda";
+            ckSegunda.Size = new Size(91, 24);
+            ckSegunda.TabIndex = 70;
+            ckSegunda.Text = "Segunda";
+            ckSegunda.UseVisualStyleBackColor = true;
             // 
             // txtDiasHorasFuncionamento
             // 
@@ -308,6 +309,7 @@
             // 
             gbSemana.Controls.Add(rbEstaSemana);
             gbSemana.Controls.Add(rbProximaSemana);
+            gbSemana.Enabled = false;
             gbSemana.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbSemana.Location = new Point(31, 211);
             gbSemana.Name = "gbSemana";
@@ -331,7 +333,7 @@
             // 
             // gbDias
             // 
-            gbDias.Controls.Add(ckSugunda);
+            gbDias.Controls.Add(ckSegunda);
             gbDias.Controls.Add(ckTerca);
             gbDias.Controls.Add(ckDomingo);
             gbDias.Controls.Add(ckQuarta);
@@ -440,11 +442,22 @@
             rbSemanaB.Text = "Semana B";
             rbSemanaB.UseVisualStyleBackColor = true;
             // 
+            // lbResultado
+            // 
+            lbResultado.AutoSize = true;
+            lbResultado.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lbResultado.Location = new Point(31, 343);
+            lbResultado.Name = "lbResultado";
+            lbResultado.Size = new Size(27, 25);
+            lbResultado.TabIndex = 105;
+            lbResultado.Text = "...";
+            // 
             // frmFuncionamento
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(967, 592);
+            Controls.Add(lbResultado);
             Controls.Add(rbSemanaB);
             Controls.Add(rbSemanaA);
             Controls.Add(btCancelar);
@@ -470,6 +483,13 @@
             Name = "frmFuncionamento";
             Text = "Funcionamento";
             Load += frmFuncionamento_Load;
+            ckSegunda.CheckedChanged += checkBox_CheckedChanged;
+            ckTerca.CheckedChanged += checkBox_CheckedChanged;
+            ckQuarta.CheckedChanged += checkBox_CheckedChanged;
+            ckQuinta.CheckedChanged += checkBox_CheckedChanged;
+            ckSexta.CheckedChanged += checkBox_CheckedChanged;
+            ckSabado.CheckedChanged += checkBox_CheckedChanged;
+            ckDomingo.CheckedChanged += checkBox_CheckedChanged;
             gbFuncionamento.ResumeLayout(false);
             gbFuncionamento.PerformLayout();
             gbSemana.ResumeLayout(false);
@@ -499,7 +519,7 @@
         private CheckBox ckDomingo;
         private CheckBox ckTerca;
         private Label lbDiasFuncionamento;
-        private CheckBox ckSugunda;
+        private CheckBox ckSegunda;
         private TextBox txtDiasHorasFuncionamento;
         private GroupBox gbFuncionamento;
         private RadioButton rbFechado;
@@ -515,5 +535,6 @@
         private Button btCancelar;
         private RadioButton rbSemanaA;
         private RadioButton rbSemanaB;
+        private Label lbResultado;
     }
 }
