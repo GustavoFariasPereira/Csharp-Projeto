@@ -40,32 +40,75 @@ namespace pjtBarbeariaClientes
 
         private bool monitorCheckBox()
         {
-            // Verifica se algum CheckBox está selecionado
             bool algumSelecionado = ckSegunda.Checked || ckTerca.Checked || ckQuarta.Checked || ckQuinta.Checked
                 || ckSexta.Checked || ckSabado.Checked || ckDomingo.Checked;
 
-            // Atualiza o texto do Label
             lbResultado.Text = algumSelecionado
                 ? "Alguma opção foi selecionada."
                 : "Nenhuma opção selecionada.";
 
-            // Retorna true se algum CheckBox estiver selecionado
             return algumSelecionado;
+        }
+
+        private bool monitorRadioButton()
+        {
+            bool algumSelecionado = rbEstaSemana.Checked || rbProximaSemana.Checked;
+
+            lbResultado.Text = algumSelecionado
+                ? "Alguma opção foi selecionada."
+                : "Nenhuma opção selecionada.";
+
+            return algumSelecionado;
+        }
+
+        private void desmarcar()
+        {
+            rbEstaSemana.Checked = rbProximaSemana.Checked =
+            rbAberto.Checked = rbFechado.Checked = false;
+        }
+        private void habilitarTexto(bool habilitar)
+        {
+            if (habilitar)
+            {
+                txtAbertura.Enabled = txtPausa.Enabled = txtFechamento.Enabled = false;
+            }
+            else 
+            {
+                txtAbertura.Enabled = txtPausa.Enabled = txtFechamento.Enabled = true;
+            }
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            // Chama o método e verifica o retorno
             bool algumSelecionado = monitorCheckBox();
 
-            // Use o valor retornado, se necessário
             if (algumSelecionado)
             {
-                Console.WriteLine("Há opções selecionadas.");
+                gbSemana.Enabled = true;
             }
             else
             {
-                Console.WriteLine("Nenhuma opção está selecionada.");
+                gbSemana.Enabled = false;
+                desmarcar();
+            }
+        }
+
+        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            bool algumSelecionado = monitorRadioButton();
+
+            if (algumSelecionado)
+            {
+                gbFuncionamento.Enabled = true;
+                if (rbAberto.Checked)
+                {
+                    habilitarTexto(false);
+                }
+            }
+            else
+            {
+                gbFuncionamento.Enabled = false;
+                desmarcar();
             }
         }
     }

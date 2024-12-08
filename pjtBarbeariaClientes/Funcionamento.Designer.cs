@@ -78,6 +78,7 @@
             rbProximaSemana.TabStop = true;
             rbProximaSemana.Text = "Próxima semana";
             rbProximaSemana.UseVisualStyleBackColor = true;
+            rbProximaSemana.CheckedChanged += radioButton_CheckedChanged;
             // 
             // rbEstaSemana
             // 
@@ -90,6 +91,7 @@
             rbEstaSemana.TabStop = true;
             rbEstaSemana.Text = "Está semana";
             rbEstaSemana.UseVisualStyleBackColor = true;
+            rbEstaSemana.CheckedChanged += radioButton_CheckedChanged;
             // 
             // btExluir
             // 
@@ -117,6 +119,7 @@
             // txtPausa
             // 
             txtPausa.BorderStyle = BorderStyle.FixedSingle;
+            txtPausa.Enabled = false;
             txtPausa.Location = new Point(153, 416);
             txtPausa.Name = "txtPausa";
             txtPausa.Size = new Size(91, 27);
@@ -125,6 +128,7 @@
             // txtFechamento
             // 
             txtFechamento.BorderStyle = BorderStyle.FixedSingle;
+            txtFechamento.Enabled = false;
             txtFechamento.Location = new Point(153, 457);
             txtFechamento.Name = "txtFechamento";
             txtFechamento.Size = new Size(91, 27);
@@ -153,6 +157,7 @@
             // txtAbertura
             // 
             txtAbertura.BorderStyle = BorderStyle.FixedSingle;
+            txtAbertura.Enabled = false;
             txtAbertura.Location = new Point(153, 375);
             txtAbertura.Name = "txtAbertura";
             txtAbertura.Size = new Size(91, 27);
@@ -181,6 +186,7 @@
             ckSabado.TabIndex = 77;
             ckSabado.Text = "Sabado";
             ckSabado.UseVisualStyleBackColor = true;
+            ckSabado.CheckedChanged += checkBox_CheckedChanged;
             // 
             // ckQuinta
             // 
@@ -192,6 +198,7 @@
             ckQuinta.TabIndex = 76;
             ckQuinta.Text = "Quinta";
             ckQuinta.UseVisualStyleBackColor = true;
+            ckQuinta.CheckedChanged += checkBox_CheckedChanged;
             // 
             // ckSexta
             // 
@@ -203,6 +210,7 @@
             ckSexta.TabIndex = 75;
             ckSexta.Text = "Sexta";
             ckSexta.UseVisualStyleBackColor = true;
+            ckSexta.CheckedChanged += checkBox_CheckedChanged;
             // 
             // ckQuarta
             // 
@@ -214,6 +222,7 @@
             ckQuarta.TabIndex = 74;
             ckQuarta.Text = "Quarta";
             ckQuarta.UseVisualStyleBackColor = true;
+            ckQuarta.CheckedChanged += checkBox_CheckedChanged;
             // 
             // ckDomingo
             // 
@@ -225,6 +234,7 @@
             ckDomingo.TabIndex = 73;
             ckDomingo.Text = "Domingo";
             ckDomingo.UseVisualStyleBackColor = true;
+            ckDomingo.CheckedChanged += checkBox_CheckedChanged;
             // 
             // ckTerca
             // 
@@ -236,6 +246,7 @@
             ckTerca.TabIndex = 72;
             ckTerca.Text = "Terça";
             ckTerca.UseVisualStyleBackColor = true;
+            ckTerca.CheckedChanged += checkBox_CheckedChanged;
             // 
             // lbDiasFuncionamento
             // 
@@ -257,6 +268,7 @@
             ckSegunda.TabIndex = 70;
             ckSegunda.Text = "Segunda";
             ckSegunda.UseVisualStyleBackColor = true;
+            ckSegunda.CheckedChanged += checkBox_CheckedChanged;
             // 
             // txtDiasHorasFuncionamento
             // 
@@ -273,6 +285,7 @@
             // 
             gbFuncionamento.Controls.Add(rbFechado);
             gbFuncionamento.Controls.Add(rbAberto);
+            gbFuncionamento.Enabled = false;
             gbFuncionamento.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbFuncionamento.Location = new Point(271, 211);
             gbFuncionamento.Name = "gbFuncionamento";
@@ -304,6 +317,7 @@
             rbAberto.TabStop = true;
             rbAberto.Text = "Aberto";
             rbAberto.UseVisualStyleBackColor = true;
+            rbAberto.CheckedChanged += new System.EventHandler(radioButton_CheckedChanged);
             // 
             // gbSemana
             // 
@@ -483,13 +497,6 @@
             Name = "frmFuncionamento";
             Text = "Funcionamento";
             Load += frmFuncionamento_Load;
-            ckSegunda.CheckedChanged += checkBox_CheckedChanged;
-            ckTerca.CheckedChanged += checkBox_CheckedChanged;
-            ckQuarta.CheckedChanged += checkBox_CheckedChanged;
-            ckQuinta.CheckedChanged += checkBox_CheckedChanged;
-            ckSexta.CheckedChanged += checkBox_CheckedChanged;
-            ckSabado.CheckedChanged += checkBox_CheckedChanged;
-            ckDomingo.CheckedChanged += checkBox_CheckedChanged;
             gbFuncionamento.ResumeLayout(false);
             gbFuncionamento.PerformLayout();
             gbSemana.ResumeLayout(false);
