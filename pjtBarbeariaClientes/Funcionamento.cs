@@ -49,7 +49,6 @@ namespace pjtBarbeariaClientes
 
             return algumSelecionado;
         }
-
         private bool monitorRadioButton()
         {
             bool algumSelecionado = rbEstaSemana.Checked || rbProximaSemana.Checked;
@@ -60,7 +59,6 @@ namespace pjtBarbeariaClientes
 
             return algumSelecionado;
         }
-
         private void desmarcar()
         {
             rbEstaSemana.Checked = rbProximaSemana.Checked =
@@ -71,10 +69,12 @@ namespace pjtBarbeariaClientes
             if (habilitar)
             {
                 txtAbertura.Enabled = txtPausa.Enabled = txtFechamento.Enabled = false;
+                txtAbertura.Text = txtPausa.Text = txtFechamento.Text = "---";
             }
             else 
             {
                 txtAbertura.Enabled = txtPausa.Enabled = txtFechamento.Enabled = true;
+                txtAbertura.Text = txtPausa.Text = txtFechamento.Text = String.Empty;
             }
         }
 
@@ -104,11 +104,14 @@ namespace pjtBarbeariaClientes
                 {
                     habilitarTexto(false);
                 }
+                else habilitarTexto(true);
+
             }
             else
             {
                 gbFuncionamento.Enabled = false;
                 desmarcar();
+                habilitarTexto(true);
             }
         }
     }

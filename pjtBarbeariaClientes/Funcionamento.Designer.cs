@@ -120,19 +120,25 @@
             // 
             txtPausa.BorderStyle = BorderStyle.FixedSingle;
             txtPausa.Enabled = false;
+            txtPausa.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtPausa.Location = new Point(153, 416);
             txtPausa.Name = "txtPausa";
-            txtPausa.Size = new Size(91, 27);
+            txtPausa.Size = new Size(91, 31);
             txtPausa.TabIndex = 84;
+            txtPausa.Text = "---";
+            txtPausa.TextAlign = HorizontalAlignment.Center;
             // 
             // txtFechamento
             // 
             txtFechamento.BorderStyle = BorderStyle.FixedSingle;
             txtFechamento.Enabled = false;
+            txtFechamento.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtFechamento.Location = new Point(153, 457);
             txtFechamento.Name = "txtFechamento";
-            txtFechamento.Size = new Size(91, 27);
+            txtFechamento.Size = new Size(91, 31);
             txtFechamento.TabIndex = 83;
+            txtFechamento.Text = "---";
+            txtFechamento.TextAlign = HorizontalAlignment.Center;
             // 
             // lbFechamento
             // 
@@ -158,10 +164,13 @@
             // 
             txtAbertura.BorderStyle = BorderStyle.FixedSingle;
             txtAbertura.Enabled = false;
+            txtAbertura.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             txtAbertura.Location = new Point(153, 375);
             txtAbertura.Name = "txtAbertura";
-            txtAbertura.Size = new Size(91, 27);
+            txtAbertura.Size = new Size(91, 31);
             txtAbertura.TabIndex = 80;
+            txtAbertura.Text = "---";
+            txtAbertura.TextAlign = HorizontalAlignment.Center;
             // 
             // btSalvar
             // 
@@ -317,7 +326,7 @@
             rbAberto.TabStop = true;
             rbAberto.Text = "Aberto";
             rbAberto.UseVisualStyleBackColor = true;
-            rbAberto.CheckedChanged += new System.EventHandler(radioButton_CheckedChanged);
+            rbAberto.CheckedChanged += radioButton_CheckedChanged;
             // 
             // gbSemana
             // 
