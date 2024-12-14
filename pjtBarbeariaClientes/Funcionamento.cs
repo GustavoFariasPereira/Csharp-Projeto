@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+
 
 namespace pjtBarbeariaClientes
 {
@@ -71,11 +71,24 @@ namespace pjtBarbeariaClientes
                 txtAbertura.Enabled = txtPausa.Enabled = txtFechamento.Enabled = false;
                 txtAbertura.Text = txtPausa.Text = txtFechamento.Text = "---";
             }
-            else 
+            else
             {
                 txtAbertura.Enabled = txtPausa.Enabled = txtFechamento.Enabled = true;
                 txtAbertura.Text = txtPausa.Text = txtFechamento.Text = String.Empty;
             }
+        }
+        private DateTime semana(RadioButton radioButton)
+        {
+            DateTime hoje = DateTime.Now;
+            DayOfWeek dia = hoje.DayOfWeek;
+            if (rbEstaSemana.Checked)
+            {
+                if (dia == DayOfWeek.Monday)
+                {
+
+                }
+            }
+            return DateTime.Now;
         }
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
@@ -112,6 +125,21 @@ namespace pjtBarbeariaClientes
                 gbFuncionamento.Enabled = false;
                 desmarcar();
                 habilitarTexto(true);
+            }
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            if (txtAbertura.Text != "---" || txtAbertura.Text != String.Empty) 
+            {
+                if (rbEstaSemana.Checked)
+                {
+
+                }
+                else
+                {
+
+                }
             }
         }
     }

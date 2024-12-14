@@ -184,6 +184,7 @@
             btSalvar.TabIndex = 78;
             btSalvar.Text = "Salvar";
             btSalvar.UseVisualStyleBackColor = false;
+            btSalvar.Click += btSalvar_Click;
             // 
             // ckSabado
             // 
