@@ -11,7 +11,6 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace pjtBarbeariaClientes
 {
-    
     public class Semana
     {
         public Funcionamento segunda { get; private set; }
@@ -37,13 +36,13 @@ namespace pjtBarbeariaClientes
 
         public Semana()
         {
-            segunda = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
-            terca = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
-            quarta = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
-            quinta = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
-            sexta = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
-            sabado = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
-            domingo = new Funcionamento("0", DateTime.Now, TimeSpan.Zero, TimeSpan.Zero, TimeSpan.Zero);
+            segunda = new Funcionamento();
+            terca = new Funcionamento();
+            quarta = new Funcionamento();
+            quinta = new Funcionamento();
+            sexta = new Funcionamento();
+            sabado = new Funcionamento();
+            domingo = new Funcionamento();
         }
 
         public override string ToString()
@@ -54,12 +53,6 @@ namespace pjtBarbeariaClientes
 
     public class Funcionamento : IComparable<Funcionamento>
     {
-        private string v;
-        private DateTime now;
-        private TimeSpan zero1;
-        private TimeSpan zero2;
-        private TimeSpan zero3;
-
         public char funcionamento {  get; private set; }
         public DateTime dia {  get; private set; }
         public TimeSpan abertura { get; private set; }
@@ -76,13 +69,13 @@ namespace pjtBarbeariaClientes
             this.fechamento = fechamento;
         }
 
-        public Funcionamento(string v, DateTime now, TimeSpan zero1, TimeSpan zero2, TimeSpan zero3)
+        public Funcionamento()
         {
-            this.v = v;
-            this.now = now;
-            this.zero1 = zero1;
-            this.zero2 = zero2;
-            this.zero3 = zero3;
+            funcionamento = 'F';
+            dia = DateTime.Now;
+            abertura = TimeSpan.Zero;
+            pausa = TimeSpan.Zero;
+            fechamento = TimeSpan.Zero;
         }
 
         public override String ToString()
