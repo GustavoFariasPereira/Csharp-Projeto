@@ -128,6 +128,21 @@ namespace pjtBarbeariaClientes
                 && !TimeSpan.TryParse(txtFechamento.Text, out hora) && txtFechamento.Text == string.Empty) valido = false;
             return valido;
         }
+        private static bool segA = false;
+        private static bool terA = false;
+        private static bool quaA = false;
+        private static bool quiA = false;
+        private static bool sexA = false;
+        private static bool sabA = false;
+        private static bool domA = false;
+
+        private static bool segB = false;
+        private static bool terB = false;
+        private static bool quaB = false;
+        private static bool quiB = false;
+        private static bool sexB = false;
+        private static bool sabB = false;
+        private static bool domB = false;
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -166,11 +181,6 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        private TextBox GetTxtAbertura()
-        {
-            return txtAbertura;
-        }
-
         private void btSalvar_Click(object sender, EventArgs e)
         {
             if (validarBtSalvar())
@@ -188,37 +198,57 @@ namespace pjtBarbeariaClientes
                             Funcionamento segunda = new Funcionamento(data, abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(segunda);
                             //lbResultado.Text = utilitario.relatorio(listaFuncionamentoA);
-                            ckSegunda.Enabled = true;
+                            ckSegunda.Checked = false;
+                            ckSegunda.Enabled = false;
+                            segA = true;
                         }
                         else if (ckTerca.Checked)
                         {
                             Funcionamento terca = new Funcionamento(data.AddDays(+1), abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(terca);
+                            ckTerca.Checked = false;
+                            ckTerca.Enabled = false;
+                            terA = true;
                         }
                         else if (ckQuarta.Checked)
                         {
                             Funcionamento quarta = new Funcionamento(data.AddDays(+2), abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(quarta);
+                            ckQuarta.Checked = false;
+                            ckQuarta.Enabled = false;
+                            quaA = true;
                         }
                         else if (ckQuinta.Checked)
                         {
                             Funcionamento quinta = new Funcionamento(data.AddDays(+3), abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(quinta);
+                            ckQuinta.Checked = false;
+                            ckQuinta.Enabled = false;
+                            quiA = true;
                         }
                         else if (ckSexta.Checked)
                         {
                             Funcionamento sexta = new Funcionamento(data.AddDays(+4), abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(sexta);
+                            ckSexta.Checked = false;
+                            ckSexta.Enabled = false;
+                            sexA = true;
                         }
                         else if (ckSabado.Checked)
                         {
                             Funcionamento sabado = new Funcionamento(data.AddDays(+5), abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(sabado);
+                            ckSabado.Checked = false;
+                            ckSabado.Enabled = false;
+                            sabA = true;
                         }
                         else if (ckDomingo.Checked)
                         {
                             Funcionamento domingo = new Funcionamento(data.AddDays(+6), abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(domingo);
+                            ckDomingo.Checked = false;
+                            ckDomingo.Enabled = false;
+                            domA = true;
                         }
                     }
                     else if (rbProximaSemana.Checked)
@@ -227,42 +257,105 @@ namespace pjtBarbeariaClientes
                         {
                             Funcionamento segunda = new Funcionamento(data, abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(segunda);
-                            
+                            ckSegunda.Checked = false;
+                            ckSegunda.Enabled = false;
+                            segB = true;
+
                         }
                         else if (ckTerca.Checked)
                         {
                             Funcionamento terca = new Funcionamento(data.AddDays(+1), abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(terca);
+                            ckTerca.Checked = false;
+                            ckTerca.Enabled = false;
+                            terB = true;
                         }
                         else if (ckQuarta.Checked)
                         {
                             Funcionamento quarta = new Funcionamento(data.AddDays(+2), abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(quarta);
+                            ckQuarta.Checked = false;
+                            ckQuarta.Enabled = false;
+                            quaB = true;
                         }
                         else if (ckQuinta.Checked)
                         {
                             Funcionamento quinta = new Funcionamento(data.AddDays(+3), abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(quinta);
+                            ckQuinta.Checked = false;
+                            ckQuinta.Enabled = false;
+                            quiB = true;
                         }
                         else if (ckSexta.Checked)
                         {
                             Funcionamento sexta = new Funcionamento(data.AddDays(+4), abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(sexta);
+                            ckSexta.Checked = false;
+                            ckSexta.Enabled = false;
+                            sexB = true;
                         }
                         else if (ckSabado.Checked)
                         {
                             Funcionamento sabado = new Funcionamento(data.AddDays(+5), abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(sabado);
+                            ckSabado.Checked = false;
+                            ckSabado.Enabled = false;
+                            sabB = true;
                         }
                         else if (ckDomingo.Checked)
                         {
                             Funcionamento domingo = new Funcionamento(data.AddDays(+6), abertura, pausa, fechamento);
                             listaFuncionamentoB.Add(domingo);
+                            ckDomingo.Checked = false;
+                            ckDomingo.Enabled = false;
+                            domB = true;
                         }
                     }
                 }
             }
-            
+
+        }
+
+        private void rbEstaSemana_CheckedChanged(object sender, EventArgs e)
+        {
+            ckSegunda.Enabled = true;
+            ckTerca.Enabled = true;
+            ckQuarta.Enabled = true;
+            ckQuinta.Enabled = true;
+            ckSexta.Enabled = true;
+            ckSabado.Enabled = true;
+            ckDomingo.Enabled = true;
+            if (rbEstaSemana.Checked)
+            {
+                if (segA) ckSegunda.Checked = ckSegunda.Enabled = false;
+                if (terA) ckTerca.Checked = ckTerca.Enabled = false;
+                if (quaA) ckQuarta.Checked = ckQuarta.Enabled = false;
+                if (quiA) ckQuinta.Checked = ckQuinta.Enabled = false;
+                if (sexA) ckSexta.Checked = ckSexta.Enabled = false;
+                if (sabA) ckSabado.Checked = ckSabado.Enabled = false;
+                if (domA) ckDomingo.Checked = ckDomingo.Enabled = false;
+            }
+        }
+
+        private void rbProximaSemana_CheckedChanged(object sender, EventArgs e)
+        {
+            ckSegunda.Enabled = true;
+            ckTerca.Enabled = true;
+            ckQuarta.Enabled = true;
+            ckQuinta.Enabled = true;
+            ckSexta.Enabled = true;
+            ckSabado.Enabled = true;
+            ckDomingo.Enabled = true;
+            if (rbProximaSemana.Checked)
+            {
+                if (segB) ckSegunda.Checked = ckSegunda.Enabled = false;
+                if (terB) ckTerca.Checked = ckTerca.Enabled = false;
+                if (quaB) ckQuarta.Checked = ckQuarta.Enabled = false;
+                if (quiB) ckQuinta.Checked = ckQuinta.Enabled = false;
+                if (sexB) ckSexta.Checked = ckSexta.Enabled = false;
+                if (sabB) ckSabado.Checked = ckSabado.Enabled = false;
+                if (domB) ckDomingo.Checked = ckDomingo.Enabled = false;
+            }
         }
     }
 }

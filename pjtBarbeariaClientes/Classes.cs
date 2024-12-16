@@ -62,7 +62,7 @@ namespace pjtBarbeariaClientes
         [JsonConstructor]
         public Funcionamento(DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
         {
-            this.funcionamento = funcionamento;
+            funcionamento = 'A';
             this.dia = dia;
             this.abertura = abertura;
             this.pausa = pausa;
@@ -80,7 +80,7 @@ namespace pjtBarbeariaClientes
 
         public override String ToString()
         {
-            return string.Format(" Dia: {1}, Abertura: {2}, Pausa: {3}, Fechamento: {4}.{5}", dia, abertura, pausa, fechamento, Environment.NewLine);
+            return string.Format(" Dia: {0}, Abertura: {1}, Pausa: {2}, Fechamento: {3}.{4}", dia.ToString("MM/dd/yyyy"), abertura.ToString(@"hh\:mm"), pausa.ToString(@"hh\:mm"), fechamento.ToString(@"hh\:mm"), Environment.NewLine);
         }
 
         public int CompareTo(Funcionamento? outro)

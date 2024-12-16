@@ -1,4 +1,6 @@
-﻿namespace pjtBarbeariaClientes
+﻿
+
+namespace pjtBarbeariaClientes
 {
     partial class frmFuncionamento
     {
@@ -79,6 +81,7 @@
             rbProximaSemana.Text = "Próxima semana";
             rbProximaSemana.UseVisualStyleBackColor = true;
             rbProximaSemana.CheckedChanged += radioButton_CheckedChanged;
+            rbProximaSemana.CheckedChanged += rbProximaSemana_CheckedChanged;
             // 
             // rbEstaSemana
             // 
@@ -92,6 +95,7 @@
             rbEstaSemana.Text = "Está semana";
             rbEstaSemana.UseVisualStyleBackColor = true;
             rbEstaSemana.CheckedChanged += radioButton_CheckedChanged;
+            rbEstaSemana.CheckedChanged += rbEstaSemana_CheckedChanged;
             // 
             // btExluir
             // 
@@ -516,6 +520,13 @@
             ResumeLayout(false);
             PerformLayout();
         }
+
+        private void RbProximaSemana_CheckedChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
 
         #endregion
 
