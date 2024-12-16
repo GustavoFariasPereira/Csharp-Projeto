@@ -18,6 +18,7 @@ namespace pjtBarbeariaClientes
         Utilitarios utilitario = new Utilitarios();
         String enderecoA = "semanaA";
         String enderecoB = "semanaB";
+        List<Funcionamento> funcionamento = new List<Funcionamento>();
         public frmFuncionamento()
         {
             InitializeComponent();
@@ -49,6 +50,18 @@ namespace pjtBarbeariaClientes
 
             return algumSelecionado;
         }
+        private int contadorCheckBox()
+        {
+            int contador = 0;
+            if (ckSegunda.Checked) contador++;
+            if (ckTerca.Checked) contador++;
+            if (ckQuarta.Checked) contador++;
+            if (ckQuinta.Checked) contador++;
+            if (ckSexta.Checked) contador++;
+            if (ckSabado.Checked) contador++;
+            if (ckDomingo.Checked) contador++;
+            return contador;
+        }
         private bool monitorRadioButton()
         {
             bool algumSelecionado = rbEstaSemana.Checked || rbProximaSemana.Checked;
@@ -79,17 +92,42 @@ namespace pjtBarbeariaClientes
         }
         private DateTime semana(RadioButton radioButton)
         {
-            DateTime hoje = DateTime.Now;
+            DateTime hoje = DateTime.Now, data = DateTime.Now;
+            
             DayOfWeek dia = hoje.DayOfWeek;
             if (rbEstaSemana.Checked)
             {
-                if (dia == DayOfWeek.Monday)
-                {
+                if (dia == DayOfWeek.Monday) data = hoje.AddDays(0);
+                else if (dia == DayOfWeek.Tuesday) data = hoje.AddDays(-1);
+                else if (dia == DayOfWeek.Wednesday) data = hoje.AddDays(-2);
+                else if (dia == DayOfWeek.Thursday) data = hoje.AddDays(-3);
+                else if (dia == DayOfWeek.Friday) data = hoje.AddDays(-4);
+                else if (dia == DayOfWeek.Saturday) data = hoje.AddDays(-5);
+                else if (dia == DayOfWeek.Sunday) data = hoje.AddDays(-6);
 
-                }
             }
-            return DateTime.Now;
+            else if (rbProximaSemana.Checked)
+            {
+                if (dia == DayOfWeek.Monday) data = hoje.AddDays(+7);
+                else if (dia == DayOfWeek.Tuesday) data = hoje.AddDays(+6);
+                else if (dia == DayOfWeek.Wednesday) data = hoje.AddDays(+5);
+                else if (dia == DayOfWeek.Thursday) data = hoje.AddDays(+4);
+                else if (dia == DayOfWeek.Friday) data = hoje.AddDays(+3);
+                else if (dia == DayOfWeek.Saturday) data = hoje.AddDays(+2);
+                else if (dia == DayOfWeek.Sunday) data = hoje.AddDays(+1);
+            }
+            return data;
         }
+        private bool validarBtSalvar()
+        {
+            bool valido = true;
+            TimeSpan hora;
+            if (!TimeSpan.TryParse(txtAbertura.Text, out hora) && txtAbertura.Text == string.Empty
+                && !TimeSpan.TryParse(txtPausa.Text, out hora) && txtPausa.Text == string.Empty
+                && !TimeSpan.TryParse(txtFechamento.Text, out hora) && txtFechamento.Text == string.Empty) valido = false;
+            return valido;
+        }
+
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -130,15 +168,14 @@ namespace pjtBarbeariaClientes
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            if (txtAbertura.Text != "---" || txtAbertura.Text != String.Empty) 
+            if (validarBtSalvar())
             {
-                if (rbEstaSemana.Checked)
+                if (contadorCheckBox() == 1)
                 {
-
-                }
-                else
-                {
-
+                    if (ckSegunda.Checked)
+                    {
+                        Funcionamento segunda = new Funcionamento()
+                    }
                 }
             }
         }
