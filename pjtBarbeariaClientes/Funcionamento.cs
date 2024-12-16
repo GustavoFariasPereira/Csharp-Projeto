@@ -18,7 +18,8 @@ namespace pjtBarbeariaClientes
         Utilitarios utilitario = new Utilitarios();
         String enderecoA = "semanaA";
         String enderecoB = "semanaB";
-        List<Funcionamento> funcionamento = new List<Funcionamento>();
+        List<Funcionamento> listaFuncionamentoA = new List<Funcionamento>();
+        List<Funcionamento> listaFuncionamentoB = new List<Funcionamento>();
         public frmFuncionamento()
         {
             InitializeComponent();
@@ -90,10 +91,10 @@ namespace pjtBarbeariaClientes
                 txtAbertura.Text = txtPausa.Text = txtFechamento.Text = String.Empty;
             }
         }
-        private DateTime semana(RadioButton radioButton)
+        private DateTime semana()
         {
             DateTime hoje = DateTime.Now, data = DateTime.Now;
-            
+
             DayOfWeek dia = hoje.DayOfWeek;
             if (rbEstaSemana.Checked)
             {
@@ -127,7 +128,6 @@ namespace pjtBarbeariaClientes
                 && !TimeSpan.TryParse(txtFechamento.Text, out hora) && txtFechamento.Text == string.Empty) valido = false;
             return valido;
         }
-
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -166,18 +166,103 @@ namespace pjtBarbeariaClientes
             }
         }
 
+        private TextBox GetTxtAbertura()
+        {
+            return txtAbertura;
+        }
+
         private void btSalvar_Click(object sender, EventArgs e)
         {
             if (validarBtSalvar())
             {
+                TimeSpan.TryParse(txtAbertura.Text, out TimeSpan abertura);
+                TimeSpan.TryParse(txtPausa.Text, out TimeSpan pausa);
+                TimeSpan.TryParse(txtFechamento.Text, out TimeSpan fechamento);
                 if (contadorCheckBox() == 1)
                 {
-                    if (ckSegunda.Checked)
+                    DateTime data = semana();
+                    if (rbEstaSemana.Checked)
                     {
-                        Funcionamento segunda = new Funcionamento()
+                        if (ckSegunda.Checked)
+                        {
+                            Funcionamento segunda = new Funcionamento(data, abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(segunda);
+                            //lbResultado.Text = utilitario.relatorio(listaFuncionamentoA);
+                            ckSegunda.Enabled = true;
+                        }
+                        else if (ckTerca.Checked)
+                        {
+                            Funcionamento terca = new Funcionamento(data.AddDays(+1), abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(terca);
+                        }
+                        else if (ckQuarta.Checked)
+                        {
+                            Funcionamento quarta = new Funcionamento(data.AddDays(+2), abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(quarta);
+                        }
+                        else if (ckQuinta.Checked)
+                        {
+                            Funcionamento quinta = new Funcionamento(data.AddDays(+3), abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(quinta);
+                        }
+                        else if (ckSexta.Checked)
+                        {
+                            Funcionamento sexta = new Funcionamento(data.AddDays(+4), abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(sexta);
+                        }
+                        else if (ckSabado.Checked)
+                        {
+                            Funcionamento sabado = new Funcionamento(data.AddDays(+5), abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(sabado);
+                        }
+                        else if (ckDomingo.Checked)
+                        {
+                            Funcionamento domingo = new Funcionamento(data.AddDays(+6), abertura, pausa, fechamento);
+                            listaFuncionamentoA.Add(domingo);
+                        }
+                    }
+                    else if (rbProximaSemana.Checked)
+                    {
+                        if (ckSegunda.Checked)
+                        {
+                            Funcionamento segunda = new Funcionamento(data, abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(segunda);
+                            
+                        }
+                        else if (ckTerca.Checked)
+                        {
+                            Funcionamento terca = new Funcionamento(data.AddDays(+1), abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(terca);
+                        }
+                        else if (ckQuarta.Checked)
+                        {
+                            Funcionamento quarta = new Funcionamento(data.AddDays(+2), abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(quarta);
+                        }
+                        else if (ckQuinta.Checked)
+                        {
+                            Funcionamento quinta = new Funcionamento(data.AddDays(+3), abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(quinta);
+                        }
+                        else if (ckSexta.Checked)
+                        {
+                            Funcionamento sexta = new Funcionamento(data.AddDays(+4), abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(sexta);
+                        }
+                        else if (ckSabado.Checked)
+                        {
+                            Funcionamento sabado = new Funcionamento(data.AddDays(+5), abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(sabado);
+                        }
+                        else if (ckDomingo.Checked)
+                        {
+                            Funcionamento domingo = new Funcionamento(data.AddDays(+6), abertura, pausa, fechamento);
+                            listaFuncionamentoB.Add(domingo);
+                        }
                     }
                 }
             }
+            
         }
     }
 }
