@@ -60,7 +60,7 @@ namespace pjtBarbeariaClientes
         public TimeSpan fechamento { get; private set; }
 
         [JsonConstructor]
-        public Funcionamento(char funcionamento, DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
+        public Funcionamento(DateTime dia, TimeSpan abertura, TimeSpan pausa, TimeSpan fechamento)
         {
             this.funcionamento = funcionamento;
             this.dia = dia;
