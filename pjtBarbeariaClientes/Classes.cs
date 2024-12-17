@@ -80,7 +80,7 @@ namespace pjtBarbeariaClientes
 
         public override String ToString()
         {
-            return string.Format(" Dia: {0}, Abertura: {1}, Pausa: {2}, Fechamento: {3}.{4}", dia.ToString("MM/dd/yyyy"), abertura.ToString(@"hh\:mm"), pausa.ToString(@"hh\:mm"), fechamento.ToString(@"hh\:mm"), Environment.NewLine);
+            return string.Format(" Dia: {0}, Abertura: {1}, Pausa: {2}, Fechamento: {3}.{4}", dia.ToString("dd/MM/yyyy"), abertura.ToString(@"hh\:mm"), pausa.ToString(@"hh\:mm"), fechamento.ToString(@"hh\:mm"), Environment.NewLine);
         }
 
         public int CompareTo(Funcionamento? outro)

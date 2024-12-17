@@ -132,18 +132,18 @@ namespace pjtBarbeariaClientes
         {
             ckSegunda.Checked = false;
             ckSegunda.Enabled = true;
-             ckTerca.Checked = false;
-             ckTerca.Enabled = true;
-              ckQuarta.Checked = false;
-              ckQuarta.Enabled = true;
-               ckQuinta.Checked = false;
-               ckQuinta.Enabled = true;
-                ckSexta.Checked = false;
-                ckSexta.Enabled = true;
-                 ckSabado.Checked = false; 
-                 ckSabado.Enabled = true;
-                  ckDomingo.Checked = false;
-                  ckDomingo.Enabled = true;
+            ckTerca.Checked = false;
+            ckTerca.Enabled = true;
+            ckQuarta.Checked = false;
+            ckQuarta.Enabled = true;
+            ckQuinta.Checked = false;
+            ckQuinta.Enabled = true;
+            ckSexta.Checked = false;
+            ckSexta.Enabled = true;
+            ckSabado.Checked = false;
+            ckSabado.Enabled = true;
+            ckDomingo.Checked = false;
+            ckDomingo.Enabled = true;
         }
         private static bool segA = false;
         private static bool terA = false;
@@ -189,7 +189,6 @@ namespace pjtBarbeariaClientes
                     habilitarTexto(false);
                 }
                 else habilitarTexto(true);
-
             }
             else
             {
@@ -268,6 +267,8 @@ namespace pjtBarbeariaClientes
                             ckDomingo.Enabled = false;
                             domA = true;
                         }
+                        listaFuncionamentoA.Sort();
+                        txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoA);
                     }
                     else if (rbProximaSemana.Checked)
                     {
@@ -328,7 +329,10 @@ namespace pjtBarbeariaClientes
                             ckDomingo.Enabled = false;
                             domB = true;
                         }
+                        listaFuncionamentoB.Sort();
+                        rbSemanaB.Checked = true;
                     }
+                    
                 }
                 else if (contadorCheckBox() > 1)
                 {
@@ -391,6 +395,8 @@ namespace pjtBarbeariaClientes
                             ckDomingo.Enabled = false;
                             domA = true;
                         }
+                        listaFuncionamentoA.Sort();
+                        rbSemanaA.Checked = true;
                     }
                     else if (rbProximaSemana.Checked)
                     {
@@ -451,6 +457,8 @@ namespace pjtBarbeariaClientes
                             ckDomingo.Enabled = false;
                             domB = true;
                         }
+                        listaFuncionamentoB.Sort();
+                        rbSemanaB.Checked = true;
                     }
                 }
                 desmarcarCheckBox();
@@ -497,6 +505,18 @@ namespace pjtBarbeariaClientes
                 if (sabB) ckSabado.Checked = ckSabado.Enabled = false;
                 if (domB) ckDomingo.Checked = ckDomingo.Enabled = false;
             }
+        }
+
+        private void rbSemanaA_CheckedChanged(object sender, EventArgs e)
+        {
+            listaFuncionamentoA.Sort();
+            txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoA);
+        }
+
+        private void rbSemanaB_CheckedChanged(object sender, EventArgs e)
+        {
+            listaFuncionamentoB.Sort();
+            txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoB);
         }
     }
 }

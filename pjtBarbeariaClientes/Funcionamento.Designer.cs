@@ -319,6 +319,7 @@ namespace pjtBarbeariaClientes
             rbFechado.TabStop = true;
             rbFechado.Text = "Fechado";
             rbFechado.UseVisualStyleBackColor = true;
+            rbFechado.CheckedChanged += radioButton_CheckedChanged;
             // 
             // rbAberto
             // 
@@ -458,6 +459,7 @@ namespace pjtBarbeariaClientes
             rbSemanaA.TabIndex = 95;
             rbSemanaA.Text = "Semana A";
             rbSemanaA.UseVisualStyleBackColor = true;
+            rbSemanaA.CheckedChanged += rbSemanaA_CheckedChanged;
             // 
             // rbSemanaB
             // 
@@ -469,6 +471,7 @@ namespace pjtBarbeariaClientes
             rbSemanaB.TabIndex = 104;
             rbSemanaB.Text = "Semana B";
             rbSemanaB.UseVisualStyleBackColor = true;
+            rbSemanaB.CheckedChanged += rbSemanaB_CheckedChanged;
             // 
             // lbResultado
             // 
@@ -520,13 +523,6 @@ namespace pjtBarbeariaClientes
             ResumeLayout(false);
             PerformLayout();
         }
-
-        private void RbProximaSemana_CheckedChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-
 
         #endregion
 
