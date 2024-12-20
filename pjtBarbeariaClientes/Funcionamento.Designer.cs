@@ -61,8 +61,6 @@ namespace pjtBarbeariaClientes
             lbDia = new Label();
             txtDia = new TextBox();
             btCancelar = new Button();
-            rbSemanaA = new RadioButton();
-            rbSemanaB = new RadioButton();
             lbResultado = new Label();
             gbFuncionamento.SuspendLayout();
             gbSemana.SuspendLayout();
@@ -77,15 +75,14 @@ namespace pjtBarbeariaClientes
             rbProximaSemana.Name = "rbProximaSemana";
             rbProximaSemana.Size = new Size(146, 24);
             rbProximaSemana.TabIndex = 89;
-            rbProximaSemana.TabStop = true;
             rbProximaSemana.Text = "Próxima semana";
             rbProximaSemana.UseVisualStyleBackColor = true;
-            rbProximaSemana.CheckedChanged += radioButton_CheckedChanged;
             rbProximaSemana.CheckedChanged += rbProximaSemana_CheckedChanged;
             // 
             // rbEstaSemana
             // 
             rbEstaSemana.AutoSize = true;
+            rbEstaSemana.Checked = true;
             rbEstaSemana.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             rbEstaSemana.Location = new Point(6, 40);
             rbEstaSemana.Name = "rbEstaSemana";
@@ -94,7 +91,6 @@ namespace pjtBarbeariaClientes
             rbEstaSemana.TabStop = true;
             rbEstaSemana.Text = "Está semana";
             rbEstaSemana.UseVisualStyleBackColor = true;
-            rbEstaSemana.CheckedChanged += radioButton_CheckedChanged;
             rbEstaSemana.CheckedChanged += rbEstaSemana_CheckedChanged;
             // 
             // btExluir
@@ -338,7 +334,6 @@ namespace pjtBarbeariaClientes
             // 
             gbSemana.Controls.Add(rbEstaSemana);
             gbSemana.Controls.Add(rbProximaSemana);
-            gbSemana.Enabled = false;
             gbSemana.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             gbSemana.Location = new Point(31, 211);
             gbSemana.Name = "gbSemana";
@@ -449,30 +444,6 @@ namespace pjtBarbeariaClientes
             btCancelar.Text = "Cancelar";
             btCancelar.UseVisualStyleBackColor = false;
             // 
-            // rbSemanaA
-            // 
-            rbSemanaA.AutoSize = true;
-            rbSemanaA.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbSemanaA.Location = new Point(531, 253);
-            rbSemanaA.Name = "rbSemanaA";
-            rbSemanaA.Size = new Size(100, 24);
-            rbSemanaA.TabIndex = 95;
-            rbSemanaA.Text = "Semana A";
-            rbSemanaA.UseVisualStyleBackColor = true;
-            rbSemanaA.CheckedChanged += rbSemanaA_CheckedChanged;
-            // 
-            // rbSemanaB
-            // 
-            rbSemanaB.AutoSize = true;
-            rbSemanaB.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbSemanaB.Location = new Point(646, 253);
-            rbSemanaB.Name = "rbSemanaB";
-            rbSemanaB.Size = new Size(99, 24);
-            rbSemanaB.TabIndex = 104;
-            rbSemanaB.Text = "Semana B";
-            rbSemanaB.UseVisualStyleBackColor = true;
-            rbSemanaB.CheckedChanged += rbSemanaB_CheckedChanged;
-            // 
             // lbResultado
             // 
             lbResultado.AutoSize = true;
@@ -489,8 +460,6 @@ namespace pjtBarbeariaClientes
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(967, 592);
             Controls.Add(lbResultado);
-            Controls.Add(rbSemanaB);
-            Controls.Add(rbSemanaA);
             Controls.Add(btCancelar);
             Controls.Add(txtBuscarDia);
             Controls.Add(btAlterar);
@@ -557,8 +526,6 @@ namespace pjtBarbeariaClientes
         private Label lbDia;
         private TextBox txtDia;
         private Button btCancelar;
-        private RadioButton rbSemanaA;
-        private RadioButton rbSemanaB;
         private Label lbResultado;
     }
 }

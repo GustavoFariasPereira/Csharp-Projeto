@@ -75,7 +75,6 @@ namespace pjtBarbeariaClientes
         }
         private void desmarcar()
         {
-            rbEstaSemana.Checked = rbProximaSemana.Checked =
             rbAberto.Checked = rbFechado.Checked = false;
         }
         private void habilitarTexto(bool habilitar)
@@ -149,7 +148,7 @@ namespace pjtBarbeariaClientes
         {
             bool doisCheckBox = false;
             if (diaA && diaB) doisCheckBox = true;
-            
+
             return doisCheckBox;
         }
         private static bool segA = false;
@@ -171,38 +170,18 @@ namespace pjtBarbeariaClientes
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
             bool algumSelecionado = monitorCheckBox();
-
-            if (algumSelecionado)
-            {
-                gbSemana.Enabled = true;
-            }
-            else
-            {
-                gbSemana.Enabled = false;
+            if (algumSelecionado) gbFuncionamento.Enabled = true;
+            else 
+            { 
                 desmarcar();
-                //desmarcarCheckBox();
+                gbFuncionamento.Enabled = false;
             }
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
-            bool algumSelecionado = monitorRadioButton();
-
-            if (algumSelecionado)
-            {
-                gbFuncionamento.Enabled = true;
-                if (rbAberto.Checked)
-                {
-                    habilitarTexto(false);
-                }
-                else habilitarTexto(true);
-            }
-            else
-            {
-                gbFuncionamento.Enabled = false;
-                desmarcar();
-                habilitarTexto(true);
-            }
+            if (rbAberto.Checked) habilitarTexto(false);
+            else habilitarTexto(true);
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
@@ -337,9 +316,8 @@ namespace pjtBarbeariaClientes
                             domB = true;
                         }
                         listaFuncionamentoB.Sort();
-                        rbSemanaB.Checked = true;
+                        txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoB);
                     }
-                    
                 }
                 else if (contadorCheckBox() > 1)
                 {
@@ -403,7 +381,7 @@ namespace pjtBarbeariaClientes
                             domA = true;
                         }
                         listaFuncionamentoA.Sort();
-                        rbSemanaA.Checked = true;
+                        rbEstaSemana.Checked = true;
                     }
                     else if (rbProximaSemana.Checked)
                     {
@@ -465,7 +443,7 @@ namespace pjtBarbeariaClientes
                             domB = true;
                         }
                         listaFuncionamentoB.Sort();
-                        rbSemanaB.Checked = true;
+                        rbProximaSemana.Checked = true;
                     }
                 }
                 desmarcarCheckBox();
@@ -481,13 +459,9 @@ namespace pjtBarbeariaClientes
 
         private void rbEstaSemana_CheckedChanged(object sender, EventArgs e)
         {
-            ckSegunda.Enabled = true;
-            ckTerca.Enabled = true;
-            ckQuarta.Enabled = true;
-            ckQuinta.Enabled = true;
-            ckSexta.Enabled = true;
-            ckSabado.Enabled = true;
-            ckDomingo.Enabled = true;
+            desmarcarCheckBox();
+            listaFuncionamentoA.Sort();
+            txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoA);
             if (rbEstaSemana.Checked)
             {
                 if (segA) ckSegunda.Checked = ckSegunda.Enabled = false;
@@ -502,13 +476,9 @@ namespace pjtBarbeariaClientes
 
         private void rbProximaSemana_CheckedChanged(object sender, EventArgs e)
         {
-            ckSegunda.Enabled = true;
-            ckTerca.Enabled = true;
-            ckQuarta.Enabled = true;
-            ckQuinta.Enabled = true;
-            ckSexta.Enabled = true;
-            ckSabado.Enabled = true;
-            ckDomingo.Enabled = true;
+            desmarcarCheckBox();
+            listaFuncionamentoB.Sort();
+            txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoB);
             if (rbProximaSemana.Checked)
             {
                 if (segB) ckSegunda.Checked = ckSegunda.Enabled = false;
