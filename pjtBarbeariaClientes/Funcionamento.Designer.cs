@@ -465,7 +465,7 @@ namespace pjtBarbeariaClientes
             // 
             rbSemanaB.AutoSize = true;
             rbSemanaB.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            rbSemanaB.Location = new Point(637, 253);
+            rbSemanaB.Location = new Point(646, 253);
             rbSemanaB.Name = "rbSemanaB";
             rbSemanaB.Size = new Size(99, 24);
             rbSemanaB.TabIndex = 104;

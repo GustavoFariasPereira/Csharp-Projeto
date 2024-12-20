@@ -145,6 +145,13 @@ namespace pjtBarbeariaClientes
             ckDomingo.Checked = false;
             ckDomingo.Enabled = true;
         }
+        private bool mesmoCheckBox(bool diaA, bool diaB)
+        {
+            bool doisCheckBox = false;
+            if (diaA && diaB) doisCheckBox = true;
+            
+            return doisCheckBox;
+        }
         private static bool segA = false;
         private static bool terA = false;
         private static bool quaA = false;
@@ -463,6 +470,13 @@ namespace pjtBarbeariaClientes
                 }
                 desmarcarCheckBox();
             }
+            if (mesmoCheckBox(segA, segB)) ckSegunda.Enabled = false;
+            if (mesmoCheckBox(terA, terB)) ckTerca.Enabled = false;
+            if (mesmoCheckBox(quaA, quaB)) ckQuarta.Enabled = false;
+            if (mesmoCheckBox(quiA, quiB)) ckQuinta.Enabled = false;
+            if (mesmoCheckBox(sexA, sexB)) ckSexta.Enabled = false;
+            if (mesmoCheckBox(sabA, sabB)) ckSabado.Enabled = false;
+            if (mesmoCheckBox(domA, domB)) ckDomingo.Enabled = false;
         }
 
         private void rbEstaSemana_CheckedChanged(object sender, EventArgs e)
@@ -509,14 +523,30 @@ namespace pjtBarbeariaClientes
 
         private void rbSemanaA_CheckedChanged(object sender, EventArgs e)
         {
+            desmarcarCheckBox();
             listaFuncionamentoA.Sort();
             txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoA);
+            if (segA) ckSegunda.Enabled = false;
+            if (terA) ckTerca.Enabled = false;
+            if (quaA) ckQuarta.Enabled = false;
+            if (quiA) ckQuinta.Enabled = false;
+            if (sexA) ckSexta.Enabled = false;
+            if (sabA) ckSabado.Enabled = false;
+            if (domA) ckDomingo.Enabled = false;
         }
 
         private void rbSemanaB_CheckedChanged(object sender, EventArgs e)
         {
+            desmarcarCheckBox();
             listaFuncionamentoB.Sort();
             txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoB);
+            if (segB) ckSegunda.Enabled = false;
+            if (terB) ckTerca.Enabled = false;
+            if (quaB) ckQuarta.Enabled = false;
+            if (quiB) ckQuinta.Enabled = false;
+            if (sexB) ckSexta.Enabled = false;
+            if (sabB) ckSabado.Enabled = false;
+            if (domB) ckDomingo.Enabled = false;
         }
     }
 }
