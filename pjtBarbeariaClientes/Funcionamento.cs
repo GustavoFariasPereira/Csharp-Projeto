@@ -171,8 +171,8 @@ namespace pjtBarbeariaClientes
         {
             bool algumSelecionado = monitorCheckBox();
             if (algumSelecionado) gbFuncionamento.Enabled = true;
-            else 
-            { 
+            else
+            {
                 desmarcar();
                 gbFuncionamento.Enabled = false;
             }
@@ -200,7 +200,6 @@ namespace pjtBarbeariaClientes
                         {
                             Funcionamento segunda = new Funcionamento(data, abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(segunda);
-                            //lbResultado.Text = utilitario.relatorio(listaFuncionamentoA);
                             ckSegunda.Checked = false;
                             ckSegunda.Enabled = false;
                             segA = true;
@@ -327,7 +326,6 @@ namespace pjtBarbeariaClientes
                         {
                             Funcionamento segunda = new Funcionamento(data, abertura, pausa, fechamento);
                             listaFuncionamentoA.Add(segunda);
-                            //lbResultado.Text = utilitario.relatorio(listaFuncionamentoA);
                             ckSegunda.Checked = false;
                             ckSegunda.Enabled = false;
                             segA = true;
@@ -381,7 +379,7 @@ namespace pjtBarbeariaClientes
                             domA = true;
                         }
                         listaFuncionamentoA.Sort();
-                        rbEstaSemana.Checked = true;
+                        txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoA);
                     }
                     else if (rbProximaSemana.Checked)
                     {
@@ -443,10 +441,10 @@ namespace pjtBarbeariaClientes
                             domB = true;
                         }
                         listaFuncionamentoB.Sort();
-                        rbProximaSemana.Checked = true;
+                        txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoB);
                     }
                 }
-                desmarcarCheckBox();
+                //desmarcarCheckBox();
             }
             if (mesmoCheckBox(segA, segB)) ckSegunda.Enabled = false;
             if (mesmoCheckBox(terA, terB)) ckTerca.Enabled = false;
@@ -491,32 +489,17 @@ namespace pjtBarbeariaClientes
             }
         }
 
-        private void rbSemanaA_CheckedChanged(object sender, EventArgs e)
+        private void btBuscar_Click(object sender, EventArgs e)
         {
-            desmarcarCheckBox();
-            listaFuncionamentoA.Sort();
-            txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoA);
-            if (segA) ckSegunda.Enabled = false;
-            if (terA) ckTerca.Enabled = false;
-            if (quaA) ckQuarta.Enabled = false;
-            if (quiA) ckQuinta.Enabled = false;
-            if (sexA) ckSexta.Enabled = false;
-            if (sabA) ckSabado.Enabled = false;
-            if (domA) ckDomingo.Enabled = false;
-        }
-
-        private void rbSemanaB_CheckedChanged(object sender, EventArgs e)
-        {
-            desmarcarCheckBox();
-            listaFuncionamentoB.Sort();
-            txtDiasHorasFuncionamento.Text = utilitario.relatorio(listaFuncionamentoB);
-            if (segB) ckSegunda.Enabled = false;
-            if (terB) ckTerca.Enabled = false;
-            if (quaB) ckQuarta.Enabled = false;
-            if (quiB) ckQuinta.Enabled = false;
-            if (sexB) ckSexta.Enabled = false;
-            if (sabB) ckSabado.Enabled = false;
-            if (domB) ckDomingo.Enabled = false;
+            if (DateTime.TryParse(txtBuscarDia.Text, out DateTime data))
+            {
+                Funcionamento dia = new Funcionamento(data);
+                int buscarDia = listaFuncionamentoA.BinarySearch(dia);
+                if (buscarDia < 0) 
+                {
+                    
+                }
+            }
         }
     }
 }

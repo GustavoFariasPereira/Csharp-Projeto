@@ -413,6 +413,7 @@ namespace pjtBarbeariaClientes
             btBuscar.TabIndex = 100;
             btBuscar.Text = "Buscar";
             btBuscar.UseVisualStyleBackColor = false;
+            btBuscar.Click += btBuscar_Click;
             // 
             // lbDia
             // 

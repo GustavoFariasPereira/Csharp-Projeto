@@ -69,6 +69,11 @@ namespace pjtBarbeariaClientes
             this.fechamento = fechamento;
         }
 
+        public Funcionamento(DateTime dia)
+        {
+            this.dia = dia;
+        }
+
         public Funcionamento()
         {
             funcionamento = 'F';
