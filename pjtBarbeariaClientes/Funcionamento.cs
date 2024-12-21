@@ -491,15 +491,22 @@ namespace pjtBarbeariaClientes
 
         private void btBuscar_Click(object sender, EventArgs e)
         {
-            if (DateTime.TryParse(txtBuscarDia.Text, out DateTime data))
+            if (DateTime.TryParse(txtDia.Text, out DateTime data))
             {
                 Funcionamento dia = new Funcionamento(data);
-                int buscarDia = listaFuncionamentoA.BinarySearch(dia);
-                if (buscarDia < 0) 
+                int buscarDiaA = listaFuncionamentoA.BinarySearch(dia);
+                if (buscarDiaA >= 0)
                 {
-                    
+                    lbResultado.Text = "Dia encontrado!";
+                }
+                else
+                {
+                    int buscarDiaB = listaFuncionamentoB.BinarySearch(dia);
+                    if (buscarDiaB >= 0) lbResultado.Text = "Dia encontrado!";
+                    else lbResultado.Text = "Dia não encontrado!";
                 }
             }
+            else lbResultado.Text = "Dia inválido!";
         }
     }
 }
